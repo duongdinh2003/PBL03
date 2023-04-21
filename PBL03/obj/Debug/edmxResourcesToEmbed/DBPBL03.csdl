@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PBL3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NameType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Acc__693CA210" FromRole="Account" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="ID_Bill" />
+    </Key>
+    <Property Name="ID_Bill" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimeCheckIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TimeCheckOut" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="idEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idTable" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idOrder" Type="Int32" Nullable="false" />
+    <Property Name="TotalMoney" Type="Single" Nullable="false" />
+    <Property Name="statusBill" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Bill__idEmployee__29221CFB" FromRole="Bill" ToRole="Employee" />
+    <NavigationProperty Name="OrderTable" Relationship="Self.FK__Bill__idOrder__2B0A656D" FromRole="Bill" ToRole="OrderTable" />
+    <NavigationProperty Name="TableFood" Relationship="Self.FK__Bill__idTable__2A164134" FromRole="Bill" ToRole="TableFood" />
+    <NavigationProperty Name="BillHistories" Relationship="Self.FK__BillHisto__IDBil__2EDAF651" FromRole="Bill" ToRole="BillHistory" />
+  </EntityType>
+  <EntityType Name="BillHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDBill" Type="Int32" Nullable="false" />
+    <Property Name="DatePay" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalMoney" Type="Single" Nullable="false" />
+    <Property Name="MoneyCustomerPay" Type="Single" Nullable="false" />
+    <Property Name="IDDiscount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Exchange" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Bill" Relationship="Self.FK__BillHisto__IDBil__2EDAF651" FromRole="BillHistory" ToRole="Bill" />
+    <NavigationProperty Name="Discount" Relationship="Self.FK__BillHisto__IDDis__2FCF1A8A" FromRole="BillHistory" ToRole="Discount" />
+  </EntityType>
+  <EntityType Name="Cost">
+    <Key>
+      <PropertyRef Name="ID_Cost" />
+    </Key>
+    <Property Name="ID_Cost" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CostOfDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CostBuyMaterials" Type="Single" Nullable="false" />
+    <Property Name="CostEmployee" Type="Single" Nullable="false" />
+    <Property Name="CostTransportation" Type="Single" Nullable="false" />
+    <Property Name="CostAdvertisement" Type="Single" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Discount">
+    <Key>
+      <PropertyRef Name="ID_Discount" />
+    </Key>
+    <Property Name="ID_Discount" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NameDiscount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiscountRate" Type="Single" Nullable="false" />
+    <NavigationProperty Name="BillHistories" Relationship="Self.FK__BillHisto__IDDis__2FCF1A8A" FromRole="Discount" ToRole="BillHistory" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID_Employee" />
+    </Key>
+    <Property Name="ID_Employee" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name_Employee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address_Employee" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Salary" Type="Single" Nullable="false" />
+    <Property Name="Acc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="Self.FK__Employee__Acc__693CA210" FromRole="Employee" ToRole="Account" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__idEmployee__29221CFB" FromRole="Employee" ToRole="Bill" />
+    <NavigationProperty Name="Salaries" Relationship="Self.FK__Salary__IDEmploy__0C85DE4D" FromRole="Employee" ToRole="Salary" />
+    <NavigationProperty Name="WorkSchedules" Relationship="Self.FK__WorkSched__IDEmp__05D8E0BE" FromRole="Employee" ToRole="WorkSchedule" />
+  </EntityType>
+  <EntityType Name="Food">
+    <Key>
+      <PropertyRef Name="ID_Food" />
+    </Key>
+    <Property Name="ID_Food" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NameFood" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Single" Nullable="false" />
+    <Property Name="StatusFood" Type="Boolean" Nullable="false" />
+    <Property Name="IDCategory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QuantityFood" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FoodCategory" Relationship="Self.FK__Food__IDCategory__403A8C7D" FromRole="Food" ToRole="FoodCategory" />
+    <NavigationProperty Name="OrderTables" Relationship="Self.FK__OrderTabl__IDFoo__4316F928" FromRole="Food" ToRole="OrderTable" />
+  </EntityType>
+  <EntityType Name="FoodCategory">
+    <Key>
+      <PropertyRef Name="ID_Category" />
+    </Key>
+    <Property Name="ID_Category" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NameCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Foods" Relationship="Self.FK__Food__IDCategory__403A8C7D" FromRole="FoodCategory" ToRole="Food" />
+  </EntityType>
+  <EntityType Name="OrderTable">
+    <Key>
+      <PropertyRef Name="ID_Order" />
+    </Key>
+    <Property Name="ID_Order" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDFood" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="IDTable" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__idOrder__2B0A656D" FromRole="OrderTable" ToRole="Bill" />
+    <NavigationProperty Name="Food" Relationship="Self.FK__OrderTabl__IDFoo__4316F928" FromRole="OrderTable" ToRole="Food" />
+    <NavigationProperty Name="TableFood" Relationship="Self.FK_OrderTable_IDTable" FromRole="OrderTable" ToRole="TableFood" />
+  </EntityType>
+  <EntityType Name="Revenue">
+    <Key>
+      <PropertyRef Name="ID_Revenue" />
+    </Key>
+    <Property Name="ID_Revenue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RevenueInDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalInDate" Type="Single" Nullable="false" />
+    <Property Name="NumberOfBill" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfCustomer" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="ID_Salary" />
+    </Key>
+    <Property Name="ID_Salary" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDSchedule" Type="Int32" Nullable="false" />
+    <Property Name="SalaryBasic" Type="Single" Nullable="false" />
+    <Property Name="WorkingHours" Type="Single" Nullable="false" />
+    <Property Name="SalaryTotal" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Salary__IDEmploy__0C85DE4D" FromRole="Salary" ToRole="Employee" />
+    <NavigationProperty Name="WorkSchedule" Relationship="Self.FK__Salary__IDSchedu__0D7A0286" FromRole="Salary" ToRole="WorkSchedule" />
+  </EntityType>
+  <EntityType Name="ShiftWork">
+    <Key>
+      <PropertyRef Name="ID_Shift" />
+    </Key>
+    <Property Name="ID_Shift" Type="Int32" Nullable="false" />
+    <Property Name="NameShift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="WorkSchedules" Relationship="Self.FK__WorkSched__IDShi__06CD04F7" FromRole="ShiftWork" ToRole="WorkSchedule" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TableFood">
+    <Key>
+      <PropertyRef Name="ID_Table" />
+    </Key>
+    <Property Name="ID_Table" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="statusTable" Type="Boolean" Nullable="false" />
+    <Property Name="Capacity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Bills" Relationship="Self.FK__Bill__idTable__2A164134" FromRole="TableFood" ToRole="Bill" />
+    <NavigationProperty Name="OrderTables" Relationship="Self.FK_OrderTable_IDTable" FromRole="TableFood" ToRole="OrderTable" />
+  </EntityType>
+  <EntityType Name="TimeSheet">
+    <Key>
+      <PropertyRef Name="ID_TimeSheet" />
+    </Key>
+    <Property Name="ID_TimeSheet" Type="Int32" Nullable="false" />
+    <Property Name="IDSchedule" Type="Int32" Nullable="false" />
+    <Property Name="TimeCheckIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TimeCheckOut" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="WorkSchedule" Relationship="Self.FK__TimeSheet__IDSch__09A971A2" FromRole="TimeSheet" ToRole="WorkSchedule" />
+  </EntityType>
+  <EntityType Name="WorkSchedule">
+    <Key>
+      <PropertyRef Name="ID_Schedule" />
+    </Key>
+    <Property Name="ID_Schedule" Type="Int32" Nullable="false" />
+    <Property Name="IDEmployee" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDShift" Type="Int32" Nullable="false" />
+    <Property Name="DateWork" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__WorkSched__IDEmp__05D8E0BE" FromRole="WorkSchedule" ToRole="Employee" />
+    <NavigationProperty Name="Salaries" Relationship="Self.FK__Salary__IDSchedu__0D7A0286" FromRole="WorkSchedule" ToRole="Salary" />
+    <NavigationProperty Name="ShiftWork" Relationship="Self.FK__WorkSched__IDShi__06CD04F7" FromRole="WorkSchedule" ToRole="ShiftWork" />
+    <NavigationProperty Name="TimeSheets" Relationship="Self.FK__TimeSheet__IDSch__09A971A2" FromRole="WorkSchedule" ToRole="TimeSheet" />
+  </EntityType>
+  <Association Name="FK__Employee__Acc__693CA210">
+    <End Role="Account" Type="Self.Account" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Username" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Acc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bill__idEmployee__29221CFB">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="idEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bill__idOrder__2B0A656D">
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderTable">
+        <PropertyRef Name="ID_Order" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="idOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bill__idTable__2A164134">
+    <End Role="TableFood" Type="Self.TableFood" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableFood">
+        <PropertyRef Name="ID_Table" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="idTable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillHisto__IDBil__2EDAF651">
+    <End Role="Bill" Type="Self.Bill" Multiplicity="1" />
+    <End Role="BillHistory" Type="Self.BillHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bill">
+        <PropertyRef Name="ID_Bill" />
+      </Principal>
+      <Dependent Role="BillHistory">
+        <PropertyRef Name="IDBill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BillHisto__IDDis__2FCF1A8A">
+    <End Role="Discount" Type="Self.Discount" Multiplicity="1" />
+    <End Role="BillHistory" Type="Self.BillHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Discount">
+        <PropertyRef Name="ID_Discount" />
+      </Principal>
+      <Dependent Role="BillHistory">
+        <PropertyRef Name="IDDiscount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Salary__IDEmploy__0C85DE4D">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="Salary">
+        <PropertyRef Name="IDEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkSched__IDEmp__05D8E0BE">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="WorkSchedule" Type="Self.WorkSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID_Employee" />
+      </Principal>
+      <Dependent Role="WorkSchedule">
+        <PropertyRef Name="IDEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Food__IDCategory__403A8C7D">
+    <End Role="FoodCategory" Type="Self.FoodCategory" Multiplicity="1" />
+    <End Role="Food" Type="Self.Food" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodCategory">
+        <PropertyRef Name="ID_Category" />
+      </Principal>
+      <Dependent Role="Food">
+        <PropertyRef Name="IDCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderTabl__IDFoo__4316F928">
+    <End Role="Food" Type="Self.Food" Multiplicity="1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Food">
+        <PropertyRef Name="ID_Food" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="IDFood" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderTable_IDTable">
+    <End Role="TableFood" Type="Self.TableFood" Multiplicity="0..1" />
+    <End Role="OrderTable" Type="Self.OrderTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TableFood">
+        <PropertyRef Name="ID_Table" />
+      </Principal>
+      <Dependent Role="OrderTable">
+        <PropertyRef Name="IDTable" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Salary__IDSchedu__0D7A0286">
+    <End Role="WorkSchedule" Type="Self.WorkSchedule" Multiplicity="1" />
+    <End Role="Salary" Type="Self.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkSchedule">
+        <PropertyRef Name="ID_Schedule" />
+      </Principal>
+      <Dependent Role="Salary">
+        <PropertyRef Name="IDSchedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkSched__IDShi__06CD04F7">
+    <End Role="ShiftWork" Type="Self.ShiftWork" Multiplicity="1" />
+    <End Role="WorkSchedule" Type="Self.WorkSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ShiftWork">
+        <PropertyRef Name="ID_Shift" />
+      </Principal>
+      <Dependent Role="WorkSchedule">
+        <PropertyRef Name="IDShift" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TimeSheet__IDSch__09A971A2">
+    <End Role="WorkSchedule" Type="Self.WorkSchedule" Multiplicity="1" />
+    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkSchedule">
+        <PropertyRef Name="ID_Schedule" />
+      </Principal>
+      <Dependent Role="TimeSheet">
+        <PropertyRef Name="IDSchedule" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PBL03Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Bills" EntityType="Self.Bill" />
+    <EntitySet Name="BillHistories" EntityType="Self.BillHistory" />
+    <EntitySet Name="Costs" EntityType="Self.Cost" />
+    <EntitySet Name="Discounts" EntityType="Self.Discount" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Foods" EntityType="Self.Food" />
+    <EntitySet Name="FoodCategories" EntityType="Self.FoodCategory" />
+    <EntitySet Name="OrderTables" EntityType="Self.OrderTable" />
+    <EntitySet Name="Revenues" EntityType="Self.Revenue" />
+    <EntitySet Name="Salaries" EntityType="Self.Salary" />
+    <EntitySet Name="ShiftWorks" EntityType="Self.ShiftWork" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TableFoods" EntityType="Self.TableFood" />
+    <EntitySet Name="TimeSheets" EntityType="Self.TimeSheet" />
+    <EntitySet Name="WorkSchedules" EntityType="Self.WorkSchedule" />
+    <AssociationSet Name="FK__Employee__Acc__693CA210" Association="Self.FK__Employee__Acc__693CA210">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bill__idEmployee__29221CFB" Association="Self.FK__Bill__idEmployee__29221CFB">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bill__idOrder__2B0A656D" Association="Self.FK__Bill__idOrder__2B0A656D">
+      <End Role="OrderTable" EntitySet="OrderTables" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Bill__idTable__2A164134" Association="Self.FK__Bill__idTable__2A164134">
+      <End Role="TableFood" EntitySet="TableFoods" />
+      <End Role="Bill" EntitySet="Bills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillHisto__IDBil__2EDAF651" Association="Self.FK__BillHisto__IDBil__2EDAF651">
+      <End Role="Bill" EntitySet="Bills" />
+      <End Role="BillHistory" EntitySet="BillHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BillHisto__IDDis__2FCF1A8A" Association="Self.FK__BillHisto__IDDis__2FCF1A8A">
+      <End Role="Discount" EntitySet="Discounts" />
+      <End Role="BillHistory" EntitySet="BillHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Salary__IDEmploy__0C85DE4D" Association="Self.FK__Salary__IDEmploy__0C85DE4D">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Salary" EntitySet="Salaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkSched__IDEmp__05D8E0BE" Association="Self.FK__WorkSched__IDEmp__05D8E0BE">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="WorkSchedule" EntitySet="WorkSchedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Food__IDCategory__403A8C7D" Association="Self.FK__Food__IDCategory__403A8C7D">
+      <End Role="FoodCategory" EntitySet="FoodCategories" />
+      <End Role="Food" EntitySet="Foods" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderTabl__IDFoo__4316F928" Association="Self.FK__OrderTabl__IDFoo__4316F928">
+      <End Role="Food" EntitySet="Foods" />
+      <End Role="OrderTable" EntitySet="OrderTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderTable_IDTable" Association="Self.FK_OrderTable_IDTable">
+      <End Role="TableFood" EntitySet="TableFoods" />
+      <End Role="OrderTable" EntitySet="OrderTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Salary__IDSchedu__0D7A0286" Association="Self.FK__Salary__IDSchedu__0D7A0286">
+      <End Role="WorkSchedule" EntitySet="WorkSchedules" />
+      <End Role="Salary" EntitySet="Salaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkSched__IDShi__06CD04F7" Association="Self.FK__WorkSched__IDShi__06CD04F7">
+      <End Role="ShiftWork" EntitySet="ShiftWorks" />
+      <End Role="WorkSchedule" EntitySet="WorkSchedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TimeSheet__IDSch__09A971A2" Association="Self.FK__TimeSheet__IDSch__09A971A2">
+      <End Role="WorkSchedule" EntitySet="WorkSchedules" />
+      <End Role="TimeSheet" EntitySet="TimeSheets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
