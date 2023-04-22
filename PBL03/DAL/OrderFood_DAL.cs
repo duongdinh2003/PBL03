@@ -119,5 +119,42 @@ namespace PBL03.DAL
                 }
             }
         }
+        public void orderMeal_DAL(FlowLayoutPanel flowLayoutPanel, string tb)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = from p in db.OrderTables
+                            join c in db.Foods on p.IDFood equals c.ID_Food
+                            where p.IDTable == tb
+                            select new
+                            {
+                                p.ID_Order,
+                                c.NameFood,
+                                p.Quantity,
+                                p.IDTable,
+                                c.Price
+                            };
+                var order = db.OrderTables
+                    .Join(db.Foods, p => p.IDFood, c => c.ID_Food, (p, c) => new { OrderTable = p, Food = c })
+                    .Where(x => x.OrderTable.IDTable == tb)
+                    .Select(x => new
+                    {
+                        x.OrderTable.ID_Order,
+                        x.Food.NameFood,
+                        x.OrderTable.Quantity,
+                        x.OrderTable.IDTable,
+                        x.Food.Price
+                    }).ToList();
+                foreach (var item in order)
+                {
+                    UserControl_Order uo = new UserControl_Order();
+                    uo.lbFood.Text = item.NameFood.ToString();
+                    uo.lbNameTable.Text = item.IDTable.ToString();
+                    uo.lbPrice.Text = item.Price.ToString() + " VND";
+                    uo.numericquantity.Text = item.Quantity.ToString();
+                    flowLayoutPanel.Controls.Add(uo);
+                }
+            }
+        }
     }
 }

@@ -53,15 +53,15 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayout_OrderCustom = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.flowLayout_Order = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayout_OrderCustom.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -368,7 +368,7 @@
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(104, 24);
             this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Vourcher";
+            this.checkBox2.Text = "Voucher";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox1
@@ -390,14 +390,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Subtotal";
             // 
-            // flowLayoutPanel2
+            // flowLayout_OrderCustom
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flowLayoutPanel2.Controls.Add(this.guna2GradientPanel1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(1228, 104);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(568, 391);
-            this.flowLayoutPanel2.TabIndex = 5;
+            this.flowLayout_OrderCustom.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayout_OrderCustom.Controls.Add(this.guna2GradientPanel1);
+            this.flowLayout_OrderCustom.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayout_OrderCustom.Location = new System.Drawing.Point(1228, 104);
+            this.flowLayout_OrderCustom.Name = "flowLayout_OrderCustom";
+            this.flowLayout_OrderCustom.Size = new System.Drawing.Size(568, 391);
+            this.flowLayout_OrderCustom.TabIndex = 5;
             // 
             // guna2GradientPanel1
             // 
@@ -424,6 +425,14 @@
             this.label8.Text = "Datetime";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // flowLayout_Order
+            // 
+            this.flowLayout_Order.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayout_Order.Location = new System.Drawing.Point(0, 91);
+            this.flowLayout_Order.Name = "flowLayout_Order";
+            this.flowLayout_Order.Size = new System.Drawing.Size(562, 297);
+            this.flowLayout_Order.TabIndex = 1;
+            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Transparent;
@@ -436,19 +445,12 @@
             this.label7.Text = "New Order";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowLayout_Order
-            // 
-            this.flowLayout_Order.Location = new System.Drawing.Point(0, 91);
-            this.flowLayout_Order.Name = "flowLayout_Order";
-            this.flowLayout_Order.Size = new System.Drawing.Size(562, 297);
-            this.flowLayout_Order.TabIndex = 1;
-            // 
             // Form_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1796, 793);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.flowLayout_OrderCustom);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Controls.Add(this.flowLayout_Food);
@@ -461,7 +463,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayout_OrderCustom.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -477,7 +479,6 @@
         private Guna.UI2.WinForms.Guna2TileButton btnFood;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Panel pnStast;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton4;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
@@ -497,6 +498,7 @@
         private Guna.UI2.WinForms.Guna2Button btnSearch;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.FlowLayoutPanel flowLayout_Order;
+        public System.Windows.Forms.FlowLayoutPanel flowLayout_OrderCustom;
+        public System.Windows.Forms.FlowLayoutPanel flowLayout_Order;
     }
 }

@@ -27,5 +27,9 @@ namespace PBL03.BLL
         {
             dal.getCreams_DAL(flowPanel);
         }
+        public void orderMeal_BLL(FlowLayoutPanel flowPanel, string tb)
+        {
+            dal.orderMeal_DAL(flowPanel, tb);
+        }
     }
 }
