@@ -35,7 +35,6 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.listView_Order = new System.Windows.Forms.ListView();
             this.flowLayout_Table = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_01 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn_02 = new Guna.UI2.WinForms.Guna2TileButton();
@@ -46,6 +45,7 @@
             this.btn_07 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn_08 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn_09 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.Ricktb_Show_InfoTable = new System.Windows.Forms.RichTextBox();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfPeople)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
@@ -130,23 +130,13 @@
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BorderRadius = 20;
-            this.guna2GradientPanel1.Controls.Add(this.listView_Order);
+            this.guna2GradientPanel1.Controls.Add(this.Ricktb_Show_InfoTable);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(190)))), ((int)(((byte)(240)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(14)))), ((int)(((byte)(89)))));
             this.guna2GradientPanel1.Location = new System.Drawing.Point(803, 12);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(530, 365);
             this.guna2GradientPanel1.TabIndex = 3;
-            // 
-            // listView_Order
-            // 
-            this.listView_Order.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.listView_Order.HideSelection = false;
-            this.listView_Order.Location = new System.Drawing.Point(19, 15);
-            this.listView_Order.Name = "listView_Order";
-            this.listView_Order.Size = new System.Drawing.Size(493, 334);
-            this.listView_Order.TabIndex = 0;
-            this.listView_Order.UseCompatibleStateImageBehavior = false;
             // 
             // flowLayout_Table
             // 
@@ -185,6 +175,7 @@
             this.btn_01.TabIndex = 9;
             this.btn_01.Text = "B1";
             this.btn_01.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_01.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_02
             // 
@@ -204,6 +195,7 @@
             this.btn_02.TabIndex = 10;
             this.btn_02.Text = "B2";
             this.btn_02.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_02.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_03
             // 
@@ -223,6 +215,7 @@
             this.btn_03.TabIndex = 11;
             this.btn_03.Text = "B3";
             this.btn_03.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_03.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_04
             // 
@@ -242,6 +235,7 @@
             this.btn_04.TabIndex = 12;
             this.btn_04.Text = "B4";
             this.btn_04.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_04.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_05
             // 
@@ -261,6 +255,7 @@
             this.btn_05.TabIndex = 13;
             this.btn_05.Text = "B5";
             this.btn_05.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_05.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_06
             // 
@@ -280,6 +275,7 @@
             this.btn_06.TabIndex = 14;
             this.btn_06.Text = "B6";
             this.btn_06.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_06.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_07
             // 
@@ -299,6 +295,7 @@
             this.btn_07.TabIndex = 15;
             this.btn_07.Text = "B7";
             this.btn_07.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_07.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_08
             // 
@@ -318,6 +315,7 @@
             this.btn_08.TabIndex = 16;
             this.btn_08.Text = "B8";
             this.btn_08.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_08.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
             // btn_09
             // 
@@ -337,6 +335,16 @@
             this.btn_09.TabIndex = 17;
             this.btn_09.Text = "B9";
             this.btn_09.Click += new System.EventHandler(this.Button_StatusTable_Click);
+            this.btn_09.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
+            // 
+            // Ricktb_Show_InfoTable
+            // 
+            this.Ricktb_Show_InfoTable.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ricktb_Show_InfoTable.Location = new System.Drawing.Point(15, 19);
+            this.Ricktb_Show_InfoTable.Name = "Ricktb_Show_InfoTable";
+            this.Ricktb_Show_InfoTable.Size = new System.Drawing.Size(498, 329);
+            this.Ricktb_Show_InfoTable.TabIndex = 0;
+            this.Ricktb_Show_InfoTable.Text = "";
             // 
             // Form_StatusTable
             // 
@@ -369,7 +377,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-        private System.Windows.Forms.ListView listView_Order;
         private System.Windows.Forms.FlowLayoutPanel flowLayout_Table;
         public Guna.UI2.WinForms.Guna2TileButton btn_01;
         private Guna.UI2.WinForms.Guna2TileButton btn_02;
@@ -380,5 +387,6 @@
         private Guna.UI2.WinForms.Guna2TileButton btn_07;
         private Guna.UI2.WinForms.Guna2TileButton btn_08;
         private Guna.UI2.WinForms.Guna2TileButton btn_09;
+        private System.Windows.Forms.RichTextBox Ricktb_Show_InfoTable;
     }
 }

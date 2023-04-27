@@ -18,5 +18,17 @@ namespace PBL03.BLL
         {
             dal.addBill_DAL(timein, tb, subtotal);
         }
+        public void updateBill_BLL(DateTime timein, string tb, float subtotal)
+        {
+            dal.updateBill_DAL(timein, tb, subtotal);
+        }
+        public void addBillHistory_BLL(string tb, DateTime dt, float subtotal, float paidbyCustomer, string discount, float change)
+        {
+            dal.addBillHistory_DAL(tb, dt, subtotal, paidbyCustomer, discount, change);
+        }
+        public void payBill_BLL(DateTime dt, string tb)
+        {
+            dal.payBill_DAL(dt, tb);
+        }
     }
 }

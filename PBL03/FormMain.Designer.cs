@@ -40,6 +40,7 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
+            this.btn_ManageBill = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -48,6 +49,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.btn_ManageBill);
             this.panel1.Controls.Add(this.btnStatus_Table);
             this.panel1.Controls.Add(this.btnQLNV);
             this.panel1.Controls.Add(this.pnStast);
@@ -184,6 +186,24 @@
             this.pnShow.Size = new System.Drawing.Size(1337, 640);
             this.pnShow.TabIndex = 2;
             // 
+            // btn_ManageBill
+            // 
+            this.btn_ManageBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ManageBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ManageBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ManageBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ManageBill.FillColor = System.Drawing.Color.Transparent;
+            this.btn_ManageBill.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ManageBill.ForeColor = System.Drawing.Color.White;
+            this.btn_ManageBill.Image = ((System.Drawing.Image)(resources.GetObject("btn_ManageBill.Image")));
+            this.btn_ManageBill.ImageSize = new System.Drawing.Size(35, 35);
+            this.btn_ManageBill.Location = new System.Drawing.Point(12, 592);
+            this.btn_ManageBill.Name = "btn_ManageBill";
+            this.btn_ManageBill.Size = new System.Drawing.Size(225, 93);
+            this.btn_ManageBill.TabIndex = 5;
+            this.btn_ManageBill.Text = "Management Bill";
+            this.btn_ManageBill.Click += new System.EventHandler(this.btn_ManageBill_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -216,5 +236,6 @@
         private System.Windows.Forms.Panel pnShow;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
+        private Guna.UI2.WinForms.Guna2TileButton btn_ManageBill;
     }
 }

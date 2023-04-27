@@ -27,48 +27,48 @@ namespace PBL03
 
         private void Button_StatusTable_Click(object sender, EventArgs e)
         {
-            Guna2TileButton btn = (Guna2TileButton)sender;
-            if (btn.FillColor != Color.Red)
-            {
-                if (numberOfPeople.Value != 0)
-                {
-                    DialogResult result = MessageBox.Show("Bạn có muốn xác nhận chọn bàn này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        btn.FillColor = Color.Red;
-                        Change_StatusTable_BLL bll = new Change_StatusTable_BLL();
-                        bll.changeStatus(btn.Text, true, (int)numberOfPeople.Value);
+            //Guna2TileButton btn = (Guna2TileButton)sender;
+            //if (btn.FillColor != Color.Red)
+            //{
+            //    if (numberOfPeople.Value != 0)
+            //    {
+            //        DialogResult result = MessageBox.Show("Bạn có muốn xác nhận chọn bàn này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //        if (result == DialogResult.Yes)
+            //        {
+            //            btn.FillColor = Color.Red;
+            //            Change_StatusTable_BLL bll = new Change_StatusTable_BLL();
+            //            bll.changeStatus(btn.Text, true, (int)numberOfPeople.Value);
 
-                        bll.setColor_Table(flowLayout_Table);
-                        Form_Order ftn = new Form_Order();
-                        ftn.lbTable.Text = btn.Text;
-                        ftn.lbNumberCustomer.Text = numberOfPeople.Value.ToString();
-                        ftn.Show();
-                        Form_StatusTable_Load(null, null);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Chưa chọn số lượng khách trong bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show("Bàn này đã được chọn. Vui lòng chọn bàn khác\nBạn có muốn gọi thêm món cho bàn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    Form_Order ftn = new Form_Order();
-                    ftn.lbTable.Text = btn.Text;
-                    ftn.lbNumberCustomer.Text = order.getNumberOfCustomers_BLL(btn.Text).ToString();
-                    ftn.btnSave.Text = "Update";
-                    ftn.Show();
-                    order.Showorder_BLL(btn.Text, ftn.flowLayout_Order);
-                }
-            }
+            //            bll.setColor_Table(flowLayout_Table);
+            //            Form_Order ftn = new Form_Order();
+            //            ftn.lbTable.Text = btn.Text;
+            //            ftn.lbNumberCustomer.Text = numberOfPeople.Value.ToString();
+            //            ftn.Show();
+            //            Form_StatusTable_Load(null, null);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Chưa chọn số lượng khách trong bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    }
+            //}
+            //else
+            //{
+            //    DialogResult result = MessageBox.Show("Bàn này đã được chọn. Vui lòng chọn bàn khác\nBạn có muốn gọi thêm món cho bàn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        Form_Order ftn = new Form_Order();
+            //        ftn.lbTable.Text = btn.Text;
+            //        ftn.lbNumberCustomer.Text = order.getNumberOfCustomers_BLL(btn.Text).ToString();
+            //        ftn.btnSave.Text = "Update";
+            //        ftn.Show();
+            //        order.Showorder_BLL(btn.Text, ftn.flowLayout_Order);
+            //    }
+            //}
         }
 
         
-        private void setColorTable()
+        public void setColorTable()
         {
             Change_StatusTable_BLL bll = new Change_StatusTable_BLL();
             bll.setColor_Table(flowLayout_Table);
@@ -78,6 +78,55 @@ namespace PBL03
         {
             setColorTable();
         }
-        
+
+        private void Show_InfoTable_ClickMouse(object sender, MouseEventArgs e)
+        {
+            Ricktb_Show_InfoTable.Controls.Clear();
+            Guna2TileButton btn = (Guna2TileButton)sender;
+            if (e.Button == MouseButtons.Right && btn.FillColor == Color.Red)
+            {
+                bll.Show_in_RickTextBox_BLL(btn.Text, Ricktb_Show_InfoTable);
+            }
+            else
+            {
+                if (btn.FillColor != Color.Red)
+                {
+                    if (numberOfPeople.Value != 0)
+                    {
+                        DialogResult result = MessageBox.Show("Bạn có muốn xác nhận chọn bàn này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            btn.FillColor = Color.Red;
+                            Change_StatusTable_BLL bll = new Change_StatusTable_BLL();
+                            bll.changeStatus(btn.Text, true, (int)numberOfPeople.Value);
+
+                            bll.setColor_Table(flowLayout_Table);
+                            Form_Order ftn = new Form_Order();
+                            ftn.lbTable.Text = btn.Text;
+                            ftn.lbNumberCustomer.Text = numberOfPeople.Value.ToString();
+                            ftn.Show();
+                            Form_StatusTable_Load(null, null);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Chưa chọn số lượng khách trong bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    DialogResult result = MessageBox.Show("Bàn này đã được chọn\nBạn có muốn gọi thêm món cho bàn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Form_Order ftn = new Form_Order();
+                        ftn.lbTable.Text = btn.Text;
+                        ftn.lbNumberCustomer.Text = order.getNumberOfCustomers_BLL(btn.Text).ToString();
+                        ftn.btnSave.Text = "Update";
+                        ftn.Show();
+                        order.Showorder_BLL(btn.Text, ftn.flowLayout_Order);
+                    }
+                }
+            }
+        }
     }
 }

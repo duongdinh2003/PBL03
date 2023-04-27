@@ -55,5 +55,12 @@ namespace PBL03
             pnShow.Controls.Add(fst);
             fst.Show();
         }
+
+        private void btn_ManageBill_Click(object sender, EventArgs e)
+        {
+            pnStast.Height = btn_ManageBill.Height;
+            pnStast.Top = btn_ManageBill.Top;
+            pnShow.Controls.Clear();
+        }
     }
 }

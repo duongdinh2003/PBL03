@@ -98,7 +98,6 @@
             // 
             this.flowLayout_Show.AutoScroll = true;
             this.flowLayout_Show.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayout_Show.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayout_Show.Location = new System.Drawing.Point(0, 78);
             this.flowLayout_Show.Name = "flowLayout_Show";
             this.flowLayout_Show.Padding = new System.Windows.Forms.Padding(6);

@@ -91,5 +91,32 @@ namespace PBL03.DAL
                 //}
             }
         }
+        public void refreshTable_DAL(string id)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var tb = db.TableFoods.Find(id);
+                tb.Capacity = 0;
+                tb.statusTable = false;
+                db.SaveChanges();
+            }
+        }
+        public void Show_in_RickTextBox_DAL(string IDTable, RichTextBox rtb)
+        {
+            rtb.Text = "\t\t\t\t" + IDTable + "\n\n    Tên món \t\t\t\t Số lượng \n\n";
+            var query = db.OrderTables
+                .Join(db.Foods, p => p.IDFood, c => c.ID_Food, (p, c) => new { OrderTable = p, Food = c })
+                .Where(x => x.OrderTable.IDTable == IDTable)
+                .Select(x => new
+                {
+                    x.OrderTable.IDTable,
+                    x.Food.NameFood,
+                    x.OrderTable.Quantity
+                }).ToList();
+            foreach (var item in query)
+            {
+                rtb.AppendText("  " + item.NameFood.PadRight(20) + item.Quantity.ToString().PadLeft(20) + "\n");
+            }
+        }
     }
 }

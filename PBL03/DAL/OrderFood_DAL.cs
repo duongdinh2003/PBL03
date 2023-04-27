@@ -178,8 +178,87 @@ namespace PBL03.DAL
                         IDTable = uo.lbNameTable.Text
                     };
                     db.OrderTables.Add(temp);
+                    var fd = db.Foods.Find(getIDFood(uo.lbFood.Text));
+                    fd.QuantityFood -= (int)uo.numericquantity.Value;
                     db.SaveChanges();
                 }
+            }
+        }
+        public bool checkExistedFood(string idfood)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var fd = db.OrderTables.Where(p => p.IDFood == idfood).FirstOrDefault();
+                if (fd != null)
+                {
+                    return true;
+                }    
+                return false;
+            }
+        }
+        public int countOrder(string tb)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                return db.OrderTables.Where(p => p.IDTable == tb).Count();
+            }    
+        }
+        public void updateMeal_DAL(FlowLayoutPanel flowLayoutPanel, string tb)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.OrderTables.Where(p => p.IDTable == tb).FirstOrDefault();
+                if (query != null)
+                {
+                    int count = countOrder(tb);
+                    foreach (UserControl_Order uo in flowLayoutPanel.Controls)
+                    {
+                        if (checkExistedFood(getIDFood(uo.lbFood.Text)) == true)
+                        {
+                            string idfood = getIDFood(uo.lbFood.Text);
+                            var order = db.OrderTables.Where(p => p.IDFood == idfood).FirstOrDefault();
+                            int add = (int)uo.numericquantity.Value - order.Quantity;
+                            order.Quantity = (int)uo.numericquantity.Value;
+                            var fd = db.Foods.Find(idfood);
+                            fd.QuantityFood -= add;
+                        }
+                        else
+                        {
+                            count++;
+                            OrderTable temp = new OrderTable
+                            {
+                                ID_Order = uo.lbNameTable.Text + count,
+                                IDFood = getIDFood(uo.lbFood.Text),
+                                Quantity = (int)uo.numericquantity.Value,
+                                IDTable = uo.lbNameTable.Text
+                            };
+                            db.OrderTables.Add(temp);
+                            string idfood1 = getIDFood(uo.lbFood.Text);
+                            var fo = db.Foods.Find(idfood1);
+                            fo.QuantityFood -= (int)uo.numericquantity.Value;
+                        }
+                        db.SaveChanges();
+                    }
+                } 
+                else
+                {
+                    int count = 0;
+                    foreach (UserControl_Order uo in flowLayoutPanel.Controls)
+                    {
+                        count++;
+                        OrderTable temp = new OrderTable
+                        {
+                            ID_Order = uo.lbNameTable.Text + count,
+                            IDFood = getIDFood(uo.lbFood.Text),
+                            Quantity = (int)uo.numericquantity.Value,
+                            IDTable = uo.lbNameTable.Text
+                        };
+                        db.OrderTables.Add(temp);
+                        var fd = db.Foods.Find(getIDFood(uo.lbFood.Text));
+                        fd.QuantityFood -= (int)uo.numericquantity.Value;
+                        db.SaveChanges();
+                    }
+                } 
             }
         }
         public void Showorder_DAL(string tb, FlowLayoutPanel flowLayoutPanel)
@@ -215,6 +294,51 @@ namespace PBL03.DAL
                 var query = db.TableFoods.FirstOrDefault(p => p.ID_Table == tb);
                 return query.Capacity;
             }
-        }    
+        }
+        public void removeOrder_DAL(string tb)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var order = db.OrderTables.Where(p => p.IDTable == tb);
+                db.OrderTables.RemoveRange(order);
+                db.SaveChanges();
+            }
+        }
+        public void getFoodBySearch_DAL(FlowLayoutPanel flowLayoutPanel, string name)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var data = db.Foods.Where(p => p.IDCategory == "FD" && p.NameFood.Contains(name)).Select(p => new
+                {
+                    p.NameFood,
+                    p.Price,
+                    p.PictureFood
+                }).ToList();
+                foreach (var item in data)
+                {
+                    // Tạo một đối tượng UserControl_Menu mới
+                    UserControl_Food uf = new UserControl_Food();
+
+                    // Truyền giá trị cho các label của user control
+
+                    uf.lbFood.Text = item.NameFood.ToString();
+                    uf.lbPrice.Text = item.Price.ToString() + " VND";
+                    string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                    //Image img = Image.FromFile(imagepath);
+                    //uf.BackgroundImage = img;
+
+                    byte[] imagedata = File.ReadAllBytes(imagepath);
+                    using (MemoryStream ms = new MemoryStream(imagedata))
+                    {
+                        Image img = Image.FromStream(ms);
+                        uf.BackgroundImage = img;
+                    }
+
+
+                    // Thêm user control vào FlowLayoutPanel
+                    flowLayoutPanel.Controls.Add(uf);
+                }
+            }
+        }
     }
 }

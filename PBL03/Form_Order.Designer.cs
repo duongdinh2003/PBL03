@@ -209,26 +209,28 @@
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(54, 48);
             this.btnSearch.TabIndex = 5;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbSearch
             // 
             this.tbSearch.BackColor = System.Drawing.Color.Transparent;
             this.tbSearch.BorderRadius = 20;
             this.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSearch.DefaultText = "Search for menu";
+            this.tbSearch.DefaultText = "";
             this.tbSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.tbSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.tbSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSearch.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.tbSearch.ForeColor = System.Drawing.Color.Black;
             this.tbSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSearch.Location = new System.Drawing.Point(257, 35);
             this.tbSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.PasswordChar = '\0';
-            this.tbSearch.PlaceholderText = "";
+            this.tbSearch.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.tbSearch.PlaceholderText = "Search for menu";
             this.tbSearch.SelectedText = "";
             this.tbSearch.Size = new System.Drawing.Size(550, 48);
             this.tbSearch.TabIndex = 4;
@@ -350,6 +352,7 @@
             this.btnPayNow.Size = new System.Drawing.Size(178, 55);
             this.btnPayNow.TabIndex = 9;
             this.btnPayNow.Text = "Pay Now";
+            this.btnPayNow.Click += new System.EventHandler(this.btnPayNow_Click);
             // 
             // btnSave
             // 
@@ -527,7 +530,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2TextBox tbSearch;
-        private Guna.UI2.WinForms.Guna2Button btnPayNow;
         private System.Windows.Forms.Label lbTotal;
         private System.Windows.Forms.Label lbVoucher;
         private System.Windows.Forms.Label lbSubtotal;
@@ -546,5 +548,6 @@
         public System.Windows.Forms.Label lbNumberCustomer;
         private System.Windows.Forms.Timer timer1;
         public Guna.UI2.WinForms.Guna2Button btnSave;
+        public Guna.UI2.WinForms.Guna2Button btnPayNow;
     }
 }

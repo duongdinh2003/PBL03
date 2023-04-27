@@ -37,5 +37,13 @@ namespace PBL03.BLL
         {
             dal.setColor_Table(flowpanel);
         }
+        public void refreshTable_BLL(string id)
+        {
+            dal.refreshTable_DAL(id);
+        }
+        public void Show_in_RickTextBox_BLL(string IDTable, RichTextBox rtb)
+        {
+            dal.Show_in_RickTextBox_DAL(IDTable, rtb);
+        }
     }
 }

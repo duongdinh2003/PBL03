@@ -39,5 +39,17 @@ namespace PBL03.BLL
         {
             return dal.getNumberOfCustomers_DAL(tb);
         }
+        public void updateMeal_BLL(FlowLayoutPanel flowLayoutPanel, string tb)
+        {
+            dal.updateMeal_DAL(flowLayoutPanel, tb);
+        }
+        public void removeOrder_BLL(string tb)
+        {
+            dal.removeOrder_DAL(tb);
+        }
+        public void getFoodBySearch_BLL(FlowLayoutPanel flowLayoutPanel, string name)
+        {
+            dal.getFoodBySearch_DAL(flowLayoutPanel, name);
+        }
     }
 }
