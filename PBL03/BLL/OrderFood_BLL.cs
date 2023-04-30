@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PBL03.BLL
 {
-    internal class OrderFood_BLL
+    public class OrderFood_BLL
     {
         private OrderFood_DAL dal;
         public OrderFood_BLL()

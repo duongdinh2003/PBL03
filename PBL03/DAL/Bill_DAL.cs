@@ -33,7 +33,7 @@ namespace PBL03.DAL
                 var query = db.Bills.Where(p => p.idTable == tb).FirstOrDefault();
                 if (query != null)
                 {
-                    var bill = db.Bills.Single(p => p.idTable == tb);
+                    var bill = db.Bills.Single(p => p.idTable == tb && p.statusBill == false);
                     bill.TotalMoney = subtotal;
                 }
                 else
@@ -70,11 +70,48 @@ namespace PBL03.DAL
                 db.SaveChanges();
             }    
         }
-        public void addBillHistory_DAL(string tb, DateTime dt, float subtotal, float paidbyCustomer, string discount, float change)
+        public string getIDDiscount_DAL(int people)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                if (people < 5)
+                {
+                    return db.Discounts.Where(p => p.NameDiscount == "Dưới 5 khách").Select(p => p.ID_Discount).FirstOrDefault();
+                }
+                else if (people >= 5 && people <= 10)
+                {
+                    return db.Discounts.Where(p => p.NameDiscount == "5-10 khách").Select(p => p.ID_Discount).FirstOrDefault();
+                }
+                else
+                {
+                    return db.Discounts.Where(p => p.NameDiscount == "Trên 10 khách").Select(p => p.ID_Discount).FirstOrDefault();
+                }    
+            }
+        }
+        public void addBillHistoryWithoutDC_DAL(string tb, DateTime dt, float subtotal, float paidbyCustomer, string discount, float change, int people)
         {
             using (var db = new PBL3Entities1())
             {
                 int id = getIDBill_DAL(tb);
+                BillHistory bill = new BillHistory
+                {
+                    IDBill = id,
+                    DatePay = dt,
+                    TotalMoney = subtotal,
+                    MoneyCustomerPay = paidbyCustomer,
+                    IDDiscount = discount,
+                    Exchange = change
+                };
+                db.BillHistories.Add(bill);
+                db.SaveChanges();
+            }
+        }
+        public void addBillHistoryWithDC_DAL(string tb, DateTime dt, float subtotal, float paidbyCustomer, float change, int people)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                int id = getIDBill_DAL(tb);
+                string discount = getIDDiscount_DAL(people);
                 BillHistory bill = new BillHistory
                 {
                     IDBill = id,

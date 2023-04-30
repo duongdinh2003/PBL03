@@ -22,9 +22,13 @@ namespace PBL03.BLL
         {
             dal.updateBill_DAL(timein, tb, subtotal);
         }
-        public void addBillHistory_BLL(string tb, DateTime dt, float subtotal, float paidbyCustomer, string discount, float change)
+        public void addBillHistoryWithDC_BLL(string tb, DateTime dt, float subtotal, float paidbyCustomer, float change, int people)
         {
-            dal.addBillHistory_DAL(tb, dt, subtotal, paidbyCustomer, discount, change);
+            dal.addBillHistoryWithDC_DAL(tb, dt, subtotal, paidbyCustomer, change, people);
+        }
+        public void addBillHistoryWithoutDC_BLL(string tb, DateTime dt, float subtotal, float paidbyCustomer, string discount, float change, int people)
+        {
+            dal.addBillHistoryWithoutDC_DAL(tb, dt, subtotal, paidbyCustomer, discount, change, people);
         }
         public void payBill_BLL(DateTime dt, string tb)
         {

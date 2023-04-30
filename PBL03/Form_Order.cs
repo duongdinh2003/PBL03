@@ -131,7 +131,7 @@ namespace PBL03
                 float sub = Convert.ToSingle(st);
                 bll.orderMeal_BLL(flowLayout_Order);
                 bill.addBill_BLL(dt, lbTable.Text, sub);
-                MessageBox.Show("Đã lưu order vào hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã lưu order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -142,26 +142,59 @@ namespace PBL03
                 float sub = Convert.ToSingle(st);
                 bll.updateMeal_BLL(flowLayout_Order, lbTable.Text);
                 bill.updateBill_BLL(dt, lbTable.Text, sub);
-                MessageBox.Show("Đã cập nhật order vào hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã cập nhật order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
         }
 
         private void btnPayNow_Click(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
-            string t = lbSubtotal.Text;
-            int endIndex = t.IndexOf(" ");
-            string st = t.Substring(0, endIndex);
-            float sub = Convert.ToSingle(st);
-            float change = (float)(sub * 0.05 + 50000);
-            bill.addBillHistory_BLL(lbTable.Text, dt, sub, sub + 50000, "KM001", change);
-            bill.payBill_BLL(dt, lbTable.Text);
-            bll.removeOrder_BLL(lbTable.Text);
-            statusTable.refreshTable_BLL(lbTable.Text);
-            Form_StatusTable ftb = (Form_StatusTable)Application.OpenForms["Form_StatusTable"];
-            ftb.setColorTable();
-            MessageBox.Show("Đã thanh toán đơn hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Dispose();
+            if (ckbVoucher.Checked)
+            {
+                DateTime dt = DateTime.Now;
+                string t = lbSubtotal.Text;
+                int endIndex = t.IndexOf(" ");
+                string st = t.Substring(0, endIndex);
+                float sub = Convert.ToSingle(st);
+                float change = 0;
+                int people = Convert.ToInt32(lbNumberCustomer.Text);
+                if (people >= 5 && people <= 10)
+                {
+                    change = (float)(sub * 0.05 + 50000);
+                }
+                else if (people > 10)
+                {
+                    change = (float)(sub * 0.1 + 50000);
+                }
+                else if (people < 5)
+                {
+                    change = 50000;
+                }
+                bill.addBillHistoryWithDC_BLL(lbTable.Text, dt, sub, sub + 50000, change, people);
+                bill.payBill_BLL(dt, lbTable.Text);
+                bll.removeOrder_BLL(lbTable.Text);
+                statusTable.refreshTable_BLL(lbTable.Text);
+                Form_StatusTable ftb = (Form_StatusTable)Application.OpenForms["Form_StatusTable"];
+                ftb.setColorTable();
+                MessageBox.Show("Đã thanh toán hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+            }
+            else
+            {
+                DateTime dt = DateTime.Now;
+                string t = lbSubtotal.Text;
+                int endIndex = t.IndexOf(" ");
+                string st = t.Substring(0, endIndex);
+                float sub = Convert.ToSingle(st);
+                int people = Convert.ToInt32(lbNumberCustomer.Text);
+                bill.addBillHistoryWithoutDC_BLL(lbTable.Text, dt, sub, sub + 50000, "KM003", 50000, people);
+                bill.payBill_BLL(dt, lbTable.Text);
+                bll.removeOrder_BLL(lbTable.Text);
+                statusTable.refreshTable_BLL(lbTable.Text);
+                Form_StatusTable ftb = (Form_StatusTable)Application.OpenForms["Form_StatusTable"];
+                ftb.setColorTable();
+                MessageBox.Show("Đã thanh toán hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
