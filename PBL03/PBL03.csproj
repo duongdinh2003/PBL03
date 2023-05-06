@@ -75,6 +75,7 @@
     <Compile Include="BLL\Change_StatusTable_BLL.cs" />
     <Compile Include="BLL\MenuFood_BLL.cs" />
     <Compile Include="BLL\OrderFood_BLL.cs" />
+    <Compile Include="BLL\Revenue_BLL.cs" />
     <Compile Include="Cost.cs">
       <DependentUpon>DB_PBL3.tt</DependentUpon>
     </Compile>
@@ -82,6 +83,7 @@
     <Compile Include="DAL\Change_StatusTable_DAL.cs" />
     <Compile Include="DAL\MenuFood_DAL.cs" />
     <Compile Include="DAL\OrderFood_DAL.cs" />
+    <Compile Include="DAL\Revenue_DAL.cs" />
     <Compile Include="DB_PBL3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

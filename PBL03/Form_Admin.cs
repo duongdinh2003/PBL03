@@ -17,7 +17,7 @@ namespace PBL03
         {
             InitializeComponent();
         }
-        private async void hideSubMenu()
+        private void hideSubMenu()
         {
             if (pnQLDT.Visible)
             {
@@ -96,8 +96,13 @@ namespace PBL03
 
         private void btnForm_ThuNgan_Click(object sender, EventArgs e)
         {
-            Form_Order fod = new Form_Order();
-            fod.Show();
+            hideSubMenu();
+            pnShow.Controls.Clear();
+            Form_StatusTable ftb = new Form_StatusTable();
+            ftb.TopLevel = false;
+            pnShow.Controls.Add(ftb);
+            ftb.Size = pnShow.Size;
+            ftb.Show();
         }
     }
 }

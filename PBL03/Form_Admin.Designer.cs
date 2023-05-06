@@ -46,10 +46,14 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lbAdmin = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnMenu.SuspendLayout();
             this.pnQLDT.SuspendLayout();
             this.pnQLNV.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnMenu
@@ -74,7 +78,7 @@
             this.pnQLDT.Controls.Add(this.btnChiPhi);
             this.pnQLDT.Controls.Add(this.btnLoiNhuan);
             this.pnQLDT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnQLDT.Location = new System.Drawing.Point(0, 504);
+            this.pnQLDT.Location = new System.Drawing.Point(0, 548);
             this.pnQLDT.Name = "pnQLDT";
             this.pnQLDT.Size = new System.Drawing.Size(276, 213);
             this.pnQLDT.TabIndex = 18;
@@ -131,7 +135,7 @@
             this.btnQLDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnQLDT.Image = ((System.Drawing.Image)(resources.GetObject("btnQLDT.Image")));
             this.btnQLDT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnQLDT.Location = new System.Drawing.Point(0, 416);
+            this.btnQLDT.Location = new System.Drawing.Point(0, 460);
             this.btnQLDT.Name = "btnQLDT";
             this.btnQLDT.Size = new System.Drawing.Size(276, 88);
             this.btnQLDT.TabIndex = 17;
@@ -144,7 +148,7 @@
             this.pnQLNV.Controls.Add(this.btnThuNgan);
             this.pnQLNV.Controls.Add(this.btnPhucVu);
             this.pnQLNV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnQLNV.Location = new System.Drawing.Point(0, 276);
+            this.pnQLNV.Location = new System.Drawing.Point(0, 320);
             this.pnQLNV.Name = "pnQLNV";
             this.pnQLNV.Size = new System.Drawing.Size(276, 140);
             this.pnQLNV.TabIndex = 16;
@@ -187,7 +191,7 @@
             this.btnQLNV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnQLNV.Image = ((System.Drawing.Image)(resources.GetObject("btnQLNV.Image")));
             this.btnQLNV.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnQLNV.Location = new System.Drawing.Point(0, 188);
+            this.btnQLNV.Location = new System.Drawing.Point(0, 232);
             this.btnQLNV.Name = "btnQLNV";
             this.btnQLNV.Size = new System.Drawing.Size(276, 88);
             this.btnQLNV.TabIndex = 15;
@@ -202,7 +206,7 @@
             this.btnForm_ThuNgan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnForm_ThuNgan.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForm_ThuNgan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
-            this.btnForm_ThuNgan.Location = new System.Drawing.Point(0, 100);
+            this.btnForm_ThuNgan.Location = new System.Drawing.Point(0, 144);
             this.btnForm_ThuNgan.Name = "btnForm_ThuNgan";
             this.btnForm_ThuNgan.Size = new System.Drawing.Size(276, 88);
             this.btnForm_ThuNgan.TabIndex = 14;
@@ -212,10 +216,12 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.guna2PictureBox1);
+            this.panel3.Controls.Add(this.lbAdmin);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(276, 100);
+            this.panel3.Size = new System.Drawing.Size(276, 144);
             this.panel3.TabIndex = 13;
             // 
             // panel1
@@ -267,6 +273,28 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1405, 5);
             this.guna2ShadowPanel1.TabIndex = 5;
             // 
+            // lbAdmin
+            // 
+            this.lbAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.lbAdmin.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbAdmin.Location = new System.Drawing.Point(155, 57);
+            this.lbAdmin.Name = "lbAdmin";
+            this.lbAdmin.Size = new System.Drawing.Size(100, 23);
+            this.lbAdmin.TabIndex = 0;
+            this.lbAdmin.Text = "label1";
+            this.lbAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(22, 15);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(116, 111);
+            this.guna2PictureBox1.TabIndex = 1;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // Form_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -283,7 +311,9 @@
             this.pnMenu.ResumeLayout(false);
             this.pnQLDT.ResumeLayout(false);
             this.pnQLNV.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -307,5 +337,7 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Panel pnShow;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.Label lbAdmin;
     }
 }

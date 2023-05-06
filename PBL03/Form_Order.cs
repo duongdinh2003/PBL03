@@ -16,6 +16,7 @@ namespace PBL03
         private OrderFood_BLL bll;
         private Bill_BLL bill;
         private Change_StatusTable_BLL statusTable;
+        private bool btnSaveClicked = false;
         public Form_Order()
         {
             InitializeComponent();
@@ -113,6 +114,8 @@ namespace PBL03
             total = subtotal - subtotal * Convert.ToDouble(voucher) / 100;
             lbSubtotal.Text = subtotal.ToString() + " VND";
             lbTotal.Text = total.ToString() + " VND";
+            btnSave.Enabled = true;
+            btnPayNow.Enabled = true;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -124,6 +127,7 @@ namespace PBL03
         {
             if (btnSave.Text == "Save")
             {
+                btnSaveClicked = true;
                 DateTime dt = DateTime.Now;
                 string t = lbSubtotal.Text;
                 int endIndex = t.IndexOf(" ");
@@ -135,6 +139,7 @@ namespace PBL03
             }
             else
             {
+                btnSaveClicked = true;
                 DateTime dt = DateTime.Now;
                 string t = lbSubtotal.Text;
                 int endIndex = t.IndexOf(" ");
@@ -201,6 +206,18 @@ namespace PBL03
         {
             flowLayout_Food.Controls.Clear();
             bll.getFoodBySearch_BLL(flowLayout_Food, tbSearch.Text);
+        }
+
+        private void btnExitFormOrder_Click(object sender, EventArgs e)
+        {
+            if (btnSaveClicked || btnSave.Text == "Update")
+            {
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa lưu hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }    
         }
     }
 }

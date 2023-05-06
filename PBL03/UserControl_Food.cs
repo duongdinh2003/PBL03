@@ -20,18 +20,6 @@ namespace PBL03
             bll = new OrderFood_BLL();
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            if (btnSelect.Visible == true)
-            {
-                btnSelect.Visible = false;
-            }
-            else
-            {
-                btnSelect.Visible = true;
-            }
-        }
-
         private void UserControl_Click(object sender, EventArgs e)
         {
             if (btnSelect.Visible == false)
@@ -46,5 +34,6 @@ namespace PBL03
                 f1.flowLayout_Order.Controls.Add(uo);
             }
         }
+            
     }
 }

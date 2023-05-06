@@ -19,31 +19,58 @@ namespace PBL03.DAL
                 {
                     p.NameFood,
                     p.Price,
-                    p.PictureFood
+                    p.PictureFood,
+                    p.QuantityFood
                 }).ToList();
                 foreach (var item in data)
                 {
-                    // Tạo một đối tượng UserControl_Menu mới
-                    UserControl_Food uf = new UserControl_Food();
-
-                    // Truyền giá trị cho các label của user control
-                    
-                    uf.lbFood.Text = item.NameFood.ToString();
-                    uf.lbPrice.Text = item.Price.ToString() + " VND";
-                    string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString()); 
-                    //Image img = Image.FromFile(imagepath);
-                    //uf.BackgroundImage = img;
-
-                    byte[] imagedata = File.ReadAllBytes(imagepath);
-                    using (MemoryStream ms = new MemoryStream(imagedata))
+                    if (item.QuantityFood > 0)
                     {
-                        Image img = Image.FromStream(ms);
-                        uf.BackgroundImage = img;
-                    }
+                        // Tạo một đối tượng UserControl_Menu mới
+                        UserControl_Food uf = new UserControl_Food();
+
+                        // Truyền giá trị cho các label của user control
+
+                        uf.lbFood.Text = item.NameFood.ToString();
+                        uf.lbPrice.Text = item.Price.ToString() + " VND";
+                        string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                        //Image img = Image.FromFile(imagepath);
+                        //uf.BackgroundImage = img;
+
+                        byte[] imagedata = File.ReadAllBytes(imagepath);
+                        using (MemoryStream ms = new MemoryStream(imagedata))
+                        {
+                            Image img = Image.FromStream(ms);
+                            uf.BackgroundImage = img;
+                        }
 
 
-                    // Thêm user control vào FlowLayoutPanel
-                    flowLayoutPanel.Controls.Add(uf);
+                        // Thêm user control vào FlowLayoutPanel
+                        flowLayoutPanel.Controls.Add(uf);
+                    }    
+                    else
+                    {
+                        // Tạo một đối tượng UserControl_Menu mới
+                        UserControl_Food uf = new UserControl_Food();
+
+                        // Truyền giá trị cho các label của user control
+
+                        uf.lbFood.Text = item.NameFood.ToString();
+                        string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                        //Image img = Image.FromFile(imagepath);
+                        //uf.BackgroundImage = img;
+
+                        byte[] imagedata = File.ReadAllBytes(imagepath);
+                        using (MemoryStream ms = new MemoryStream(imagedata))
+                        {
+                            Image img = Image.FromStream(ms);
+                            uf.BackgroundImage = img;
+                        }
+                        uf.pnSoldOut.Visible = true;
+
+                        // Thêm user control vào FlowLayoutPanel
+                        flowLayoutPanel.Controls.Add(uf);
+                    }    
                 }
             }
         }
@@ -55,31 +82,58 @@ namespace PBL03.DAL
                 {
                     p.NameFood,
                     p.Price,
-                    p.PictureFood
+                    p.PictureFood,
+                    p.QuantityFood
                 }).ToList();
                 foreach (var item in data)
                 {
-                    // Tạo một đối tượng UserControl_Menu mới
-                    UserControl_Food uf = new UserControl_Food();
-
-                    // Truyền giá trị cho các label của user control
-
-                    uf.lbFood.Text = item.NameFood.ToString();
-                    uf.lbPrice.Text = item.Price.ToString() + " VND";
-                    string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
-                    //Image img = Image.FromFile(imagepath);
-                    //uf.BackgroundImage = img;
-
-                    byte[] imagedata = File.ReadAllBytes(imagepath);
-                    using (MemoryStream ms = new MemoryStream(imagedata))
+                    if (item.QuantityFood > 0)
                     {
-                        Image img = Image.FromStream(ms);
-                        uf.BackgroundImage = img;
-                    }
+                        // Tạo một đối tượng UserControl_Menu mới
+                        UserControl_Food uf = new UserControl_Food();
+
+                        // Truyền giá trị cho các label của user control
+
+                        uf.lbFood.Text = item.NameFood.ToString();
+                        uf.lbPrice.Text = item.Price.ToString() + " VND";
+                        string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                        //Image img = Image.FromFile(imagepath);
+                        //uf.BackgroundImage = img;
+
+                        byte[] imagedata = File.ReadAllBytes(imagepath);
+                        using (MemoryStream ms = new MemoryStream(imagedata))
+                        {
+                            Image img = Image.FromStream(ms);
+                            uf.BackgroundImage = img;
+                        }
 
 
-                    // Thêm user control vào FlowLayoutPanel
-                    flowLayoutPanel.Controls.Add(uf);
+                        // Thêm user control vào FlowLayoutPanel
+                        flowLayoutPanel.Controls.Add(uf);
+                    }    
+                    else
+                    {
+                        // Tạo một đối tượng UserControl_Menu mới
+                        UserControl_Food uf = new UserControl_Food();
+
+                        // Truyền giá trị cho các label của user control
+
+                        uf.lbFood.Text = item.NameFood.ToString();
+                        string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                        //Image img = Image.FromFile(imagepath);
+                        //uf.BackgroundImage = img;
+
+                        byte[] imagedata = File.ReadAllBytes(imagepath);
+                        using (MemoryStream ms = new MemoryStream(imagedata))
+                        {
+                            Image img = Image.FromStream(ms);
+                            uf.BackgroundImage = img;
+                        }
+                        uf.pnSoldOut.Visible = true;
+
+                        // Thêm user control vào FlowLayoutPanel
+                        flowLayoutPanel.Controls.Add(uf);
+                    }    
                 }
             }
         }
@@ -91,31 +145,58 @@ namespace PBL03.DAL
                 {
                     p.NameFood,
                     p.Price,
-                    p.PictureFood
+                    p.PictureFood,
+                    p.QuantityFood
                 }).ToList();
                 foreach (var item in data)
                 {
-                    // Tạo một đối tượng UserControl_Menu mới
-                    UserControl_Food uf = new UserControl_Food();
-
-                    // Truyền giá trị cho các label của user control
-
-                    uf.lbFood.Text = item.NameFood.ToString();
-                    uf.lbPrice.Text = item.Price.ToString() + " VND";
-                    string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
-                    //Image img = Image.FromFile(imagepath);
-                    //uf.BackgroundImage = img;
-
-                    byte[] imagedata = File.ReadAllBytes(imagepath);
-                    using (MemoryStream ms = new MemoryStream(imagedata))
+                    if (item.QuantityFood > 0)
                     {
-                        Image img = Image.FromStream(ms);
-                        uf.BackgroundImage = img;
-                    }
+                        // Tạo một đối tượng UserControl_Menu mới
+                        UserControl_Food uf = new UserControl_Food();
+
+                        // Truyền giá trị cho các label của user control
+
+                        uf.lbFood.Text = item.NameFood.ToString();
+                        uf.lbPrice.Text = item.Price.ToString() + " VND";
+                        string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                        //Image img = Image.FromFile(imagepath);
+                        //uf.BackgroundImage = img;
+
+                        byte[] imagedata = File.ReadAllBytes(imagepath);
+                        using (MemoryStream ms = new MemoryStream(imagedata))
+                        {
+                            Image img = Image.FromStream(ms);
+                            uf.BackgroundImage = img;
+                        }
 
 
-                    // Thêm user control vào FlowLayoutPanel
-                    flowLayoutPanel.Controls.Add(uf);
+                        // Thêm user control vào FlowLayoutPanel
+                        flowLayoutPanel.Controls.Add(uf);
+                    }    
+                    else
+                    {
+                        // Tạo một đối tượng UserControl_Menu mới
+                        UserControl_Food uf = new UserControl_Food();
+
+                        // Truyền giá trị cho các label của user control
+
+                        uf.lbFood.Text = item.NameFood.ToString();
+                        string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                        //Image img = Image.FromFile(imagepath);
+                        //uf.BackgroundImage = img;
+
+                        byte[] imagedata = File.ReadAllBytes(imagepath);
+                        using (MemoryStream ms = new MemoryStream(imagedata))
+                        {
+                            Image img = Image.FromStream(ms);
+                            uf.BackgroundImage = img;
+                        }
+                        uf.pnSoldOut.Visible = true;
+
+                        // Thêm user control vào FlowLayoutPanel
+                        flowLayoutPanel.Controls.Add(uf);
+                    }    
                 }
             }
         }
@@ -239,7 +320,7 @@ namespace PBL03.DAL
                         }
                         db.SaveChanges();
                     }
-                } 
+                }
                 else
                 {
                     int count = 0;
@@ -258,7 +339,7 @@ namespace PBL03.DAL
                         fd.QuantityFood -= (int)uo.numericquantity.Value;
                         db.SaveChanges();
                     }
-                } 
+                }
             }
         }
         public void Showorder_DAL(string tb, FlowLayoutPanel flowLayoutPanel)

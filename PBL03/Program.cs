@@ -16,7 +16,7 @@ namespace PBL03
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_StatusTable());
+            Application.Run(new Form_Admin());
         }
     }
 }

@@ -34,8 +34,12 @@
             this.lbFood = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbPrice = new System.Windows.Forms.Label();
+            this.picSoldOut = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pnSoldOut = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSoldOut)).BeginInit();
+            this.pnSoldOut.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,7 +70,6 @@
             this.btnSelect.Size = new System.Drawing.Size(55, 52);
             this.btnSelect.TabIndex = 2;
             this.btnSelect.Visible = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // lbFood
             // 
@@ -101,6 +104,28 @@
             this.lbPrice.Text = "15.000 đ";
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // picSoldOut
+            // 
+            this.picSoldOut.BackColor = System.Drawing.Color.Transparent;
+            this.picSoldOut.Image = ((System.Drawing.Image)(resources.GetObject("picSoldOut.Image")));
+            this.picSoldOut.ImageRotate = 0F;
+            this.picSoldOut.Location = new System.Drawing.Point(36, 49);
+            this.picSoldOut.Name = "picSoldOut";
+            this.picSoldOut.Size = new System.Drawing.Size(148, 113);
+            this.picSoldOut.TabIndex = 0;
+            this.picSoldOut.TabStop = false;
+            // 
+            // pnSoldOut
+            // 
+            this.pnSoldOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnSoldOut.Controls.Add(this.picSoldOut);
+            this.pnSoldOut.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnSoldOut.Location = new System.Drawing.Point(0, 0);
+            this.pnSoldOut.Name = "pnSoldOut";
+            this.pnSoldOut.Size = new System.Drawing.Size(204, 177);
+            this.pnSoldOut.TabIndex = 2;
+            this.pnSoldOut.Visible = false;
+            // 
             // UserControl_Food
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -108,6 +133,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.pnSoldOut);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(15);
@@ -116,6 +142,8 @@
             this.Click += new System.EventHandler(this.UserControl_Click);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picSoldOut)).EndInit();
+            this.pnSoldOut.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -127,5 +155,7 @@
         public System.Windows.Forms.Label lbFood;
         public System.Windows.Forms.Label lbPrice;
         public Guna.UI2.WinForms.Guna2TileButton btnSelect;
+        public Guna.UI2.WinForms.Guna2PictureBox picSoldOut;
+        public System.Windows.Forms.Panel pnSoldOut;
     }
 }

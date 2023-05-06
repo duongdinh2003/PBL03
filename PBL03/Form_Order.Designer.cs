@@ -37,11 +37,10 @@
             this.btnDrink = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnFood = new Guna.UI2.WinForms.Guna2TileButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExitFormOrder = new Guna.UI2.WinForms.Guna2Button();
             this.lbTable = new System.Windows.Forms.Label();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.flowLayout_Food = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -169,16 +168,32 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.btnExitFormOrder);
             this.panel2.Controls.Add(this.lbTable);
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.tbSearch);
-            this.panel2.Controls.Add(this.guna2ControlBox1);
-            this.panel2.Controls.Add(this.guna2ControlBox2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(244, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1552, 101);
             this.panel2.TabIndex = 1;
+            // 
+            // btnExitFormOrder
+            // 
+            this.btnExitFormOrder.BackColor = System.Drawing.Color.Transparent;
+            this.btnExitFormOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExitFormOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExitFormOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExitFormOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExitFormOrder.FillColor = System.Drawing.Color.Transparent;
+            this.btnExitFormOrder.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExitFormOrder.ForeColor = System.Drawing.Color.Black;
+            this.btnExitFormOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnExitFormOrder.Image")));
+            this.btnExitFormOrder.Location = new System.Drawing.Point(1497, 3);
+            this.btnExitFormOrder.Name = "btnExitFormOrder";
+            this.btnExitFormOrder.Size = new System.Drawing.Size(52, 29);
+            this.btnExitFormOrder.TabIndex = 7;
+            this.btnExitFormOrder.Click += new System.EventHandler(this.btnExitFormOrder_Click);
             // 
             // lbTable
             // 
@@ -194,27 +209,27 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.BackColor = System.Drawing.Color.White;
             this.btnSearch.BorderRadius = 15;
             this.btnSearch.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSearch.FillColor = System.Drawing.Color.Transparent;
+            this.btnSearch.FillColor = System.Drawing.Color.White;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearch.ForeColor = System.Drawing.Color.Transparent;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnSearch.Location = new System.Drawing.Point(197, 35);
+            this.btnSearch.Location = new System.Drawing.Point(275, 40);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(54, 48);
+            this.btnSearch.Size = new System.Drawing.Size(54, 43);
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tbSearch
             // 
             this.tbSearch.BackColor = System.Drawing.Color.Transparent;
-            this.tbSearch.BorderRadius = 20;
+            this.tbSearch.BorderRadius = 18;
             this.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbSearch.DefaultText = "";
             this.tbSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -232,35 +247,12 @@
             this.tbSearch.PlaceholderForeColor = System.Drawing.Color.DarkGray;
             this.tbSearch.PlaceholderText = "Search for menu";
             this.tbSearch.SelectedText = "";
-            this.tbSearch.Size = new System.Drawing.Size(550, 48);
+            this.tbSearch.Size = new System.Drawing.Size(550, 50);
             this.tbSearch.TabIndex = 4;
             this.tbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
             this.tbSearch.Enter += new System.EventHandler(this.tbSearch_Enter);
             this.tbSearch.Leave += new System.EventHandler(this.tbSearch_Leave);
-            // 
-            // guna2ControlBox1
-            // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1497, 3);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(52, 29);
-            this.guna2ControlBox1.TabIndex = 3;
-            // 
-            // guna2ControlBox2
-            // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Black;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1439, 3);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(52, 29);
-            this.guna2ControlBox2.TabIndex = 2;
             // 
             // flowLayout_Food
             // 
@@ -344,6 +336,7 @@
             this.btnPayNow.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPayNow.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnPayNow.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnPayNow.Enabled = false;
             this.btnPayNow.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnPayNow.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayNow.ForeColor = System.Drawing.Color.Black;
@@ -361,6 +354,7 @@
             this.btnSave.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnSave.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnSave.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSave.Enabled = false;
             this.btnSave.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnSave.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
@@ -527,8 +521,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnStast;
         private Guna.UI2.WinForms.Guna2TileButton guna2TileButton4;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2TextBox tbSearch;
         private System.Windows.Forms.Label lbTotal;
@@ -550,5 +542,6 @@
         private System.Windows.Forms.Timer timer1;
         public Guna.UI2.WinForms.Guna2Button btnSave;
         public Guna.UI2.WinForms.Guna2Button btnPayNow;
+        private Guna.UI2.WinForms.Guna2Button btnExitFormOrder;
     }
 }
