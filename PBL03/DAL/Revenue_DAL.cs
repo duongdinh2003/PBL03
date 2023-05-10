@@ -9,13 +9,21 @@ namespace PBL03.DAL
 {
     public class Revenue_DAL
     {
-        public void showRevenue_DAL(DataGridView dgv)
+        public dynamic showRevenue_DAL()
         {
             using (var db = new PBL3Entities1())
             {
                 var query = db.Revenues.ToList();
-                dgv.DataSource = query;
+                return query;
             }    
+        }
+        public dynamic drawChartRevenue_DAL()
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).ToList();
+                return data;
+            }
         }
     }
 }

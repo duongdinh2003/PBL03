@@ -20,6 +20,18 @@ namespace PBL03
             bll = new Revenue_BLL();
         }
 
+        public void showRevenue()
+        {
+            dgvRevenue.DataSource = bll.showRevenue_BLL();
+        }
+        public void drawChartRevenue()
+        {
+            foreach (var item in bll.drawChartRevenue_BLL())
+            {
+                chartRevenue.Series["Doanh thu"].Points.AddXY(item.RevenueInDate, item.TotalInDate);
+            }
+        }
+
         private void Form_Revenue_Load(object sender, EventArgs e)
         {
             //chartRevenue.Series["Doanh thu"].Points.AddXY("Dinh", 3000);
@@ -27,19 +39,16 @@ namespace PBL03
             //chartRevenue.Series["Doanh thu"].Points.AddXY("Minh", 7000);
             //chartRevenue.Series["Doanh thu"].Points.AddXY("Nhat", 4000);
             //chartRevenue.Series["Doanh thu"].Points.AddXY("Thanh", 6000);
-            using (var db = new PBL3Entities1())
-            {
-                var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).ToList();
-                foreach (var item in data)
-                {
-                    chartRevenue.Series["Doanh thu"].Points.AddXY(item.RevenueInDate, item.TotalInDate);
-                }
-            }
+            //using (var db = new PBL3Entities1())
+            //{
+            //    var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).ToList();
+            //    foreach (var item in data)
+            //    {
+            //        chartRevenue.Series["Doanh thu"].Points.AddXY(item.RevenueInDate, item.TotalInDate);
+            //    }
+            //}
             showRevenue();
+            drawChartRevenue();
         }
-        public void showRevenue()
-        {
-            bll.showRevenue_BLL(dgvRevenue);
-        }    
     }
 }

@@ -15,9 +15,13 @@ namespace PBL03.BLL
         {
             dal = new Revenue_DAL();
         }
-        public void showRevenue_BLL(DataGridView dgv)
+        public dynamic showRevenue_BLL()
         {
-            dal.showRevenue_DAL(dgv);
+            return dal.showRevenue_DAL();
+        }
+        public dynamic drawChartRevenue_BLL()
+        {
+            return dal.drawChartRevenue_DAL();
         }
     }
 }

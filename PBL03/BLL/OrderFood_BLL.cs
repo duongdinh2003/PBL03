@@ -27,29 +27,53 @@ namespace PBL03.BLL
         {
             dal.getCreams_DAL(flowPanel);
         }
-        public void orderMeal_BLL(FlowLayoutPanel flowPanel)
+        //public void orderMeal_BLL(FlowLayoutPanel flowPanel)
+        //{
+        //    dal.orderMeal_DAL(flowPanel);
+        //}
+        public void orderMeal_BLL(int count, string idfood, int quantity, string idtable)
         {
-            dal.orderMeal_DAL(flowPanel);
+            dal.orderMeal_DAL(count, idfood, quantity, idtable);
+        }    
+        public void subQuantityFood(string food, int quantity)
+        {
+            dal.subQuantityFood(food, quantity);
         }
-        public void Showorder_BLL(string tb, FlowLayoutPanel flowLayoutPanel)
+        public bool checkExistedFood(string idfood)
         {
-            dal.Showorder_DAL(tb, flowLayoutPanel);
+            return dal.checkExistedFood(idfood);
+        }
+        public void updateMeal_BLL(string tb, int qtt, string food)
+        {
+            dal.updateMeal_DAL(tb, qtt, food);
+        }
+        public string getIDFood(string food)
+        {
+            return dal.getIDFood(food);
+        }
+        public int countOrder(string tb)
+        {
+            return dal.countOrder(tb);
+        }
+        public dynamic Showorder_BLL(string tb)
+        {
+            return dal.Showorder_DAL(tb);
         }
         public int getNumberOfCustomers_BLL(string tb)
         {
             return dal.getNumberOfCustomers_DAL(tb);
         }
-        public void updateMeal_BLL(FlowLayoutPanel flowLayoutPanel, string tb)
-        {
-            dal.updateMeal_DAL(flowLayoutPanel, tb);
-        }
+        //public void updateMeal_BLL(FlowLayoutPanel flowLayoutPanel, string tb)
+        //{
+        //    dal.updateMeal_DAL(flowLayoutPanel, tb);
+        //}
         public void removeOrder_BLL(string tb)
         {
             dal.removeOrder_DAL(tb);
         }
-        public void getFoodBySearch_BLL(FlowLayoutPanel flowLayoutPanel, string name)
+        public dynamic getFoodBySearch_BLL(string name)
         {
-            dal.getFoodBySearch_DAL(flowLayoutPanel, name);
+            return dal.getFoodBySearch_DAL(name);
         }
     }
 }

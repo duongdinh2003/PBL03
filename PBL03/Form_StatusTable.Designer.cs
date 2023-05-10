@@ -35,6 +35,7 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.Ricktb_Show_InfoTable = new System.Windows.Forms.RichTextBox();
             this.flowLayout_Table = new System.Windows.Forms.FlowLayoutPanel();
             this.btn_01 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn_02 = new Guna.UI2.WinForms.Guna2TileButton();
@@ -45,7 +46,6 @@
             this.btn_07 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn_08 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btn_09 = new Guna.UI2.WinForms.Guna2TileButton();
-            this.Ricktb_Show_InfoTable = new System.Windows.Forms.RichTextBox();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberOfPeople)).BeginInit();
             this.guna2GradientPanel1.SuspendLayout();
@@ -137,6 +137,15 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(530, 365);
             this.guna2GradientPanel1.TabIndex = 3;
+            // 
+            // Ricktb_Show_InfoTable
+            // 
+            this.Ricktb_Show_InfoTable.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ricktb_Show_InfoTable.Location = new System.Drawing.Point(15, 19);
+            this.Ricktb_Show_InfoTable.Name = "Ricktb_Show_InfoTable";
+            this.Ricktb_Show_InfoTable.Size = new System.Drawing.Size(498, 329);
+            this.Ricktb_Show_InfoTable.TabIndex = 0;
+            this.Ricktb_Show_InfoTable.Text = "";
             // 
             // flowLayout_Table
             // 
@@ -337,19 +346,10 @@
             this.btn_09.Click += new System.EventHandler(this.Button_StatusTable_Click);
             this.btn_09.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Show_InfoTable_ClickMouse);
             // 
-            // Ricktb_Show_InfoTable
-            // 
-            this.Ricktb_Show_InfoTable.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ricktb_Show_InfoTable.Location = new System.Drawing.Point(15, 19);
-            this.Ricktb_Show_InfoTable.Name = "Ricktb_Show_InfoTable";
-            this.Ricktb_Show_InfoTable.Size = new System.Drawing.Size(498, 329);
-            this.Ricktb_Show_InfoTable.TabIndex = 0;
-            this.Ricktb_Show_InfoTable.Text = "";
-            // 
             // Form_StatusTable
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1337, 640);
             this.Controls.Add(this.flowLayout_Table);
             this.Controls.Add(this.guna2Panel2);

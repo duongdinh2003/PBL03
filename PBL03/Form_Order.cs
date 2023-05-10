@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -133,7 +134,14 @@ namespace PBL03
                 int endIndex = t.IndexOf(" ");
                 string st = t.Substring(0, endIndex);
                 float sub = Convert.ToSingle(st);
-                bll.orderMeal_BLL(flowLayout_Order);
+                //bll.orderMeal_BLL(flowLayout_Order);
+                int count = 0;
+                foreach (UserControl_Order uo in flowLayout_Order.Controls)
+                {
+                    count++; 
+                    bll.orderMeal_BLL(count, bll.getIDFood(uo.lbFood.Text), (int)uo.numericquantity.Value, lbTable.Text);
+                    bll.subQuantityFood(uo.lbFood.Text, (int)uo.numericquantity.Value);
+                }    
                 bill.addBill_BLL(dt, lbTable.Text, sub);
                 MessageBox.Show("Đã lưu order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -145,7 +153,23 @@ namespace PBL03
                 int endIndex = t.IndexOf(" ");
                 string st = t.Substring(0, endIndex);
                 float sub = Convert.ToSingle(st);
-                bll.updateMeal_BLL(flowLayout_Order, lbTable.Text);
+                //bll.updateMeal_BLL(flowLayout_Order, lbTable.Text);
+
+                int count = bll.countOrder(lbTable.Text);
+                foreach (UserControl_Order uo in flowLayout_Order.Controls)
+                {
+                    if (bll.checkExistedFood(bll.getIDFood(uo.lbFood.Text)) == true)
+                    {
+                        bll.updateMeal_BLL(lbTable.Text, (int)uo.numericquantity.Value, uo.lbFood.Text);
+                    //    bll.subQuantityFood(uo.lbFood.Text, (int)uo.numericquantity.Value);
+                    }
+                    else
+                    {
+                        count++;
+                        bll.orderMeal_BLL(count, bll.getIDFood(uo.lbFood.Text), (int)uo.numericquantity.Value, lbTable.Text);
+                        bll.subQuantityFood(uo.lbFood.Text, (int)uo.numericquantity.Value);
+                    }    
+                }    
                 bill.updateBill_BLL(dt, lbTable.Text, sub);
                 MessageBox.Show("Đã cập nhật order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
@@ -205,7 +229,23 @@ namespace PBL03
         private void btnSearch_Click(object sender, EventArgs e)
         {
             flowLayout_Food.Controls.Clear();
-            bll.getFoodBySearch_BLL(flowLayout_Food, tbSearch.Text);
+        //    bll.getFoodBySearch_BLL(flowLayout_Food, tbSearch.Text);
+
+            foreach (var item in bll.getFoodBySearch_BLL(tbSearch.Text))
+            {
+
+                UserControl_Food uf = new UserControl_Food();
+                uf.lbFood.Text = item.NameFood.ToString();
+                uf.lbPrice.Text = item.Price.ToString() + " VND";
+                string imagepath = Path.Combine(Application.StartupPath, item.PictureFood.ToString());
+                byte[] imagedata = File.ReadAllBytes(imagepath);
+                using (MemoryStream ms = new MemoryStream(imagedata))
+                {
+                    Image img = Image.FromStream(ms);
+                    uf.BackgroundImage = img;
+                }
+                flowLayout_Food.Controls.Add(uf);
+            }
         }
 
         private void btnExitFormOrder_Click(object sender, EventArgs e)

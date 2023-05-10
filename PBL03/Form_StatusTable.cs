@@ -123,7 +123,16 @@ namespace PBL03
                         ftn.lbNumberCustomer.Text = order.getNumberOfCustomers_BLL(btn.Text).ToString();
                         ftn.btnSave.Text = "Update";
                         ftn.Show();
-                        order.Showorder_BLL(btn.Text, ftn.flowLayout_Order);
+                    //    order.Showorder_BLL(btn.Text, ftn.flowLayout_Order);
+                        foreach (var item in order.Showorder_BLL(btn.Text))
+                        {
+                            UserControl_Order uo = new UserControl_Order();
+                            uo.lbFood.Text = item.NameFood;
+                            uo.lbNameTable.Text = item.IDTable;
+                            uo.lbPrice.Text = item.Price.ToString() + " VND";
+                            uo.numericquantity.Value = item.Quantity;
+                            ftn.flowLayout_Order.Controls.Add(uo);
+                        }
                     }
                 }
             }
