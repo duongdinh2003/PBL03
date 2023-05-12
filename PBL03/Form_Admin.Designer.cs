@@ -47,6 +47,7 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
+            this.btnManageSchedule = new System.Windows.Forms.Button();
             this.pnMenu.SuspendLayout();
             this.pnQLDT.SuspendLayout();
             this.pnQLNV.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             this.pnMenu.AutoScroll = true;
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnMenu.Controls.Add(this.btnManageSchedule);
             this.pnMenu.Controls.Add(this.pnQLDT);
             this.pnMenu.Controls.Add(this.btnQLDT);
             this.pnMenu.Controls.Add(this.pnQLNV);
@@ -284,6 +286,22 @@
             this.pnShow.Size = new System.Drawing.Size(1405, 705);
             this.pnShow.TabIndex = 4;
             // 
+            // btnManageSchedule
+            // 
+            this.btnManageSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnManageSchedule.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageSchedule.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.btnManageSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManageSchedule.Location = new System.Drawing.Point(0, 722);
+            this.btnManageSchedule.Name = "btnManageSchedule";
+            this.btnManageSchedule.Size = new System.Drawing.Size(276, 88);
+            this.btnManageSchedule.TabIndex = 19;
+            this.btnManageSchedule.Text = "Quản lý lịch làm";
+            this.btnManageSchedule.UseVisualStyleBackColor = false;
+            this.btnManageSchedule.Click += new System.EventHandler(this.btnManageSchedule_Click);
+            // 
             // Form_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -326,5 +344,6 @@
         private System.Windows.Forms.Panel pnShow;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         public System.Windows.Forms.Label lbAdmin;
+        private System.Windows.Forms.Button btnManageSchedule;
     }
 }

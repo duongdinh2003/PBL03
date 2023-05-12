@@ -22,7 +22,13 @@ namespace PBL03
 
         public void showRevenue()
         {
+            dgvRevenue.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRevenue.DataSource = bll.showRevenue_BLL();
+            dgvRevenue.Columns["ID_Revenue"].HeaderText = "STT";
+            dgvRevenue.Columns["RevenueInDate"].HeaderText = "Ngày";
+            dgvRevenue.Columns["TotalInDate"].HeaderText = "Tổng trong ngày";
+            dgvRevenue.Columns["NumberOfBill"].HeaderText = "SL hóa đơn";
+            dgvRevenue.Columns["NumberOfCustomer"].HeaderText = "SL khách";
         }
         public void drawChartRevenue()
         {

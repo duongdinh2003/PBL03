@@ -36,7 +36,31 @@ namespace PBL03.BLL.LichLamViec
         }
         public string GetIDEmployee(string acc)
         {
-            return Schedule_DAL.Instance.GetIDEmloyee(acc);
+            return Schedule_DAL.Instance.GetIDEmployee(acc);
+        }
+        public void AddSchedule(int id, string idepl, int idshift, DateTime dt, string note)
+        {
+            Schedule_DAL.Instance.AddSchedule(id, idepl, idshift, dt, note);
+        }
+        public void EditSchedule(int id, string idepl, int idshift, DateTime dt, string note)
+        {
+            Schedule_DAL.Instance.EditSchedule(id, idepl, idshift, dt, note);
+        }
+        public void DeleteSchedule(int id)
+        {
+            Schedule_DAL.Instance.DeleteSchedule(id);
+        }
+        public List<ShiftWork> GetAllShift()
+        {
+            return Schedule_DAL.Instance.GetAllShift();
+        }
+        public string GetIDEmployeeByName(string name)
+        {
+            return Schedule_DAL.Instance.GetIDEmployeeByName(name);
+        }
+        public int GetIDShift(string name)
+        {
+            return Schedule_DAL.Instance.GetIDShift(name);
         }
     }
 }

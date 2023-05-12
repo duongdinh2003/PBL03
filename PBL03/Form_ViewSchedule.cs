@@ -26,8 +26,8 @@ namespace PBL03
         {
             FormMain fm = (FormMain)Application.OpenForms["FormMain"];
             string id = Schedule_BLL.Instance.GetIDEmployee(fm.lbNameUser.Text);
-        //    var schedule = Schedule_BLL.Instance.GetScheduleFollowEPL(id);
-            if (Schedule_BLL.Instance.GetScheduleFollowEPL(id) == null)
+            //    var schedule = Schedule_BLL.Instance.GetScheduleFollowEPL(id);
+            if (Schedule_BLL.Instance.GetScheduleFollowEPL(id).Count == 0)
             {
                 rtbSchedule.AppendText("Hôm nay không có lịch làm việc");
             }
@@ -35,12 +35,9 @@ namespace PBL03
             {
                 foreach (var item in Schedule_BLL.Instance.GetScheduleFollowEPL(id))
                 {
-                    //    rtbSchedule.AppendText($" - {item.NameShift.PadRight(10)}{item.DateWork.ToShortDateString()} - {item.Note}\n");
-
                     rtbSchedule.AppendText(item);
                 }
             }
-            //    Schedule_BLL.Instance.GetScheduleFollowEPL(id, rtbSchedule);
         }    
     }
 }

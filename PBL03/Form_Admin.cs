@@ -53,12 +53,13 @@ namespace PBL03
 
         private void btnPhucVu_Click_1(object sender, EventArgs e)
         {
-            hideSubMenu();
+        //    hideSubMenu();
+            pnShow.Controls.Clear();
         }
 
         private void btnThuNgan_Click_1(object sender, EventArgs e)
         {
-            hideSubMenu();
+        //    hideSubMenu();
             pnShow.Controls.Clear();
             Form_QuanLyThuNgan ftn = new Form_QuanLyThuNgan();
             ftn.TopLevel = false;
@@ -69,12 +70,13 @@ namespace PBL03
 
         private void btnChiPhi_Click_1(object sender, EventArgs e)
         {
-            hideSubMenu();
+        //    hideSubMenu();
+            pnShow.Controls.Clear();
         }
 
         private void btnLoiNhuan_Click_1(object sender, EventArgs e)
         {
-            hideSubMenu();
+        //    hideSubMenu();
             pnShow.Controls.Clear();
             Form_Profit fp = new Form_Profit();
             fp.TopLevel = false;
@@ -85,7 +87,7 @@ namespace PBL03
 
         private void btnDoanhThu_Click_1(object sender, EventArgs e)
         {
-            hideSubMenu();
+        //    hideSubMenu();
             pnShow.Controls.Clear();
             Form_Revenue fr = new Form_Revenue();
             fr.TopLevel = false;
@@ -103,6 +105,17 @@ namespace PBL03
             pnShow.Controls.Add(ftb);
             ftb.Size = pnShow.Size;
             ftb.Show();
+        }
+
+        private void btnManageSchedule_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            pnShow.Controls.Clear();
+            Form_ManageSchedule fms = new Form_ManageSchedule();
+            fms.TopLevel = false;
+            pnShow.Controls.Add(fms);
+            fms.Size = pnShow.Size;
+            fms.Show();
         }
     }
 }

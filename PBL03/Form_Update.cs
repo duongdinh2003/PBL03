@@ -13,6 +13,8 @@ namespace PBL03
 {
     public partial class Form_Update : Form
     {
+        public delegate void Mydele();
+        public Mydele pass;
         public Form_Update()
         {
             InitializeComponent();
@@ -26,7 +28,8 @@ namespace PBL03
                 {
                     string hashpassword = BCrypt.Net.BCrypt.HashPassword(tbPassword.Text);
                     Manager_BLL.Instance.Add(tbID.Text, tbName.Text, tbPhone.Text, tbAddress.Text, float.Parse(tbSalary.Text), tbAccount.Text, hashpassword);
-                    MessageBox.Show("Thêm tài khoản thành công!,mời bạn nhấn Reset để cập nhật");
+                    MessageBox.Show("Thêm tài khoản thành công!. Mời bạn nhấn Reset để cập nhật");
+                    pass();
                     this.Dispose();
                 }
             }
@@ -35,13 +38,16 @@ namespace PBL03
                 if ((MessageBox.Show("Bạn có muốn sửa không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                 {
                     Manager_BLL.Instance.Edit(tbID.Text, tbName.Text, tbPhone.Text, tbAddress.Text, float.Parse(tbSalary.Text), tbAccount.Text);
-                    MessageBox.Show("Chỉnh sửa thành công !, mời bạn nhấn Reset để cập nhật");
+                    MessageBox.Show("Chỉnh sửa thành công!. Mời bạn nhấn Reset để cập nhật");
+                    pass();
+                    this.Dispose();
                 }
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            pass();
             this.Dispose();
         }
     }

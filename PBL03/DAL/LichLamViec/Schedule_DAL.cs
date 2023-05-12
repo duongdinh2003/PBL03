@@ -28,7 +28,17 @@ namespace PBL03.DAL.LichLamViec
         }
         public dynamic ShowSchedule_DAL()
         {
-            var query = db.WorkSchedules.ToList();
+            var query = db.WorkSchedules
+                .Join(db.Employees, p => p.IDEmployee, c => c.ID_Employee, (p, c) => new { WorkSchedule = p, Employee = c })
+                .Select(x => new
+                {
+                    x.WorkSchedule.ID_Schedule,
+                    x.Employee.Name_Employee,
+                    x.WorkSchedule.ShiftWork.NameShift,
+                    x.WorkSchedule.DateWork,
+                    x.WorkSchedule.Note
+                })
+                .ToList();
             return query;
         }
         //public void GetScheduleFollowEPL(string epl, RichTextBox rtb)
@@ -72,14 +82,57 @@ namespace PBL03.DAL.LichLamViec
                 .ToList();
             foreach (var i in query)
             {
-                list.Add(i.NameShift + ", " + i.DateWork + ", " + i.Note);
+                list.Add(" - " + i.NameShift + ", " + i.DateWork.ToString("dd/MM/yyyy") + ", " + i.Note + "\n");
             }
             return list;
         }
-        public string GetIDEmloyee(string acc)
+        public string GetIDEmployee(string acc)
         {
             var query = db.Employees.FirstOrDefault(p => p.Acc == acc);
             return query.ID_Employee;
+        }
+        public void AddSchedule(int id, string idepl, int idshift, DateTime dt, string note)
+        {
+            WorkSchedule temp = new WorkSchedule
+            {
+                ID_Schedule = id,
+                IDEmployee = idepl,
+                IDShift = idshift,
+                DateWork = dt,
+                Note = note
+            };
+            db.WorkSchedules.Add(temp);
+            db.SaveChanges();
+        }
+        public void EditSchedule(int id, string idepl, int idshift, DateTime dt, string note)
+        {
+            var query = db.WorkSchedules.Find(id);
+            query.IDEmployee = idepl;
+            query.IDShift = idshift;
+            query.DateWork = dt;
+            query.Note = note;
+            db.SaveChanges();
+        }
+        public void DeleteSchedule(int id)
+        {
+            var query = db.WorkSchedules.FirstOrDefault(p => p.ID_Schedule == id);
+            db.WorkSchedules.Remove(query);
+            db.SaveChanges();
+        }
+        public List<ShiftWork> GetAllShift()
+        {
+            var query = db.ShiftWorks.ToList();
+            return query;
+        }
+        public string GetIDEmployeeByName(string name)
+        {
+            var query = db.Employees.FirstOrDefault(p => p.Name_Employee == name);
+            return query.ID_Employee;
+        }
+        public int GetIDShift(string name)
+        {
+            var query = db.ShiftWorks.FirstOrDefault(p => p.NameShift == name);
+            return query.ID_Shift;
         }
     }
 }

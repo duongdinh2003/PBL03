@@ -17,7 +17,20 @@ namespace PBL03
         public Form_QuanLyThuNgan()
         {
             InitializeComponent();
+            ShowDT();
         }
+        private void ShowDT()
+        {
+            dtgvShow.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvShow.DataSource = Manager_BLL.Instance.Show();
+            dtgvShow.Columns["ID_Employee"].HeaderText = "ID";
+            dtgvShow.Columns["Name_Employee"].HeaderText = "Tên nhân viên";
+            dtgvShow.Columns["PhoneNumber"].HeaderText = "Số điện thoại";
+            dtgvShow.Columns["Address_Employee"].HeaderText = "Địa chỉ";
+            dtgvShow.Columns["Salary"].HeaderText = "Lương 1 giờ";
+            dtgvShow.Columns["Acc"].HeaderText = "Account";
+            dtgvShow.Visible = true;
+        }    
         //private async void hideSubMenu()
         //{
         //    if (pnMenu.Visible && btnHomeUp.Visible)
@@ -70,9 +83,13 @@ namespace PBL03
             pnDisplayFunction.Controls.Clear();
             Form_Update fu = new Form_Update();
             fu.TopLevel = false;
+            fu.FormBorderStyle = FormBorderStyle.None;
+            fu.Dock = DockStyle.Fill;
+            pnDisplayFunction.Controls.Clear();
             pnDisplayFunction.Controls.Add(fu);
             fu.Size = pnDisplayFunction.Size;
             fu.Show();
+            fu.pass += new Form_Update.Mydele(ShowDT);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -101,6 +118,7 @@ namespace PBL03
             {
                 MessageBox.Show("Bạn chưa chọn hàng để chỉnh sửa !");
             }
+            fu.pass += new Form_Update.Mydele(ShowDT);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)

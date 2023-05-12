@@ -28,7 +28,9 @@ namespace PBL03.DAL.Quan_Ly
         }
         public dynamic Show()
         {
-            var query = db.Employees.Select(p => new { p.ID_Employee, p.Name_Employee, p.PhoneNumber, p.Address_Employee, p.Salary, p.Acc }).ToList();
+            var query = db.Employees.Where(p => p.Account.NameType == "thungan")
+                .Select(p => new { p.ID_Employee, p.Name_Employee, p.PhoneNumber, p.Address_Employee, p.Salary, p.Acc })
+                .OrderBy(p => p.ID_Employee).ToList();
             return query;
         }
 
