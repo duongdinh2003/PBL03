@@ -23,5 +23,13 @@ namespace PBL03.BLL
         {
             return dal.drawChartRevenue_DAL();
         }
+        public void AddOrUpdateRevenue_BLL(string id, float total, int customer)
+        {
+            dal.AddOrUpdateRevenue_DAL(id, total, customer);
+        }
+        public string countRowInRevenue()
+        {
+            return dal.countRowInRevenue_DAL();
+        }
     }
 }

@@ -5,7 +5,7 @@
       <PropertyRef Name="Username" />
     </Key>
     <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="PW" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PW" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="NameType" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Bill">
@@ -117,8 +117,8 @@
     </Key>
     <Property Name="ID_Shift" Type="int" Nullable="false" />
     <Property Name="NameShift" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="StartTime" Type="datetime" Nullable="false" />
-    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="EndTime" Type="time" Precision="7" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

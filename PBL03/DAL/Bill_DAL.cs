@@ -9,7 +9,22 @@ namespace PBL03.DAL
 {
     public class Bill_DAL
     {
-        public void addBill_DAL(DateTime timein, string tb,  float subtotal)
+        public string getIDEmployee_DAL(string acc)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var epl = db.Employees.FirstOrDefault(p => p.Acc == acc);
+                if (epl != null)
+                {
+                    return epl.ID_Employee;
+                }
+                else
+                {
+                    return null;
+                }    
+            }    
+        }
+        public void addBill_DAL(DateTime timein, string idEmployee, string tb, float subtotal)
         {
             using (var db = new PBL3Entities1())
             {
@@ -17,7 +32,7 @@ namespace PBL03.DAL
                     {
                         TimeCheckIn = timein,
                         TimeCheckOut = timein,
-                        idEmployee = "TN001",
+                        idEmployee = idEmployee,
                         idTable = tb,
                         TotalMoney = subtotal,
                         statusBill = false
@@ -26,7 +41,7 @@ namespace PBL03.DAL
                 db.SaveChanges();
             }    
         }
-        public void updateBill_DAL(DateTime timein, string tb, float subtotal)
+        public void updateBill_DAL(DateTime timein, string idEmployee, string tb, float subtotal)
         {
             using (var db = new PBL3Entities1())
             {
@@ -42,7 +57,7 @@ namespace PBL03.DAL
                     {
                         TimeCheckIn = timein,
                         TimeCheckOut = timein,
-                        idEmployee = "TN001",
+                        idEmployee = idEmployee,
                         idTable = tb,
                         TotalMoney = subtotal,
                         statusBill = false

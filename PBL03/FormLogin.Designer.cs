@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbForgotPassword = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -50,7 +49,6 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.lbForgotPassword);
             this.guna2Panel1.Controls.Add(this.btnLogin);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
@@ -67,31 +65,19 @@
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(95, 439);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 31);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Change Password ?";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lbForgotPassword
             // 
             this.lbForgotPassword.BackColor = System.Drawing.Color.Transparent;
             this.lbForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbForgotPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbForgotPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lbForgotPassword.Location = new System.Drawing.Point(278, 439);
+            this.lbForgotPassword.Location = new System.Drawing.Point(187, 441);
             this.lbForgotPassword.Name = "lbForgotPassword";
             this.lbForgotPassword.Size = new System.Drawing.Size(148, 31);
             this.lbForgotPassword.TabIndex = 15;
             this.lbForgotPassword.Text = "Forgot Password ?";
             this.lbForgotPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbForgotPassword.Click += new System.EventHandler(this.lbForgotPassword_Click);
             // 
             // btnLogin
             // 
@@ -147,9 +133,9 @@
             this.tbPassword.Location = new System.Drawing.Point(117, 300);
             this.tbPassword.Multiline = true;
             this.tbPassword.Name = "tbPassword";
+            this.tbPassword.PasswordChar = '●';
             this.tbPassword.Size = new System.Drawing.Size(320, 30);
             this.tbPassword.TabIndex = 7;
-            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // panel1
             // 
@@ -244,7 +230,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private System.Windows.Forms.Label lbForgotPassword;
-        private System.Windows.Forms.Label label1;
     }
 }
 

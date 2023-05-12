@@ -14,13 +14,17 @@ namespace PBL03.BLL
         {
             dal = new Bill_DAL();
         }
-        public void addBill_BLL(DateTime timein, string tb, float subtotal)
+        public string getIDEmployee_BLL(string acc)
         {
-            dal.addBill_DAL(timein, tb, subtotal);
+            return dal.getIDEmployee_DAL(acc);
         }
-        public void updateBill_BLL(DateTime timein, string tb, float subtotal)
+        public void addBill_BLL(DateTime timein, string idEmployee, string tb, float subtotal)
         {
-            dal.updateBill_DAL(timein, tb, subtotal);
+            dal.addBill_DAL(timein, idEmployee, tb, subtotal);
+        }
+        public void updateBill_BLL(DateTime timein, string idEmployee, string tb, float subtotal)
+        {
+            dal.updateBill_DAL(timein, idEmployee, tb, subtotal);
         }
         public void addBillHistoryWithDC_BLL(string tb, DateTime dt, float subtotal, float paidbyCustomer, float change, int people)
         {

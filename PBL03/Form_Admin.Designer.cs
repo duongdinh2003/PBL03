@@ -325,6 +325,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.Panel pnShow;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private System.Windows.Forms.Label lbAdmin;
+        public System.Windows.Forms.Label lbAdmin;
     }
 }

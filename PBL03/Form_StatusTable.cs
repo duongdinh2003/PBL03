@@ -99,10 +99,11 @@ namespace PBL03
                             btn.FillColor = Color.Red;
                             Change_StatusTable_BLL bll = new Change_StatusTable_BLL();
                             bll.changeStatus(btn.Text, true, (int)numberOfPeople.Value);
-
+                            FormMain fm = (FormMain)Application.OpenForms["FormMain"];
                             bll.setColor_Table(flowLayout_Table);
                             Form_Order ftn = new Form_Order();
                             ftn.lbTable.Text = btn.Text;
+                            ftn.lbUserName.Text = fm.lbNameUser.Text;
                             ftn.lbNumberCustomer.Text = numberOfPeople.Value.ToString();
                             ftn.Show();
                             Form_StatusTable_Load(null, null);
@@ -118,8 +119,10 @@ namespace PBL03
                     DialogResult result = MessageBox.Show("Bàn này đã được chọn\nBạn có muốn gọi thêm món cho bàn này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
+                        FormMain fm = (FormMain)Application.OpenForms["FormMain"];
                         Form_Order ftn = new Form_Order();
                         ftn.lbTable.Text = btn.Text;
+                        ftn.lbUserName.Text = fm.lbNameUser.Text;
                         ftn.lbNumberCustomer.Text = order.getNumberOfCustomers_BLL(btn.Text).ToString();
                         ftn.btnSave.Text = "Update";
                         ftn.Show();

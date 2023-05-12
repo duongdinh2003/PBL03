@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnMenu = new System.Windows.Forms.Panel();
+            this.btnReset = new Guna.UI2.WinForms.Guna2Button();
             this.btnCollapse = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnHomeDown = new Guna.UI2.WinForms.Guna2Button();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
@@ -51,6 +52,7 @@
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnMenu.Controls.Add(this.btnReset);
             this.pnMenu.Controls.Add(this.btnCollapse);
             this.pnMenu.Controls.Add(this.btnHomeDown);
             this.pnMenu.Controls.Add(this.btnDelete);
@@ -62,6 +64,25 @@
             this.pnMenu.Size = new System.Drawing.Size(199, 707);
             this.pnMenu.TabIndex = 0;
             this.pnMenu.Visible = false;
+            // 
+            // btnReset
+            // 
+            this.btnReset.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReset.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReset.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReset.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReset.FillColor = System.Drawing.Color.Transparent;
+            this.btnReset.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
+            this.btnReset.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnReset.ImageSize = new System.Drawing.Size(15, 15);
+            this.btnReset.Location = new System.Drawing.Point(0, 247);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(199, 77);
+            this.btnReset.TabIndex = 4;
+            this.btnReset.Text = "Reset";
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnCollapse
             // 
@@ -107,7 +128,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
             this.btnDelete.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnDelete.Location = new System.Drawing.Point(0, 374);
+            this.btnDelete.Location = new System.Drawing.Point(0, 496);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(199, 77);
             this.btnDelete.TabIndex = 2;
@@ -125,7 +146,7 @@
             this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnEdit.Location = new System.Drawing.Point(0, 291);
+            this.btnEdit.Location = new System.Drawing.Point(0, 413);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(199, 77);
             this.btnEdit.TabIndex = 1;
@@ -144,7 +165,7 @@
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnAdd.ImageSize = new System.Drawing.Size(15, 15);
-            this.btnAdd.Location = new System.Drawing.Point(0, 208);
+            this.btnAdd.Location = new System.Drawing.Point(0, 330);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(199, 77);
             this.btnAdd.TabIndex = 0;
@@ -266,6 +287,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_QuanLyThuNgan";
             this.Text = "Form_QuanLyThuNgan";
+            this.Load += new System.EventHandler(this.Form_QuanLyThuNgan_Load);
             this.pnMenu.ResumeLayout(false);
             this.pnExpand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvShow)).EndInit();
@@ -286,5 +308,6 @@
         private Guna.UI2.WinForms.Guna2TileButton btnCollapse;
         private System.Windows.Forms.Panel pnDisplayFunction;
         private Guna.UI2.WinForms.Guna2DataGridView dtgvShow;
+        private Guna.UI2.WinForms.Guna2Button btnReset;
     }
 }

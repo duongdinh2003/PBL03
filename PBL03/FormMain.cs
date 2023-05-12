@@ -32,17 +32,6 @@ namespace PBL03
             mn.Show();
         }
 
-        private void btnQLNV_Click(object sender, EventArgs e)
-        {
-            pnStast.Height = btnQLNV.Height;
-            pnStast.Top = btnQLNV.Top;
-            pnShow.Controls.Clear();
-            Form_MEmployee me = new Form_MEmployee();
-            me.TopLevel = false;
-            pnShow.Controls.Add(me);
-            me.Size = pnShow.Size;
-            me.Show();
-        }
 
         private void btnStatus_Table_Click(object sender, EventArgs e)
         {
@@ -61,6 +50,29 @@ namespace PBL03
             pnStast.Height = btn_ManageBill.Height;
             pnStast.Top = btn_ManageBill.Top;
             pnShow.Controls.Clear();
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            pnShow.Controls.Clear();
+            FormChangePass fm = new FormChangePass();
+            fm.tbUser.Text = lbNameUser.Text;
+            fm.TopLevel = false;
+            fm.Size = pnShow.Size;
+            pnShow.Controls.Add(fm);
+            fm.Show();
+        }
+
+        private void btnViewCalendar_Click(object sender, EventArgs e)
+        {
+            pnStast.Height = btnViewCalendar.Height;
+            pnStast.Top = btnViewCalendar.Top;
+            pnShow.Controls.Clear();
+            Form_ViewSchedule fv = new Form_ViewSchedule();
+            fv.TopLevel = false;
+            pnShow.Controls.Add(fv);
+            fv.Size = pnShow.Size;
+            fv.Show();
         }
     }
 }

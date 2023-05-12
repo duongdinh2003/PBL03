@@ -25,13 +25,26 @@ namespace PBL03
             if (btnSelect.Visible == false)
             { 
                 btnSelect.Visible = true;
-                UserControl_Order uo = new UserControl_Order();
                 Form_Order f1 = (Form_Order)Application.OpenForms["Form_Order"];
-                uo.lbFood.Text = lbFood.Text;
-                uo.lbNameTable.Text = f1.lbTable.Text;
-                uo.lbPrice.Text = lbPrice.Text;
-                uo.numericquantity.Value = 1;
-                f1.flowLayout_Order.Controls.Add(uo);
+                bool isAdded = false;
+                foreach (UserControl_Order i in f1.flowLayout_Order.Controls)
+                {
+                    if (i.lbFood.Text == lbFood.Text)
+                    {
+                        isAdded = true;
+                        i.numericquantity.Value++;
+                        break;
+                    }
+                }
+                if (!isAdded)
+                {
+                    UserControl_Order uo = new UserControl_Order();
+                    uo.lbFood.Text = lbFood.Text;
+                    uo.lbNameTable.Text = f1.lbTable.Text;
+                    uo.lbPrice.Text = lbPrice.Text;
+                    uo.numericquantity.Value = 1;
+                    f1.flowLayout_Order.Controls.Add(uo);
+                }
             }
         }
             

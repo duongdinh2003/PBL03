@@ -5,7 +5,7 @@
       <PropertyRef Name="Username" />
     </Key>
     <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="PW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PW" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="NameType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Acc__693CA210" FromRole="Account" ToRole="Employee" />
   </EntityType>
@@ -135,8 +135,8 @@
     </Key>
     <Property Name="ID_Shift" Type="Int32" Nullable="false" />
     <Property Name="NameShift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="EndTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartTime" Type="Time" Nullable="false" />
+    <Property Name="EndTime" Type="Time" Nullable="false" />
     <NavigationProperty Name="WorkSchedules" Relationship="Self.FK__WorkSched__IDShi__06CD04F7" FromRole="ShiftWork" ToRole="WorkSchedule" />
   </EntityType>
   <EntityType Name="sysdiagram">

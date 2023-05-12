@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\software_demo\PBL03\PBL03-master\PBL03-master\PBL03\DB_PBL3.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\PBL\PBL3\PBL03-master\PBL03\DB_PBL3.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

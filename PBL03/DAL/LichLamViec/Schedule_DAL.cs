@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PBL03.DAL.LichLamViec
+{
+    internal class Schedule_DAL
+    {
+        PBL3Entities1 db;
+        private static Schedule_DAL _Instance;
+        public static Schedule_DAL Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                {
+                    _Instance = new Schedule_DAL();
+                }
+                return _Instance;
+            }
+        }
+        public Schedule_DAL()
+        {
+            db = new PBL3Entities1();
+        }
+        public dynamic ShowSchedule_DAL()
+        {
+            var query = db.WorkSchedules.ToList();
+            return query;
+        }
+        //public void GetScheduleFollowEPL(string epl, RichTextBox rtb)
+        //{
+        //    var query = db.WorkSchedules
+        //        .Join(db.ShiftWorks, p => p.IDShift, c => c.ID_Shift, (p, c) => new { WorkSchedule = p, ShiftWork = c })
+        //        .Where(x => x.WorkSchedule.IDEmployee == epl)
+        //        .Select(x => new
+        //        {
+        //            x.WorkSchedule.IDEmployee,
+        //            x.ShiftWork.NameShift,
+        //            x.WorkSchedule.DateWork,
+        //            x.WorkSchedule.Note,
+        //        })
+        //        .ToList();
+        //    if (query.Any())
+        //    {
+        //        foreach (var item in query)
+        //        {
+        //            rtb.AppendText(" - " + item.NameShift.PadRight(10) + item.DateWork.ToShortDateString() + " - " + item.Note + "\n");
+        //        }
+        //    }
+        //    else
+        //    {
+        //        rtb.Text = "Hôm nay không có lịch làm việc";
+        //    }
+        //}
+        public List<string> GetScheduleFollowEPL(string epl)
+        {
+            List<string> list = new List<string>();
+            var query = db.WorkSchedules
+                .Join(db.ShiftWorks, p => p.IDShift, c => c.ID_Shift, (p, c) => new { WorkSchedule = p, ShiftWork = c })
+                .Where(x => x.WorkSchedule.IDEmployee == epl)
+                .Select(x => new
+                {
+                    x.WorkSchedule.IDEmployee,
+                    x.ShiftWork.NameShift,
+                    x.WorkSchedule.DateWork,
+                    x.WorkSchedule.Note,
+                })
+                .ToList();
+            foreach (var i in query)
+            {
+                list.Add(i.NameShift + ", " + i.DateWork + ", " + i.Note);
+            }
+            return list;
+        }
+        public string GetIDEmloyee(string acc)
+        {
+            var query = db.Employees.FirstOrDefault(p => p.Acc == acc);
+            return query.ID_Employee;
+        }
+    }
+}

@@ -136,3 +136,9 @@ D:\PBL\PBL3\PBL03-master\PBL03\bin\Debug\pt\Microsoft.ReportViewer.WinForms.reso
 D:\PBL\PBL3\PBL03-master\PBL03\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\PBL\PBL3\PBL03-master\PBL03\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\PBL\PBL3\PBL03-master\PBL03\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\PBL\PBL3\PBL03-master\PBL03\bin\Debug\BCrypt.Net.dll
+D:\PBL\PBL3\PBL03-master\PBL03\bin\Debug\BCrypt.Net.xml
+D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.FormForgot.resources
+D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.FormForgot2.resources
+D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.FormChangePass.resources
+D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.Form_ViewSchedule.resources

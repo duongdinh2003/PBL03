@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using PBL03.BLL.Quan_Ly;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,13 +84,44 @@ namespace PBL03
             fu.TopLevel = false;
             pnDisplayFunction.Controls.Add(fu);
             fu.Size = pnDisplayFunction.Size;
-            fu.Show();
+            if (dtgvShow.SelectedRows.Count > 0)
+            {
+                fu.Show();
+                fu.tbAccount.Text = dtgvShow.SelectedRows[0].Cells["Acc"].Value.ToString();
+                fu.tbAccount.Enabled = false;
+                fu.tbID.Text = dtgvShow.SelectedRows[0].Cells["ID_Employee"].Value.ToString();
+                fu.tbID.Enabled = false;
+                fu.tbPassword.Enabled = false;
+                fu.tbName.Text = dtgvShow.SelectedRows[0].Cells["Name_Employee"].Value.ToString();
+                fu.tbAddress.Text = dtgvShow.SelectedRows[0].Cells["Address_Employee"].Value.ToString();
+                fu.tbPhone.Text = dtgvShow.SelectedRows[0].Cells["PhoneNumber"].Value.ToString();
+                fu.tbSalary.Text = dtgvShow.SelectedRows[0].Cells["Salary"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn hàng để chỉnh sửa !");
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             pnDisplayFunction.Visible = false;
             dtgvShow.Visible = true;
+            if ((MessageBox.Show("Bạn có muốn xoá không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+            {
+                Manager_BLL.Instance.Delete(dtgvShow.SelectedRows[0].Cells["Id_Employee"].Value.ToString(), dtgvShow.SelectedRows[0].Cells["Acc"].Value.ToString());
+                MessageBox.Show("Xóa thành công, mời bạn nhấn Reset để cập nhật !");
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            dtgvShow.DataSource = Manager_BLL.Instance.Show();
+        }
+
+        private void Form_QuanLyThuNgan_Load(object sender, EventArgs e)
+        {
+            dtgvShow.DataSource = Manager_BLL.Instance.Show();
         }
     }
 }

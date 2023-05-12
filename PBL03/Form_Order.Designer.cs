@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Order));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbUserName = new System.Windows.Forms.Label();
             this.pnStast = new System.Windows.Forms.Panel();
             this.guna2TileButton4 = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnCream = new Guna.UI2.WinForms.Guna2TileButton();
@@ -61,16 +62,20 @@
             this.lbDateTime = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayout_OrderCustom.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.guna2PictureBox1);
+            this.panel1.Controls.Add(this.lbUserName);
             this.panel1.Controls.Add(this.pnStast);
             this.panel1.Controls.Add(this.guna2TileButton4);
             this.panel1.Controls.Add(this.btnCream);
@@ -81,6 +86,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(244, 793);
             this.panel1.TabIndex = 0;
+            // 
+            // lbUserName
+            // 
+            this.lbUserName.BackColor = System.Drawing.Color.Transparent;
+            this.lbUserName.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUserName.ForeColor = System.Drawing.Color.Cyan;
+            this.lbUserName.Location = new System.Drawing.Point(54, 187);
+            this.lbUserName.Name = "lbUserName";
+            this.lbUserName.Size = new System.Drawing.Size(138, 33);
+            this.lbUserName.TabIndex = 7;
+            this.lbUserName.Text = "UserName";
+            this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnStast
             // 
@@ -486,6 +503,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(30, 35);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(121, 122);
+            this.guna2PictureBox1.TabIndex = 8;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // Form_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -506,6 +534,7 @@
             this.panel3.ResumeLayout(false);
             this.flowLayout_OrderCustom.ResumeLayout(false);
             this.guna2GradientPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -543,5 +572,7 @@
         public Guna.UI2.WinForms.Guna2Button btnSave;
         public Guna.UI2.WinForms.Guna2Button btnPayNow;
         private Guna.UI2.WinForms.Guna2Button btnExitFormOrder;
+        public System.Windows.Forms.Label lbUserName;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

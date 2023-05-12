@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net, Version=0.1.4141.31969, Culture=neutral, PublicKeyToken=f3bc8f8c31beeb49, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net.0.1.0\lib\net35\BCrypt.Net.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -91,17 +94,25 @@
     </Compile>
     <Compile Include="BLL\Bill_BLL.cs" />
     <Compile Include="BLL\Change_StatusTable_BLL.cs" />
+    <Compile Include="BLL\LichLamViec\Schedule_BLL.cs" />
+    <Compile Include="BLL\Login\Login_BLL.cs" />
     <Compile Include="BLL\MenuFood_BLL.cs" />
     <Compile Include="BLL\OrderFood_BLL.cs" />
+    <Compile Include="BLL\QuanLy\Manager_BLL.cs" />
     <Compile Include="BLL\Revenue_BLL.cs" />
+    <Compile Include="BLL\ThuNgan\Cashier_BLL.cs" />
     <Compile Include="Cost.cs">
       <DependentUpon>DB_PBL3.tt</DependentUpon>
     </Compile>
     <Compile Include="DAL\Bill_DAL.cs" />
     <Compile Include="DAL\Change_StatusTable_DAL.cs" />
+    <Compile Include="DAL\LichLamViec\Schedule_DAL.cs" />
+    <Compile Include="DAL\Login\Login_DAL.cs" />
     <Compile Include="DAL\MenuFood_DAL.cs" />
     <Compile Include="DAL\OrderFood_DAL.cs" />
+    <Compile Include="DAL\QuanLy\Manager_DAL.cs" />
     <Compile Include="DAL\Revenue_DAL.cs" />
+    <Compile Include="DAL\ThuNgan\Cashier_DAL.cs" />
     <Compile Include="DB_PBL3.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +139,24 @@
     </Compile>
     <Compile Include="FoodCategory.cs">
       <DependentUpon>DB_PBL3.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangePass.Designer.cs">
+      <DependentUpon>FormChangePass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormForgot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgot.Designer.cs">
+      <DependentUpon>FormForgot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormForgot2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgot2.Designer.cs">
+      <DependentUpon>FormForgot2.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -195,6 +224,12 @@
     <Compile Include="Form_Update.Designer.cs">
       <DependentUpon>Form_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_ViewSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ViewSchedule.Designer.cs">
+      <DependentUpon>Form_ViewSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderTable.cs">
       <DependentUpon>DB_PBL3.tt</DependentUpon>
     </Compile>
@@ -240,6 +275,15 @@
     <Compile Include="WorkSchedule.cs">
       <DependentUpon>DB_PBL3.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormChangePass.resx">
+      <DependentUpon>FormChangePass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgot.resx">
+      <DependentUpon>FormForgot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgot2.resx">
+      <DependentUpon>FormForgot2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Update.resx">
       <DependentUpon>Form_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ViewSchedule.resx">
+      <DependentUpon>Form_ViewSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

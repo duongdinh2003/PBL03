@@ -32,12 +32,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_ManageBill = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnStatus_Table = new Guna.UI2.WinForms.Guna2TileButton();
-            this.btnQLNV = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnViewCalendar = new Guna.UI2.WinForms.Guna2TileButton();
             this.pnStast = new System.Windows.Forms.Panel();
             this.btnMenu = new Guna.UI2.WinForms.Guna2TileButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbNameUser = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnChangePass = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
@@ -51,10 +52,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.btn_ManageBill);
             this.panel1.Controls.Add(this.btnStatus_Table);
-            this.panel1.Controls.Add(this.btnQLNV);
+            this.panel1.Controls.Add(this.btnViewCalendar);
             this.panel1.Controls.Add(this.pnStast);
             this.panel1.Controls.Add(this.btnMenu);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbNameUser);
             this.panel1.Controls.Add(this.guna2PictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -98,23 +99,23 @@
             this.btnStatus_Table.Text = "Status table";
             this.btnStatus_Table.Click += new System.EventHandler(this.btnStatus_Table_Click);
             // 
-            // btnQLNV
+            // btnViewCalendar
             // 
-            this.btnQLNV.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLNV.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQLNV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQLNV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQLNV.FillColor = System.Drawing.Color.Transparent;
-            this.btnQLNV.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQLNV.ForeColor = System.Drawing.Color.White;
-            this.btnQLNV.Image = ((System.Drawing.Image)(resources.GetObject("btnQLNV.Image")));
-            this.btnQLNV.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnQLNV.Location = new System.Drawing.Point(12, 394);
-            this.btnQLNV.Name = "btnQLNV";
-            this.btnQLNV.Size = new System.Drawing.Size(225, 93);
-            this.btnQLNV.TabIndex = 3;
-            this.btnQLNV.Text = "Management Employee";
-            this.btnQLNV.Click += new System.EventHandler(this.btnQLNV_Click);
+            this.btnViewCalendar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewCalendar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnViewCalendar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnViewCalendar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnViewCalendar.FillColor = System.Drawing.Color.Transparent;
+            this.btnViewCalendar.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewCalendar.ForeColor = System.Drawing.Color.White;
+            this.btnViewCalendar.Image = ((System.Drawing.Image)(resources.GetObject("btnViewCalendar.Image")));
+            this.btnViewCalendar.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnViewCalendar.Location = new System.Drawing.Point(12, 394);
+            this.btnViewCalendar.Name = "btnViewCalendar";
+            this.btnViewCalendar.Size = new System.Drawing.Size(225, 93);
+            this.btnViewCalendar.TabIndex = 3;
+            this.btnViewCalendar.Text = "My Schedule";
+            this.btnViewCalendar.Click += new System.EventHandler(this.btnViewCalendar_Click);
             // 
             // pnStast
             // 
@@ -142,29 +143,33 @@
             this.btnMenu.Text = "Menu";
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // label1
+            // lbNameUser
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(66, 207);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbNameUser.BackColor = System.Drawing.Color.Transparent;
+            this.lbNameUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbNameUser.Location = new System.Drawing.Point(66, 207);
+            this.lbNameUser.Name = "lbNameUser";
+            this.lbNameUser.Size = new System.Drawing.Size(100, 23);
+            this.lbNameUser.TabIndex = 1;
+            this.lbNameUser.Text = "label1";
+            this.lbNameUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox1
             // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
             this.guna2PictureBox1.Location = new System.Drawing.Point(30, 26);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(175, 166);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(121, 118);
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel2.Controls.Add(this.btnChangePass);
             this.panel2.Controls.Add(this.guna2ControlBox2);
             this.panel2.Controls.Add(this.guna2ControlBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -172,6 +177,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1345, 83);
             this.panel2.TabIndex = 1;
+            // 
+            // btnChangePass
+            // 
+            this.btnChangePass.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChangePass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangePass.FillColor = System.Drawing.Color.Peru;
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnChangePass.ForeColor = System.Drawing.Color.White;
+            this.btnChangePass.Location = new System.Drawing.Point(687, 26);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(180, 45);
+            this.btnChangePass.TabIndex = 5;
+            this.btnChangePass.Text = "Change Password";
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // guna2ControlBox2
             // 
@@ -228,15 +251,16 @@
 
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2TileButton btnStatus_Table;
-        private Guna.UI2.WinForms.Guna2TileButton btnQLNV;
+        private Guna.UI2.WinForms.Guna2TileButton btnViewCalendar;
         private System.Windows.Forms.Panel pnStast;
         private Guna.UI2.WinForms.Guna2TileButton btnMenu;
-        private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel pnShow;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private Guna.UI2.WinForms.Guna2TileButton btn_ManageBill;
+        public System.Windows.Forms.Label lbNameUser;
+        private Guna.UI2.WinForms.Guna2Button btnChangePass;
     }
 }

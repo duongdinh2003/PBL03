@@ -22,8 +22,8 @@ namespace PBL03
     
         public int ID_Shift { get; set; }
         public string NameShift { get; set; }
-        public System.DateTime StartTime { get; set; }
-        public System.DateTime EndTime { get; set; }
+        public System.TimeSpan StartTime { get; set; }
+        public System.TimeSpan EndTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkSchedule> WorkSchedules { get; set; }

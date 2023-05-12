@@ -38,8 +38,8 @@
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2TileButton2 = new Guna.UI2.WinForms.Guna2TileButton();
-            this.guna2TileButton1 = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2TileButton();
+            this.btnOK = new Guna.UI2.WinForms.Guna2TileButton();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbAccount = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -199,39 +199,41 @@
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(188, 34);
             this.guna2HtmlLabel2.TabIndex = 24;
-            this.guna2HtmlLabel2.Text = "ID Employee :";
+            this.guna2HtmlLabel2.Text = "ID Employee";
             // 
-            // guna2TileButton2
+            // btnCancel
             // 
-            this.guna2TileButton2.BorderRadius = 10;
-            this.guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton2.FillColor = System.Drawing.Color.Turquoise;
-            this.guna2TileButton2.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TileButton2.ForeColor = System.Drawing.Color.Black;
-            this.guna2TileButton2.Location = new System.Drawing.Point(297, 586);
-            this.guna2TileButton2.Name = "guna2TileButton2";
-            this.guna2TileButton2.Size = new System.Drawing.Size(186, 72);
-            this.guna2TileButton2.TabIndex = 23;
-            this.guna2TileButton2.Text = "Cancel";
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCancel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCancel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCancel.FillColor = System.Drawing.Color.Turquoise;
+            this.btnCancel.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(347, 582);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(186, 72);
+            this.btnCancel.TabIndex = 23;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // guna2TileButton1
+            // btnOK
             // 
-            this.guna2TileButton1.BorderRadius = 10;
-            this.guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2TileButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2TileButton1.FillColor = System.Drawing.Color.Turquoise;
-            this.guna2TileButton1.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TileButton1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TileButton1.Location = new System.Drawing.Point(628, 586);
-            this.guna2TileButton1.Name = "guna2TileButton1";
-            this.guna2TileButton1.Size = new System.Drawing.Size(186, 72);
-            this.guna2TileButton1.TabIndex = 22;
-            this.guna2TileButton1.Text = "OK";
+            this.btnOK.BorderRadius = 10;
+            this.btnOK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOK.FillColor = System.Drawing.Color.Turquoise;
+            this.btnOK.Font = new System.Drawing.Font("Comic Sans MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.ForeColor = System.Drawing.Color.Black;
+            this.btnOK.Location = new System.Drawing.Point(678, 582);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(186, 72);
+            this.btnOK.TabIndex = 22;
+            this.btnOK.Text = "OK";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // tbPassword
             // 
@@ -310,8 +312,8 @@
             this.Controls.Add(this.guna2HtmlLabel4);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2HtmlLabel2);
-            this.Controls.Add(this.guna2TileButton2);
-            this.Controls.Add(this.guna2TileButton1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbAccount);
             this.Controls.Add(this.guna2HtmlLabel1);
@@ -334,8 +336,8 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton2;
-        private Guna.UI2.WinForms.Guna2TileButton guna2TileButton1;
+        private Guna.UI2.WinForms.Guna2TileButton btnCancel;
+        private Guna.UI2.WinForms.Guna2TileButton btnOK;
         public Guna.UI2.WinForms.Guna2TextBox tbPassword;
         public Guna.UI2.WinForms.Guna2TextBox tbAccount;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;

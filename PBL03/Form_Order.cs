@@ -17,6 +17,7 @@ namespace PBL03
         private OrderFood_BLL bll;
         private Bill_BLL bill;
         private Change_StatusTable_BLL statusTable;
+        private Revenue_BLL revenue;
         private bool btnSaveClicked = false;
         public Form_Order()
         {
@@ -27,6 +28,7 @@ namespace PBL03
             bll = new OrderFood_BLL();
             bill = new Bill_BLL();
             statusTable = new Change_StatusTable_BLL();
+            revenue = new Revenue_BLL();
             timer1.Interval = 1000;
             timer1.Start();
         }
@@ -141,8 +143,9 @@ namespace PBL03
                     count++; 
                     bll.orderMeal_BLL(count, bll.getIDFood(uo.lbFood.Text), (int)uo.numericquantity.Value, lbTable.Text);
                     bll.subQuantityFood(uo.lbFood.Text, (int)uo.numericquantity.Value);
-                }    
-                bill.addBill_BLL(dt, lbTable.Text, sub);
+                }
+                string epl = bill.getIDEmployee_BLL(lbUserName.Text);
+                bill.addBill_BLL(dt, epl, lbTable.Text, sub);
                 MessageBox.Show("Đã lưu order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -169,8 +172,9 @@ namespace PBL03
                         bll.orderMeal_BLL(count, bll.getIDFood(uo.lbFood.Text), (int)uo.numericquantity.Value, lbTable.Text);
                         bll.subQuantityFood(uo.lbFood.Text, (int)uo.numericquantity.Value);
                     }    
-                }    
-                bill.updateBill_BLL(dt, lbTable.Text, sub);
+                }
+                string epl = bill.getIDEmployee_BLL(lbUserName.Text);
+                bill.updateBill_BLL(dt, epl, lbTable.Text, sub);
                 MessageBox.Show("Đã cập nhật order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }    
         }
@@ -181,9 +185,12 @@ namespace PBL03
             {
                 DateTime dt = DateTime.Now;
                 string t = lbSubtotal.Text;
+                string tt = lbTotal.Text;
                 int endIndex = t.IndexOf(" ");
                 string st = t.Substring(0, endIndex);
+                string stt = tt.Substring(0, endIndex);
                 float sub = Convert.ToSingle(st);
+                float total = Convert.ToSingle(stt);
                 float change = 0;
                 int people = Convert.ToInt32(lbNumberCustomer.Text);
                 if (people >= 5 && people <= 10)
@@ -202,6 +209,7 @@ namespace PBL03
                 bill.payBill_BLL(dt, lbTable.Text);
                 bll.removeOrder_BLL(lbTable.Text);
                 statusTable.refreshTable_BLL(lbTable.Text);
+                revenue.AddOrUpdateRevenue_BLL(revenue.countRowInRevenue(), total, people);
                 Form_StatusTable ftb = (Form_StatusTable)Application.OpenForms["Form_StatusTable"];
                 ftb.setColorTable();
                 MessageBox.Show("Đã thanh toán hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,14 +219,18 @@ namespace PBL03
             {
                 DateTime dt = DateTime.Now;
                 string t = lbSubtotal.Text;
+                string tt = lbTotal.Text;
                 int endIndex = t.IndexOf(" ");
                 string st = t.Substring(0, endIndex);
+                string stt = tt.Substring(0, endIndex);
                 float sub = Convert.ToSingle(st);
+                float total = Convert.ToSingle(stt);
                 int people = Convert.ToInt32(lbNumberCustomer.Text);
                 bill.addBillHistoryWithoutDC_BLL(lbTable.Text, dt, sub, sub + 50000, "KM003", 50000, people);
                 bill.payBill_BLL(dt, lbTable.Text);
                 bll.removeOrder_BLL(lbTable.Text);
                 statusTable.refreshTable_BLL(lbTable.Text);
+                revenue.AddOrUpdateRevenue_BLL(revenue.countRowInRevenue(), total, people);
                 Form_StatusTable ftb = (Form_StatusTable)Application.OpenForms["Form_StatusTable"];
                 ftb.setColorTable();
                 MessageBox.Show("Đã thanh toán hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
