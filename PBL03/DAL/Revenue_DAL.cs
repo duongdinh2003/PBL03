@@ -13,7 +13,7 @@ namespace PBL03.DAL
         {
             using (var db = new PBL3Entities1())
             {
-                var query = db.Revenues.ToList();
+                var query = db.Revenues.OrderBy(p => p.RevenueInDate).ToList();
                 return query;
             }    
         }

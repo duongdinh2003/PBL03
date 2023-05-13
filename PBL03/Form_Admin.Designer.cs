@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin));
             this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnManageFood = new System.Windows.Forms.Button();
             this.btnManageSchedule = new System.Windows.Forms.Button();
             this.pnQLDT = new System.Windows.Forms.Panel();
             this.btnDoanhThu = new System.Windows.Forms.Button();
@@ -45,16 +46,22 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lbAdmin = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
-            this.btnManageFood = new System.Windows.Forms.Button();
+            this.pnSetting = new System.Windows.Forms.Panel();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowProfile = new Guna.UI2.WinForms.Guna2Button();
+            this.btnChangePass = new Guna.UI2.WinForms.Guna2Button();
             this.pnMenu.SuspendLayout();
             this.pnQLDT.SuspendLayout();
             this.pnQLNV.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.pnShow.SuspendLayout();
+            this.pnSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnMenu
@@ -74,6 +81,21 @@
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(276, 812);
             this.pnMenu.TabIndex = 1;
+            // 
+            // btnManageFood
+            // 
+            this.btnManageFood.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageFood.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.btnManageFood.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManageFood.Location = new System.Drawing.Point(0, 810);
+            this.btnManageFood.Name = "btnManageFood";
+            this.btnManageFood.Size = new System.Drawing.Size(255, 88);
+            this.btnManageFood.TabIndex = 20;
+            this.btnManageFood.Text = "Quản lý món ăn";
+            this.btnManageFood.UseVisualStyleBackColor = false;
+            this.btnManageFood.Click += new System.EventHandler(this.btnManageFood_Click);
             // 
             // btnManageSchedule
             // 
@@ -268,6 +290,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel1.Controls.Add(this.btnSetting);
             this.panel1.Controls.Add(this.guna2ControlBox2);
             this.panel1.Controls.Add(this.guna2ControlBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -275,6 +298,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1405, 105);
             this.panel1.TabIndex = 3;
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetting.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSetting.BorderRadius = 5;
+            this.btnSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetting.FillColor = System.Drawing.Color.Transparent;
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnSetting.Location = new System.Drawing.Point(1347, 60);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(55, 42);
+            this.btnSetting.TabIndex = 2;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // guna2ControlBox2
             // 
@@ -299,25 +342,76 @@
             // 
             // pnShow
             // 
+            this.pnShow.Controls.Add(this.pnSetting);
             this.pnShow.Location = new System.Drawing.Point(276, 105);
             this.pnShow.Name = "pnShow";
             this.pnShow.Size = new System.Drawing.Size(1405, 705);
             this.pnShow.TabIndex = 4;
             // 
-            // btnManageFood
+            // pnSetting
             // 
-            this.btnManageFood.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnManageFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageFood.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
-            this.btnManageFood.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnManageFood.Location = new System.Drawing.Point(0, 810);
-            this.btnManageFood.Name = "btnManageFood";
-            this.btnManageFood.Size = new System.Drawing.Size(255, 88);
-            this.btnManageFood.TabIndex = 20;
-            this.btnManageFood.Text = "Quản lý món ăn";
-            this.btnManageFood.UseVisualStyleBackColor = false;
-            this.btnManageFood.Click += new System.EventHandler(this.btnManageFood_Click);
+            this.pnSetting.Controls.Add(this.btnLogout);
+            this.pnSetting.Controls.Add(this.btnShowProfile);
+            this.pnSetting.Controls.Add(this.btnChangePass);
+            this.pnSetting.Location = new System.Drawing.Point(1202, 3);
+            this.pnSetting.Name = "pnSetting";
+            this.pnSetting.Size = new System.Drawing.Size(200, 155);
+            this.pnSetting.TabIndex = 0;
+            this.pnSetting.Visible = false;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.Peru;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.Location = new System.Drawing.Point(0, 105);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(200, 45);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Log out";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnShowProfile
+            // 
+            this.btnShowProfile.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProfile.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowProfile.FillColor = System.Drawing.Color.Peru;
+            this.btnShowProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowProfile.ForeColor = System.Drawing.Color.Black;
+            this.btnShowProfile.Location = new System.Drawing.Point(0, 54);
+            this.btnShowProfile.Name = "btnShowProfile";
+            this.btnShowProfile.Size = new System.Drawing.Size(200, 45);
+            this.btnShowProfile.TabIndex = 1;
+            this.btnShowProfile.Text = "My profile";
+            this.btnShowProfile.Click += new System.EventHandler(this.btnShowProfile_Click);
+            // 
+            // btnChangePass
+            // 
+            this.btnChangePass.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChangePass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChangePass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChangePass.FillColor = System.Drawing.Color.Peru;
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.ForeColor = System.Drawing.Color.Black;
+            this.btnChangePass.Location = new System.Drawing.Point(0, 3);
+            this.btnChangePass.Name = "btnChangePass";
+            this.btnChangePass.Size = new System.Drawing.Size(200, 45);
+            this.btnChangePass.TabIndex = 0;
+            this.btnChangePass.Text = "Change Password";
+            this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
             // 
             // Form_Admin
             // 
@@ -337,6 +431,8 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.pnShow.ResumeLayout(false);
+            this.pnSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -363,5 +459,10 @@
         public System.Windows.Forms.Label lbAdmin;
         private System.Windows.Forms.Button btnManageSchedule;
         private System.Windows.Forms.Button btnManageFood;
+        private Guna.UI2.WinForms.Guna2Button btnSetting;
+        private System.Windows.Forms.Panel pnSetting;
+        private Guna.UI2.WinForms.Guna2Button btnChangePass;
+        private Guna.UI2.WinForms.Guna2Button btnShowProfile;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

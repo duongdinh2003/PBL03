@@ -13,9 +13,13 @@ namespace PBL03
     // Hello World
     public partial class Form_Admin : Form
     {
+        private int flag = 0;
         public Form_Admin()
         {
             InitializeComponent();
+            this.AutoScroll = false;
+            this.AutoSize = true;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
         private void hideSubMenu()
         {
@@ -127,6 +131,44 @@ namespace PBL03
             pnShow.Controls.Add(fmf);
             fmf.Size = pnShow.Size;
             fmf.Show();
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            pnShow.Controls.Clear();
+            FormChangePass fcp = new FormChangePass();
+            fcp.tbUser.Text = lbAdmin.Text;
+            fcp.TopLevel = false;
+            fcp.Size = pnShow.Size;
+            pnShow.Controls.Add(fcp);
+            fcp.Show();
+            pnSetting.Visible = false;
+        }
+
+        private void btnShowProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FormLogin fl = (FormLogin)Application.OpenForms["FormLogin"];
+            fl.tbUsername.Text = string.Empty;
+            fl.tbPassword.Text = string.Empty;
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            ++flag;
+            if (flag % 2 != 0)
+            {
+                pnSetting.Visible = true;
+            }
+            else
+            {
+                pnSetting.Visible = false;
+            }
         }
     }
 }

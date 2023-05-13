@@ -94,7 +94,7 @@ namespace PBL03
 
         private void btnShowProfile_Click(object sender, EventArgs e)
         {
-
+        //    pnSetting.Visible = false;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

@@ -30,6 +30,10 @@ namespace PBL03.BLL.LichLamViec
         {
             return Schedule_DAL.Instance.SearchSchedule(name, shift);
         }
+        public dynamic ShowAllScheduleOfEPL(string name)
+        {
+            return Schedule_DAL.Instance.ShowAllScheduleOfEPL(name);
+        }
         //public void GetScheduleFollowEPL(string epl, RichTextBox rtb)
         //{
         //    Schedule_DAL.Instance.GetScheduleFollowEPL(epl, rtb);

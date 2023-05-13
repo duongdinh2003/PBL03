@@ -94,10 +94,21 @@ namespace PBL03
             {
                 MessageBox.Show("Bạn chưa chọn ca để tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (cbbShiftWork.SelectedItem.ToString() == "Tất cả ca")
+            else if (cbbShiftWork.SelectedItem.ToString() == "Tất cả ca" && txtSearchSchedule.Text == string.Empty)
             {
                 dgvWorkSchedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                 dgvWorkSchedule.DataSource = Schedule_BLL.Instance.ShowSchedule();
+                dgvWorkSchedule.Columns["ID_Schedule"].HeaderText = "ID";
+                dgvWorkSchedule.Columns["Name_Employee"].HeaderText = "Tên nhân viên";
+                dgvWorkSchedule.Columns["NameShift"].HeaderText = "Ca";
+                dgvWorkSchedule.Columns["DateWork"].HeaderText = "Ngày làm";
+                dgvWorkSchedule.Columns["Note"].HeaderText = "Ghi chú";
+                dgvWorkSchedule.Visible = true;
+            }
+            else if (cbbShiftWork.SelectedItem.ToString() == "Tất cả ca" && txtSearchSchedule.Text != string.Empty)
+            {
+                dgvWorkSchedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgvWorkSchedule.DataSource = Schedule_BLL.Instance.ShowAllScheduleOfEPL(txtSearchSchedule.Text);
                 dgvWorkSchedule.Columns["ID_Schedule"].HeaderText = "ID";
                 dgvWorkSchedule.Columns["Name_Employee"].HeaderText = "Tên nhân viên";
                 dgvWorkSchedule.Columns["NameShift"].HeaderText = "Ca";

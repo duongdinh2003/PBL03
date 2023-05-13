@@ -55,6 +55,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.BackColor = System.Drawing.Color.PeachPuff;
             this.guna2Panel3.Controls.Add(this.rtbSchedule);
             this.guna2Panel3.Controls.Add(this.lbTitle);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Left;
