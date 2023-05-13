@@ -1,4 +1,5 @@
 ﻿using PBL03.BLL.LichLamViec;
+using PBL03.Supporter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace PBL03
         {
             InitializeComponent();
             ShowSchedule();
+            SetCBBShift();
         }
         private void ShowSchedule()
         {
@@ -30,6 +32,22 @@ namespace PBL03
             dgvWorkSchedule.Visible = true;
         }
 
+        private void SetCBBShift()
+        {
+            cbbShiftWork.Items.Add(new CBBItem
+            {
+                Value = 0,
+                Text = "Tất cả ca"
+            });
+            foreach (var item in Schedule_BLL.Instance.GetAllShift())
+            {
+                cbbShiftWork.Items.Add(new CBBItem
+                {
+                    Value = item.ID_Shift,
+                    Text = item.NameShift
+                });
+            }    
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Form_EditSchedule fe = new Form_EditSchedule();
@@ -67,6 +85,36 @@ namespace PBL03
                     Schedule_BLL.Instance.DeleteSchedule(id);
                     ShowSchedule();
                 }
+            }
+        }
+
+        private void btnSearchSchedule_Click(object sender, EventArgs e)
+        {
+            if (cbbShiftWork.Text == string.Empty)
+            {
+                MessageBox.Show("Bạn chưa chọn ca để tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (cbbShiftWork.SelectedItem.ToString() == "Tất cả ca")
+            {
+                dgvWorkSchedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgvWorkSchedule.DataSource = Schedule_BLL.Instance.ShowSchedule();
+                dgvWorkSchedule.Columns["ID_Schedule"].HeaderText = "ID";
+                dgvWorkSchedule.Columns["Name_Employee"].HeaderText = "Tên nhân viên";
+                dgvWorkSchedule.Columns["NameShift"].HeaderText = "Ca";
+                dgvWorkSchedule.Columns["DateWork"].HeaderText = "Ngày làm";
+                dgvWorkSchedule.Columns["Note"].HeaderText = "Ghi chú";
+                dgvWorkSchedule.Visible = true;
+            }    
+            else
+            {
+                dgvWorkSchedule.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgvWorkSchedule.DataSource = Schedule_BLL.Instance.SearchSchedule(txtSearchSchedule.Text, cbbShiftWork.SelectedItem.ToString());
+                dgvWorkSchedule.Columns["ID_Schedule"].HeaderText = "ID";
+                dgvWorkSchedule.Columns["Name_Employee"].HeaderText = "Tên nhân viên";
+                dgvWorkSchedule.Columns["NameShift"].HeaderText = "Ca";
+                dgvWorkSchedule.Columns["DateWork"].HeaderText = "Ngày làm";
+                dgvWorkSchedule.Columns["Note"].HeaderText = "Ghi chú";
+                dgvWorkSchedule.Visible = true;
             }
         }
     }

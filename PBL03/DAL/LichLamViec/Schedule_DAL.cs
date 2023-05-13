@@ -41,6 +41,22 @@ namespace PBL03.DAL.LichLamViec
                 .ToList();
             return query;
         }
+        public dynamic SearchSchedule(string name, string shift)
+        {
+            var query = db.WorkSchedules
+                .Join(db.Employees, p => p.IDEmployee, c => c.ID_Employee, (p, c) => new { WorkSchedule = p, Employee = c })
+                .Where(x => x.Employee.Name_Employee.Contains(name) && x.WorkSchedule.ShiftWork.NameShift == shift)
+                .Select(x => new
+                {
+                    x.WorkSchedule.ID_Schedule,
+                    x.Employee.Name_Employee,
+                    x.WorkSchedule.ShiftWork.NameShift,
+                    x.WorkSchedule.DateWork,
+                    x.WorkSchedule.Note
+                })
+                .ToList();
+            return query;
+        }
         //public void GetScheduleFollowEPL(string epl, RichTextBox rtb)
         //{
         //    var query = db.WorkSchedules

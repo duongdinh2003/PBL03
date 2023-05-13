@@ -31,8 +31,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lbTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.rtbSchedule = new System.Windows.Forms.RichTextBox();
+            this.lbTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +48,9 @@
             // guna2Panel2
             // 
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guna2Panel2.Location = new System.Drawing.Point(1206, 52);
+            this.guna2Panel2.Location = new System.Drawing.Point(1202, 52);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(113, 541);
+            this.guna2Panel2.Size = new System.Drawing.Size(117, 541);
             this.guna2Panel2.TabIndex = 1;
             // 
             // guna2Panel3
@@ -60,8 +60,18 @@
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 52);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(1200, 541);
+            this.guna2Panel3.Size = new System.Drawing.Size(1196, 541);
             this.guna2Panel3.TabIndex = 2;
+            // 
+            // rtbSchedule
+            // 
+            this.rtbSchedule.Enabled = false;
+            this.rtbSchedule.Font = new System.Drawing.Font("Consolas", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbSchedule.Location = new System.Drawing.Point(45, 100);
+            this.rtbSchedule.Name = "rtbSchedule";
+            this.rtbSchedule.Size = new System.Drawing.Size(774, 281);
+            this.rtbSchedule.TabIndex = 1;
+            this.rtbSchedule.Text = "";
             // 
             // lbTitle
             // 
@@ -74,15 +84,6 @@
             this.lbTitle.Size = new System.Drawing.Size(476, 62);
             this.lbTitle.TabIndex = 0;
             this.lbTitle.Text = "Lịch làm việc hôm nay";
-            // 
-            // rtbSchedule
-            // 
-            this.rtbSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtbSchedule.Location = new System.Drawing.Point(45, 100);
-            this.rtbSchedule.Name = "rtbSchedule";
-            this.rtbSchedule.Size = new System.Drawing.Size(774, 281);
-            this.rtbSchedule.TabIndex = 1;
-            this.rtbSchedule.Text = "";
             // 
             // Form_ViewSchedule
             // 

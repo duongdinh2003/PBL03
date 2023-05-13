@@ -117,5 +117,16 @@ namespace PBL03
             fms.Size = pnShow.Size;
             fms.Show();
         }
+
+        private void btnManageFood_Click(object sender, EventArgs e)
+        {
+            hideSubMenu();
+            pnShow.Controls.Clear();
+            Form_ManageFood fmf = new Form_ManageFood();
+            fmf.TopLevel = false;
+            pnShow.Controls.Add(fmf);
+            fmf.Size = pnShow.Size;
+            fmf.Show();
+        }
     }
 }

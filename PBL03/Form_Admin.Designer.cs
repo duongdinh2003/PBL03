@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin));
             this.pnMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnManageSchedule = new System.Windows.Forms.Button();
             this.pnQLDT = new System.Windows.Forms.Panel();
             this.btnDoanhThu = new System.Windows.Forms.Button();
             this.btnChiPhi = new System.Windows.Forms.Button();
@@ -47,7 +48,7 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
-            this.btnManageSchedule = new System.Windows.Forms.Button();
+            this.btnManageFood = new System.Windows.Forms.Button();
             this.pnMenu.SuspendLayout();
             this.pnQLDT.SuspendLayout();
             this.pnQLNV.SuspendLayout();
@@ -60,6 +61,7 @@
             // 
             this.pnMenu.AutoScroll = true;
             this.pnMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnMenu.Controls.Add(this.btnManageFood);
             this.pnMenu.Controls.Add(this.btnManageSchedule);
             this.pnMenu.Controls.Add(this.pnQLDT);
             this.pnMenu.Controls.Add(this.btnQLDT);
@@ -70,8 +72,24 @@
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMenu.Location = new System.Drawing.Point(0, 0);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(276, 810);
+            this.pnMenu.Size = new System.Drawing.Size(276, 812);
             this.pnMenu.TabIndex = 1;
+            // 
+            // btnManageSchedule
+            // 
+            this.btnManageSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnManageSchedule.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageSchedule.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.btnManageSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManageSchedule.Location = new System.Drawing.Point(0, 722);
+            this.btnManageSchedule.Name = "btnManageSchedule";
+            this.btnManageSchedule.Size = new System.Drawing.Size(255, 88);
+            this.btnManageSchedule.TabIndex = 19;
+            this.btnManageSchedule.Text = "Quản lý lịch làm";
+            this.btnManageSchedule.UseVisualStyleBackColor = false;
+            this.btnManageSchedule.Click += new System.EventHandler(this.btnManageSchedule_Click);
             // 
             // pnQLDT
             // 
@@ -81,7 +99,7 @@
             this.pnQLDT.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnQLDT.Location = new System.Drawing.Point(0, 509);
             this.pnQLDT.Name = "pnQLDT";
-            this.pnQLDT.Size = new System.Drawing.Size(276, 213);
+            this.pnQLDT.Size = new System.Drawing.Size(255, 213);
             this.pnQLDT.TabIndex = 18;
             this.pnQLDT.Visible = false;
             // 
@@ -93,7 +111,7 @@
             this.btnDoanhThu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnDoanhThu.Location = new System.Drawing.Point(0, 140);
             this.btnDoanhThu.Name = "btnDoanhThu";
-            this.btnDoanhThu.Size = new System.Drawing.Size(276, 70);
+            this.btnDoanhThu.Size = new System.Drawing.Size(255, 70);
             this.btnDoanhThu.TabIndex = 14;
             this.btnDoanhThu.Text = "Doanh thu";
             this.btnDoanhThu.UseVisualStyleBackColor = true;
@@ -107,7 +125,7 @@
             this.btnChiPhi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnChiPhi.Location = new System.Drawing.Point(0, 70);
             this.btnChiPhi.Name = "btnChiPhi";
-            this.btnChiPhi.Size = new System.Drawing.Size(276, 70);
+            this.btnChiPhi.Size = new System.Drawing.Size(255, 70);
             this.btnChiPhi.TabIndex = 12;
             this.btnChiPhi.Text = "Chi phí";
             this.btnChiPhi.UseVisualStyleBackColor = true;
@@ -121,7 +139,7 @@
             this.btnLoiNhuan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnLoiNhuan.Location = new System.Drawing.Point(0, 0);
             this.btnLoiNhuan.Name = "btnLoiNhuan";
-            this.btnLoiNhuan.Size = new System.Drawing.Size(276, 70);
+            this.btnLoiNhuan.Size = new System.Drawing.Size(255, 70);
             this.btnLoiNhuan.TabIndex = 13;
             this.btnLoiNhuan.Text = "Lợi nhuận";
             this.btnLoiNhuan.UseVisualStyleBackColor = true;
@@ -138,7 +156,7 @@
             this.btnQLDT.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnQLDT.Location = new System.Drawing.Point(0, 421);
             this.btnQLDT.Name = "btnQLDT";
-            this.btnQLDT.Size = new System.Drawing.Size(276, 88);
+            this.btnQLDT.Size = new System.Drawing.Size(255, 88);
             this.btnQLDT.TabIndex = 17;
             this.btnQLDT.Text = "Quản lý doanh thu";
             this.btnQLDT.UseVisualStyleBackColor = false;
@@ -151,7 +169,7 @@
             this.pnQLNV.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnQLNV.Location = new System.Drawing.Point(0, 281);
             this.pnQLNV.Name = "pnQLNV";
-            this.pnQLNV.Size = new System.Drawing.Size(276, 140);
+            this.pnQLNV.Size = new System.Drawing.Size(255, 140);
             this.pnQLNV.TabIndex = 16;
             this.pnQLNV.Visible = false;
             // 
@@ -163,7 +181,7 @@
             this.btnThuNgan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnThuNgan.Location = new System.Drawing.Point(0, 70);
             this.btnThuNgan.Name = "btnThuNgan";
-            this.btnThuNgan.Size = new System.Drawing.Size(276, 70);
+            this.btnThuNgan.Size = new System.Drawing.Size(255, 70);
             this.btnThuNgan.TabIndex = 13;
             this.btnThuNgan.Text = "Thu ngân";
             this.btnThuNgan.UseVisualStyleBackColor = true;
@@ -177,7 +195,7 @@
             this.btnPhucVu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnPhucVu.Location = new System.Drawing.Point(0, 0);
             this.btnPhucVu.Name = "btnPhucVu";
-            this.btnPhucVu.Size = new System.Drawing.Size(276, 70);
+            this.btnPhucVu.Size = new System.Drawing.Size(255, 70);
             this.btnPhucVu.TabIndex = 12;
             this.btnPhucVu.Text = "Phục vụ";
             this.btnPhucVu.UseVisualStyleBackColor = true;
@@ -194,7 +212,7 @@
             this.btnQLNV.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnQLNV.Location = new System.Drawing.Point(0, 193);
             this.btnQLNV.Name = "btnQLNV";
-            this.btnQLNV.Size = new System.Drawing.Size(276, 88);
+            this.btnQLNV.Size = new System.Drawing.Size(255, 88);
             this.btnQLNV.TabIndex = 15;
             this.btnQLNV.Text = "Quản lý nhân viên";
             this.btnQLNV.UseVisualStyleBackColor = false;
@@ -209,7 +227,7 @@
             this.btnForm_ThuNgan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
             this.btnForm_ThuNgan.Location = new System.Drawing.Point(0, 105);
             this.btnForm_ThuNgan.Name = "btnForm_ThuNgan";
-            this.btnForm_ThuNgan.Size = new System.Drawing.Size(276, 88);
+            this.btnForm_ThuNgan.Size = new System.Drawing.Size(255, 88);
             this.btnForm_ThuNgan.TabIndex = 14;
             this.btnForm_ThuNgan.Text = "Form thu ngân";
             this.btnForm_ThuNgan.UseVisualStyleBackColor = false;
@@ -222,7 +240,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(276, 105);
+            this.panel3.Size = new System.Drawing.Size(255, 105);
             this.panel3.TabIndex = 13;
             // 
             // guna2PictureBox1
@@ -286,27 +304,26 @@
             this.pnShow.Size = new System.Drawing.Size(1405, 705);
             this.pnShow.TabIndex = 4;
             // 
-            // btnManageSchedule
+            // btnManageFood
             // 
-            this.btnManageSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnManageSchedule.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnManageSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManageSchedule.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageSchedule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
-            this.btnManageSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnManageSchedule.Location = new System.Drawing.Point(0, 722);
-            this.btnManageSchedule.Name = "btnManageSchedule";
-            this.btnManageSchedule.Size = new System.Drawing.Size(276, 88);
-            this.btnManageSchedule.TabIndex = 19;
-            this.btnManageSchedule.Text = "Quản lý lịch làm";
-            this.btnManageSchedule.UseVisualStyleBackColor = false;
-            this.btnManageSchedule.Click += new System.EventHandler(this.btnManageSchedule_Click);
+            this.btnManageFood.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnManageFood.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageFood.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageFood.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.btnManageFood.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnManageFood.Location = new System.Drawing.Point(0, 810);
+            this.btnManageFood.Name = "btnManageFood";
+            this.btnManageFood.Size = new System.Drawing.Size(255, 88);
+            this.btnManageFood.TabIndex = 20;
+            this.btnManageFood.Text = "Quản lý món ăn";
+            this.btnManageFood.UseVisualStyleBackColor = false;
+            this.btnManageFood.Click += new System.EventHandler(this.btnManageFood_Click);
             // 
             // Form_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1681, 810);
+            this.ClientSize = new System.Drawing.Size(1681, 812);
             this.Controls.Add(this.pnShow);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnMenu);
@@ -345,5 +362,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         public System.Windows.Forms.Label lbAdmin;
         private System.Windows.Forms.Button btnManageSchedule;
+        private System.Windows.Forms.Button btnManageFood;
     }
 }

@@ -176,6 +176,18 @@
     <Compile Include="Form_EditSchedule.Designer.cs">
       <DependentUpon>Form_EditSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_ImportFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ImportFood.Designer.cs">
+      <DependentUpon>Form_ImportFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ManageFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ManageFood.Designer.cs">
+      <DependentUpon>Form_ManageFood.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_ManageSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_EditSchedule.resx">
       <DependentUpon>Form_EditSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ImportFood.resx">
+      <DependentUpon>Form_ImportFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ManageFood.resx">
+      <DependentUpon>Form_ManageFood.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_ManageSchedule.resx">
       <DependentUpon>Form_ManageSchedule.cs</DependentUpon>

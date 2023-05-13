@@ -38,13 +38,18 @@
             this.lbNameUser = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnSetting = new System.Windows.Forms.Panel();
+            this.btnShowProfile = new Guna.UI2.WinForms.Guna2Button();
             this.btnChangePass = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLogout = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.pnShow = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.pnSetting.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -169,7 +174,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel2.Controls.Add(this.btnChangePass);
+            this.panel2.Controls.Add(this.btnSetting);
             this.panel2.Controls.Add(this.guna2ControlBox2);
             this.panel2.Controls.Add(this.guna2ControlBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -177,6 +182,33 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1345, 83);
             this.panel2.TabIndex = 1;
+            // 
+            // pnSetting
+            // 
+            this.pnSetting.Controls.Add(this.btnChangePass);
+            this.pnSetting.Controls.Add(this.btnShowProfile);
+            this.pnSetting.Controls.Add(this.btnLogout);
+            this.pnSetting.Location = new System.Drawing.Point(1380, 89);
+            this.pnSetting.Name = "pnSetting";
+            this.pnSetting.Size = new System.Drawing.Size(200, 151);
+            this.pnSetting.TabIndex = 11;
+            this.pnSetting.Visible = false;
+            // 
+            // btnShowProfile
+            // 
+            this.btnShowProfile.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProfile.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowProfile.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowProfile.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowProfile.FillColor = System.Drawing.Color.Peru;
+            this.btnShowProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowProfile.ForeColor = System.Drawing.Color.Black;
+            this.btnShowProfile.Location = new System.Drawing.Point(0, 54);
+            this.btnShowProfile.Name = "btnShowProfile";
+            this.btnShowProfile.Size = new System.Drawing.Size(200, 43);
+            this.btnShowProfile.TabIndex = 2;
+            this.btnShowProfile.Text = "My profile";
+            this.btnShowProfile.Click += new System.EventHandler(this.btnShowProfile_Click);
             // 
             // btnChangePass
             // 
@@ -187,14 +219,50 @@
             this.btnChangePass.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnChangePass.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnChangePass.FillColor = System.Drawing.Color.Peru;
-            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnChangePass.ForeColor = System.Drawing.Color.White;
-            this.btnChangePass.Location = new System.Drawing.Point(687, 26);
+            this.btnChangePass.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePass.ForeColor = System.Drawing.Color.Black;
+            this.btnChangePass.Location = new System.Drawing.Point(0, 5);
             this.btnChangePass.Name = "btnChangePass";
-            this.btnChangePass.Size = new System.Drawing.Size(180, 45);
+            this.btnChangePass.Size = new System.Drawing.Size(200, 43);
             this.btnChangePass.TabIndex = 5;
             this.btnChangePass.Text = "Change Password";
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogout.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogout.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogout.FillColor = System.Drawing.Color.Peru;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.Black;
+            this.btnLogout.Location = new System.Drawing.Point(0, 103);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(200, 43);
+            this.btnLogout.TabIndex = 1;
+            this.btnLogout.Text = "Log out";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetting.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSetting.BorderRadius = 5;
+            this.btnSetting.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSetting.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSetting.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSetting.FillColor = System.Drawing.Color.Transparent;
+            this.btnSetting.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
+            this.btnSetting.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnSetting.Location = new System.Drawing.Point(1290, 41);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(55, 42);
+            this.btnSetting.TabIndex = 6;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
             // 
             // guna2ControlBox2
             // 
@@ -233,6 +301,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1582, 729);
+            this.Controls.Add(this.pnSetting);
             this.Controls.Add(this.pnShow);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -243,6 +312,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.pnSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -262,5 +332,9 @@
         private Guna.UI2.WinForms.Guna2TileButton btn_ManageBill;
         public System.Windows.Forms.Label lbNameUser;
         private Guna.UI2.WinForms.Guna2Button btnChangePass;
+        private Guna.UI2.WinForms.Guna2Button btnSetting;
+        private System.Windows.Forms.Panel pnSetting;
+        private Guna.UI2.WinForms.Guna2Button btnShowProfile;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

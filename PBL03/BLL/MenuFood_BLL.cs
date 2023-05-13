@@ -27,5 +27,9 @@ namespace PBL03.BLL
         {
             dal.getCreamsInfor(flowLayoutPanel);
         }
+        public dynamic GetAllFood()
+        {
+            return dal.GetAllFood();
+        }    
     }
 }

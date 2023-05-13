@@ -21,7 +21,7 @@ namespace PBL03.DAL
         {
             using (var db = new PBL3Entities1())
             {
-                var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).ToList();
+                var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).OrderBy(p => p.RevenueInDate).ToList();
                 return data;
             }
         }

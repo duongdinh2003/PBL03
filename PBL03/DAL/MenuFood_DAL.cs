@@ -105,5 +105,13 @@ namespace PBL03.DAL
                 }
             }
         }
+        public dynamic GetAllFood()
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Foods.Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood }).ToList();
+                return query;
+            }
+        }
     }
 }

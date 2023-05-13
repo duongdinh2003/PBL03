@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Guna.UI2.AnimatorNS;
+using Microsoft.ReportingServices.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace PBL03
 {
     public partial class FormMain : Form
     {
+        private int flag = 0;
         public FormMain()
         {
             InitializeComponent();
@@ -61,6 +64,7 @@ namespace PBL03
             fm.Size = pnShow.Size;
             pnShow.Controls.Add(fm);
             fm.Show();
+            pnSetting.Visible = false;
         }
 
         private void btnViewCalendar_Click(object sender, EventArgs e)
@@ -73,6 +77,32 @@ namespace PBL03
             pnShow.Controls.Add(fv);
             fv.Size = pnShow.Size;
             fv.Show();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            ++flag;
+            if (flag % 2 != 0)
+            {
+                pnSetting.Visible = true;
+            }    
+            else
+            {
+                pnSetting.Visible = false;
+            }    
+        }
+
+        private void btnShowProfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            FormLogin fl = (FormLogin)Application.OpenForms["FormLogin"];
+            fl.tbUsername.Text = string.Empty;
+            fl.tbPassword.Text = string.Empty;
         }
     }
 }

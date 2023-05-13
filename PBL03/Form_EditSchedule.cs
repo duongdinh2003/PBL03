@@ -38,25 +38,41 @@ namespace PBL03
         {
             if (txtIDSchedule.Enabled == true)
             {
-                int id = Convert.ToInt32(txtIDSchedule.Text);
-                string idepl = Schedule_BLL.Instance.GetIDEmployeeByName(txtNameEmployee.Text);
-                int idshift = Schedule_BLL.Instance.GetIDShift(cbbShiftWork.SelectedItem.ToString());
-                DateTime dt = Convert.ToDateTime(dtpickerDateWork.Value.ToString("yyyy/MM/dd"));
-                string note = rtbNote.Text;
-                Schedule_BLL.Instance.AddSchedule(id, idepl, idshift, dt, note);
-                pass();
-                this.Dispose();
+                if (txtIDSchedule.Text==""||txtNameEmployee.Text==""||cbbShiftWork.Text=="")
+                {
+                    MessageBox.Show("Bạn chưa nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }   
+                else
+                {
+                    int id = Convert.ToInt32(txtIDSchedule.Text);
+                    string idepl = Schedule_BLL.Instance.GetIDEmployeeByName(txtNameEmployee.Text);
+                    int idshift = Schedule_BLL.Instance.GetIDShift(cbbShiftWork.SelectedItem.ToString());
+                    DateTime dt = Convert.ToDateTime(dtpickerDateWork.Value.ToString("yyyy/MM/dd"));
+                    string note = rtbNote.Text;
+                    Schedule_BLL.Instance.AddSchedule(id, idepl, idshift, dt, note);
+                    pass();
+                    MessageBox.Show("Thêm lịch thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                }
             }    
             else
             {
-                int id = Convert.ToInt32(txtIDSchedule.Text);
-                string idepl = Schedule_BLL.Instance.GetIDEmployeeByName(txtNameEmployee.Text);
-                int idshift = Schedule_BLL.Instance.GetIDShift(cbbShiftWork.SelectedItem.ToString());
-                DateTime dt = Convert.ToDateTime(dtpickerDateWork.Value.ToString("yyyy/MM/dd"));
-                string note = rtbNote.Text;
-                Schedule_BLL.Instance.EditSchedule(id, idepl, idshift, dt, note);
-                pass();
-                this.Dispose();
+                if (txtIDSchedule.Text == "" || txtNameEmployee.Text == "" || cbbShiftWork.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    int id = Convert.ToInt32(txtIDSchedule.Text);
+                    string idepl = Schedule_BLL.Instance.GetIDEmployeeByName(txtNameEmployee.Text);
+                    int idshift = Schedule_BLL.Instance.GetIDShift(cbbShiftWork.SelectedItem.ToString());
+                    DateTime dt = Convert.ToDateTime(dtpickerDateWork.Value.ToString("yyyy/MM/dd"));
+                    string note = rtbNote.Text;
+                    Schedule_BLL.Instance.EditSchedule(id, idepl, idshift, dt, note);
+                    pass();
+                    MessageBox.Show("Cập nhật lịch thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                }    
             }    
         }
 
