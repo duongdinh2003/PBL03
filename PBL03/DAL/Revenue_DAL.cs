@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PBL03.DAL
 {
@@ -63,6 +66,54 @@ namespace PBL03.DAL
                 count++;
                 return count.ToString();
             }
+        }
+        public void drawColumnChart_DAL(Chart chartRevenue)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Revenues
+                    .Where(p => p.RevenueInDate >= new DateTime(2023, 1, 1) && p.RevenueInDate <= new DateTime(2023, 12, 31))
+                    .GroupBy(p => new { p.RevenueInDate.Year, p.RevenueInDate.Month })
+                    .Select(c => new
+                    {
+                        Month = c.Key.Month,
+                        Year = c.Key.Year,
+                        Total = c.Sum(p => p.TotalInDate)
+                    })
+                    .OrderBy(c => c.Year)
+                    .ThenBy(c => c.Month)
+                    .ToList();
+                List<float> revenues = new List<float>();
+                List<string> months = new List<string>();
+                foreach (var item in query)
+                {
+                    revenues.Add(item.Total);
+                    months.Add($"Tháng {item.Month} năm {item.Year}");
+                }
+                chartRevenue.Series.Clear();
+                chartRevenue.ChartAreas.Clear();
+                ChartArea chartArea = new ChartArea();
+                chartRevenue.ChartAreas.Add(chartArea);
+                Series series = new Series();
+                series.ChartType = SeriesChartType.Column;
+                series.BorderWidth = 2;
+                series.Color = Color.Blue;
+                series.Name = "Doanh thu";
+                series.IsValueShownAsLabel = true;
+
+                series.Points.DataBindXY(months, revenues);
+
+                chartRevenue.Series.Add(series);
+
+                chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+                chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+
+                chartRevenue.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
+                chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+
+                chartRevenue.Invalidate();
+            }    
         }
     }
 }

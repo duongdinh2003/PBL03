@@ -146,3 +146,4 @@ D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.Form_ManageSchedule.resources
 D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.Form_EditSchedule.resources
 D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.Form_ManageFood.resources
 D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.Form_ImportFood.resources
+D:\PBL\PBL3\PBL03-master\PBL03\obj\Debug\PBL03.Form_EditFood.resources

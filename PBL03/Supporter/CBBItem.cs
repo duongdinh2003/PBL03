@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PBL03.Supporter
 {
-    internal class CBBItem
+    public class CBBItem
     {
         public int Value { get; set; }
         public string Text { get; set; }

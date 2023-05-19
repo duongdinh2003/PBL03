@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,12 +106,109 @@ namespace PBL03.DAL
                 }
             }
         }
-        public dynamic GetAllFood()
+        public dynamic GetFirstFood()
         {
             using (var db = new PBL3Entities1())
             {
-                var query = db.Foods.Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood }).ToList();
+                var query = db.Foods
+                    .Take(5)
+                    .Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood })
+                    .ToList();
                 return query;
+            }
+        }
+        public dynamic GetNextFood(int row)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Foods
+                    .OrderBy(p => p.ID_Food)
+                    .Skip(row)
+                    .Take(5)
+                    .Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood })
+                    .ToList();
+                return query;
+            }
+        }
+        public dynamic GetPreviousFood(int row)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Foods
+                    .OrderBy(p => p.ID_Food)
+                    .Skip(-row)
+                    .Take(5)
+                    .Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood })
+                    .ToList();
+                return query;
+            }
+        }
+        public int CountRow()
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var count = db.Foods.Count();
+                return count;
+            }
+        }
+        public string GetID_FoodCategory(string name)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.FoodCategories.FirstOrDefault(p => p.NameCategory == name);
+                return query.ID_Category;
+            }
+        }
+        public void AddFood(string id, string name, float price, string idCategory, string picture)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                Food temp = new Food
+                {
+                    ID_Food = id,
+                    NameFood = name,
+                    Price = price,
+                    StatusFood = true,
+                    IDCategory = idCategory,
+                    QuantityFood = 200,
+                    PictureFood = picture
+                };
+                db.Foods.Add(temp);
+                db.SaveChanges();
+            }
+        }
+        public void EditFood(string id, string name, float price, bool tt, string idCategory, int quantity, string picture)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var food = db.Foods.Find(id);
+                food.NameFood = name;
+                food.Price = price;
+                food.StatusFood = tt;
+                food.IDCategory = idCategory;
+                food.QuantityFood = quantity;
+                food.PictureFood = picture;
+                db.SaveChanges();
+            }
+        }
+        public List<FoodCategory> GetAllCategory()
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.FoodCategories.ToList();
+                return query;
+            }
+        }
+        public bool CheckExistedIDFood(string id)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Foods.Find(id);
+                if (query == null)
+                {
+                    return false;
+                }
+                return true;
             }
         }
     }

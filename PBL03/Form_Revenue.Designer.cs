@@ -37,6 +37,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvRevenue = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.rbtnNgay = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbtnThang = new Guna.UI2.WinForms.Guna2RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
             this.SuspendLayout();
@@ -86,12 +88,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvRevenue.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRevenue.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvRevenue.Location = new System.Drawing.Point(695, 4);
+            this.dgvRevenue.Location = new System.Drawing.Point(695, 76);
             this.dgvRevenue.Name = "dgvRevenue";
             this.dgvRevenue.RowHeadersVisible = false;
             this.dgvRevenue.RowHeadersWidth = 51;
             this.dgvRevenue.RowTemplate.Height = 24;
-            this.dgvRevenue.Size = new System.Drawing.Size(703, 707);
+            this.dgvRevenue.Size = new System.Drawing.Size(703, 635);
             this.dgvRevenue.TabIndex = 1;
             this.dgvRevenue.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvRevenue.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -115,11 +117,55 @@
             this.dgvRevenue.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvRevenue.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // rbtnNgay
+            // 
+            this.rbtnNgay.AutoSize = true;
+            this.rbtnNgay.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnNgay.CheckedState.BorderThickness = 0;
+            this.rbtnNgay.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnNgay.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbtnNgay.CheckedState.InnerOffset = -4;
+            this.rbtnNgay.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnNgay.ForeColor = System.Drawing.Color.Red;
+            this.rbtnNgay.Location = new System.Drawing.Point(793, 28);
+            this.rbtnNgay.Name = "rbtnNgay";
+            this.rbtnNgay.Size = new System.Drawing.Size(66, 24);
+            this.rbtnNgay.TabIndex = 2;
+            this.rbtnNgay.Text = "Ngày";
+            this.rbtnNgay.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbtnNgay.UncheckedState.BorderThickness = 2;
+            this.rbtnNgay.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbtnNgay.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbtnNgay.CheckedChanged += new System.EventHandler(this.rbtnNgay_CheckedChanged);
+            // 
+            // rbtnThang
+            // 
+            this.rbtnThang.AutoSize = true;
+            this.rbtnThang.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnThang.CheckedState.BorderThickness = 0;
+            this.rbtnThang.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnThang.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbtnThang.CheckedState.InnerOffset = -4;
+            this.rbtnThang.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnThang.ForeColor = System.Drawing.Color.Red;
+            this.rbtnThang.Location = new System.Drawing.Point(1064, 28);
+            this.rbtnThang.Name = "rbtnThang";
+            this.rbtnThang.Size = new System.Drawing.Size(75, 24);
+            this.rbtnThang.TabIndex = 3;
+            this.rbtnThang.Text = "Tháng";
+            this.rbtnThang.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbtnThang.UncheckedState.BorderThickness = 2;
+            this.rbtnThang.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbtnThang.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbtnThang.CheckedChanged += new System.EventHandler(this.rbtnThang_CheckedChanged);
+            // 
             // Form_Revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1399, 707);
+            this.Controls.Add(this.rbtnThang);
+            this.Controls.Add(this.rbtnNgay);
             this.Controls.Add(this.dgvRevenue);
             this.Controls.Add(this.chartRevenue);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -129,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,5 +183,7 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
         private Guna.UI2.WinForms.Guna2DataGridView dgvRevenue;
+        private Guna.UI2.WinForms.Guna2RadioButton rbtnNgay;
+        private Guna.UI2.WinForms.Guna2RadioButton rbtnThang;
     }
 }

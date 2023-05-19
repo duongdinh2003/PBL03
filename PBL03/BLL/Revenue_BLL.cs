@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PBL03.BLL
 {
@@ -30,6 +31,10 @@ namespace PBL03.BLL
         public string countRowInRevenue()
         {
             return dal.countRowInRevenue_DAL();
+        }
+        public void drawColumnChart_BLL(Chart chartRevenue)
+        {
+            dal.drawColumnChart_DAL(chartRevenue);
         }
     }
 }

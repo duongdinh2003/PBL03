@@ -60,7 +60,6 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnShow.SuspendLayout();
             this.pnSetting.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,7 +295,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(276, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1405, 105);
+            this.panel1.Size = new System.Drawing.Size(1405, 97);
             this.panel1.TabIndex = 3;
             // 
             // btnSetting
@@ -313,7 +312,7 @@
             this.btnSetting.ForeColor = System.Drawing.Color.White;
             this.btnSetting.Image = ((System.Drawing.Image)(resources.GetObject("btnSetting.Image")));
             this.btnSetting.ImageSize = new System.Drawing.Size(35, 35);
-            this.btnSetting.Location = new System.Drawing.Point(1347, 60);
+            this.btnSetting.Location = new System.Drawing.Point(1347, 52);
             this.btnSetting.Name = "btnSetting";
             this.btnSetting.Size = new System.Drawing.Size(55, 42);
             this.btnSetting.TabIndex = 2;
@@ -342,10 +341,9 @@
             // 
             // pnShow
             // 
-            this.pnShow.Controls.Add(this.pnSetting);
-            this.pnShow.Location = new System.Drawing.Point(276, 105);
+            this.pnShow.Location = new System.Drawing.Point(276, 103);
             this.pnShow.Name = "pnShow";
-            this.pnShow.Size = new System.Drawing.Size(1405, 705);
+            this.pnShow.Size = new System.Drawing.Size(1405, 707);
             this.pnShow.TabIndex = 4;
             // 
             // pnSetting
@@ -353,7 +351,7 @@
             this.pnSetting.Controls.Add(this.btnLogout);
             this.pnSetting.Controls.Add(this.btnShowProfile);
             this.pnSetting.Controls.Add(this.btnChangePass);
-            this.pnSetting.Location = new System.Drawing.Point(1202, 3);
+            this.pnSetting.Location = new System.Drawing.Point(1481, 100);
             this.pnSetting.Name = "pnSetting";
             this.pnSetting.Size = new System.Drawing.Size(200, 155);
             this.pnSetting.TabIndex = 0;
@@ -418,6 +416,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1681, 812);
+            this.Controls.Add(this.pnSetting);
             this.Controls.Add(this.pnShow);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnMenu);
@@ -431,7 +430,6 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.pnShow.ResumeLayout(false);
             this.pnSetting.ResumeLayout(false);
             this.ResumeLayout(false);
 

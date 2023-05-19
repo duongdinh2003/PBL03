@@ -44,8 +44,8 @@
             this.guna2GradientPanel1.Controls.Add(this.Soluong);
             this.guna2GradientPanel1.Controls.Add(this.STT);
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(130)))), ((int)(((byte)(68)))));
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(72)))), ((int)(((byte)(115)))));
+            this.guna2GradientPanel1.FillColor = System.Drawing.Color.Teal;
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.Orange;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1317, 65);

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnHidePassword = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowPassword = new Guna.UI2.WinForms.Guna2Button();
             this.lbForgotPassword = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -49,6 +51,8 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.guna2Panel1.Controls.Add(this.btnHidePassword);
+            this.guna2Panel1.Controls.Add(this.btnShowPassword);
             this.guna2Panel1.Controls.Add(this.lbForgotPassword);
             this.guna2Panel1.Controls.Add(this.btnLogin);
             this.guna2Panel1.Controls.Add(this.pictureBox2);
@@ -64,6 +68,50 @@
             this.guna2Panel1.Size = new System.Drawing.Size(510, 540);
             this.guna2Panel1.TabIndex = 0;
             this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
+            this.guna2Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragForm_MouseDown);
+            // 
+            // btnHidePassword
+            // 
+            this.btnHidePassword.BackColor = System.Drawing.Color.Transparent;
+            this.btnHidePassword.BorderColor = System.Drawing.Color.Transparent;
+            this.btnHidePassword.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHidePassword.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHidePassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHidePassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHidePassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.btnHidePassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHidePassword.ForeColor = System.Drawing.Color.White;
+            this.btnHidePassword.Image = ((System.Drawing.Image)(resources.GetObject("btnHidePassword.Image")));
+            this.btnHidePassword.ImageSize = new System.Drawing.Size(23, 23);
+            this.btnHidePassword.Location = new System.Drawing.Point(401, 300);
+            this.btnHidePassword.Name = "btnHidePassword";
+            this.btnHidePassword.Size = new System.Drawing.Size(36, 30);
+            this.btnHidePassword.TabIndex = 17;
+            this.btnHidePassword.Visible = false;
+            this.btnHidePassword.Click += new System.EventHandler(this.btnHidePassword_Click);
+            this.btnHidePassword.MouseEnter += new System.EventHandler(this.btnHidePassword_MouseEnter);
+            this.btnHidePassword.MouseLeave += new System.EventHandler(this.btnHidePassword_MouseLeave);
+            // 
+            // btnShowPassword
+            // 
+            this.btnShowPassword.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowPassword.BorderColor = System.Drawing.Color.Transparent;
+            this.btnShowPassword.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowPassword.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowPassword.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.btnShowPassword.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnShowPassword.ForeColor = System.Drawing.Color.White;
+            this.btnShowPassword.Image = ((System.Drawing.Image)(resources.GetObject("btnShowPassword.Image")));
+            this.btnShowPassword.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnShowPassword.Location = new System.Drawing.Point(401, 300);
+            this.btnShowPassword.Name = "btnShowPassword";
+            this.btnShowPassword.Size = new System.Drawing.Size(36, 30);
+            this.btnShowPassword.TabIndex = 16;
+            this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
+            this.btnShowPassword.MouseEnter += new System.EventHandler(this.btnShowPassword_MouseEnter);
+            this.btnShowPassword.MouseLeave += new System.EventHandler(this.btnShowPassword_MouseLeave);
             // 
             // lbForgotPassword
             // 
@@ -230,6 +278,8 @@
         private System.Windows.Forms.Label lbForgotPassword;
         public System.Windows.Forms.TextBox tbPassword;
         public System.Windows.Forms.TextBox tbUsername;
+        private Guna.UI2.WinForms.Guna2Button btnHidePassword;
+        private Guna.UI2.WinForms.Guna2Button btnShowPassword;
     }
 }
 

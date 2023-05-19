@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PBL03
 {
@@ -32,10 +33,37 @@ namespace PBL03
         }
         public void drawChartRevenue()
         {
+            chartRevenue.Series.Clear();
+            chartRevenue.ChartAreas.Clear();
+            ChartArea chartArea = new ChartArea();
+            chartRevenue.ChartAreas.Add(chartArea);
+            Series series = new Series();
+            series.ChartType = SeriesChartType.Line;
+            series.BorderWidth = 2;
+            series.Color = Color.Blue;
+            series.Name = "Doanh thu";
+            series.IsValueShownAsLabel = false;
+
             foreach (var item in bll.drawChartRevenue_BLL())
             {
-                chartRevenue.Series["Doanh thu"].Points.AddXY(item.RevenueInDate, item.TotalInDate);
+                series.Points.AddXY(item.RevenueInDate, item.TotalInDate);
             }
+            
+
+            chartRevenue.Series.Add(series);
+
+            chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+            chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+
+            chartRevenue.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
+            chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+
+            chartRevenue.Invalidate();
+            //foreach (var item in bll.drawChartRevenue_BLL())
+            //{
+            //    chartRevenue.Series["Doanh thu"].Points.AddXY(item.RevenueInDate, item.TotalInDate);
+            //}
         }
 
         private void Form_Revenue_Load(object sender, EventArgs e)
@@ -55,6 +83,29 @@ namespace PBL03
             //}
             showRevenue();
             drawChartRevenue();
+        }
+
+        private void rbtnNgay_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (chartRevenue.Series["Doanh thu"].ChartType == SeriesChartType.Line)
+            //{
+            //    chartRevenue.Series["Doanh thu"].ChartType = SeriesChartType.Column;
+            //}
+                drawChartRevenue();
+        }
+
+        private void rbtnThang_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (chartRevenue.Series["Doanh thu"].ChartType == SeriesChartType.Column)
+            //{
+            //    chartRevenue.Series["Doanh thu"].ChartType = SeriesChartType.Line;
+            //}
+
+                drawColumnChart();
+        }
+        private void drawColumnChart()
+        {
+            bll.drawColumnChart_BLL(chartRevenue);
         }
     }
 }

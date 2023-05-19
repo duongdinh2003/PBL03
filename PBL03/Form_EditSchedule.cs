@@ -38,7 +38,7 @@ namespace PBL03
         {
             if (txtIDSchedule.Enabled == true)
             {
-                if (txtIDSchedule.Text==""||txtNameEmployee.Text==""||cbbShiftWork.Text=="")
+                if (txtIDSchedule.Text == "" || txtNameEmployee.Text == "" || cbbShiftWork.Text == "")
                 {
                     MessageBox.Show("Bạn chưa nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }   
