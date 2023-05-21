@@ -128,5 +128,19 @@ namespace PBL03
                 dgvWorkSchedule.Visible = true;
             }
         }
+
+        private void btnExpand_Click(object sender, EventArgs e)
+        {
+            pnMenu.Visible = true;
+            btnExpand.Visible = false;
+            btnCollapse.Visible = true;
+        }
+
+        private void btnCollapse_Click(object sender, EventArgs e)
+        {
+            pnMenu.Visible = false;
+            btnExpand.Visible = true;
+            btnCollapse.Visible = false;
+        }
     }
 }

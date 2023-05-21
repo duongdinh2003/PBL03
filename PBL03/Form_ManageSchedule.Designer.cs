@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ManageSchedule));
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvWorkSchedule = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pnMenu = new System.Windows.Forms.Panel();
@@ -41,6 +42,9 @@
             this.txtSearchSchedule = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSearchSchedule = new System.Windows.Forms.Button();
             this.cbbShiftWork = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnExpand = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCollapse = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkSchedule)).BeginInit();
             this.pnMenu.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +52,7 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.guna2Panel1.Controls.Add(this.btnExpand);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
@@ -56,26 +61,26 @@
             // 
             // dgvWorkSchedule
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvWorkSchedule.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvWorkSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvWorkSchedule.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvWorkSchedule.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvWorkSchedule.ColumnHeadersHeight = 4;
             this.dgvWorkSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvWorkSchedule.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvWorkSchedule.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvWorkSchedule.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvWorkSchedule.Location = new System.Drawing.Point(30, 155);
             this.dgvWorkSchedule.Name = "dgvWorkSchedule";
@@ -109,6 +114,7 @@
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.RosyBrown;
+            this.pnMenu.Controls.Add(this.btnCollapse);
             this.pnMenu.Controls.Add(this.btnDelete);
             this.pnMenu.Controls.Add(this.btnEdit);
             this.pnMenu.Controls.Add(this.btnAdd);
@@ -117,6 +123,7 @@
             this.pnMenu.Name = "pnMenu";
             this.pnMenu.Size = new System.Drawing.Size(307, 531);
             this.pnMenu.TabIndex = 2;
+            this.pnMenu.Visible = false;
             // 
             // btnDelete
             // 
@@ -211,6 +218,40 @@
             this.cbbShiftWork.Size = new System.Drawing.Size(140, 36);
             this.cbbShiftWork.TabIndex = 6;
             // 
+            // btnExpand
+            // 
+            this.btnExpand.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExpand.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExpand.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExpand.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExpand.FillColor = System.Drawing.Color.RosyBrown;
+            this.btnExpand.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExpand.ForeColor = System.Drawing.Color.White;
+            this.btnExpand.Image = ((System.Drawing.Image)(resources.GetObject("btnExpand.Image")));
+            this.btnExpand.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnExpand.Location = new System.Drawing.Point(1073, 27);
+            this.btnExpand.Name = "btnExpand";
+            this.btnExpand.Size = new System.Drawing.Size(180, 29);
+            this.btnExpand.TabIndex = 1;
+            this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
+            // 
+            // btnCollapse
+            // 
+            this.btnCollapse.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCollapse.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCollapse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCollapse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCollapse.FillColor = System.Drawing.Color.RosyBrown;
+            this.btnCollapse.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCollapse.ForeColor = System.Drawing.Color.White;
+            this.btnCollapse.Image = ((System.Drawing.Image)(resources.GetObject("btnCollapse.Image")));
+            this.btnCollapse.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnCollapse.Location = new System.Drawing.Point(61, 499);
+            this.btnCollapse.Name = "btnCollapse";
+            this.btnCollapse.Size = new System.Drawing.Size(180, 29);
+            this.btnCollapse.TabIndex = 7;
+            this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
+            // 
             // Form_ManageSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,6 +266,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_ManageSchedule";
             this.Text = "Form_ManageSchedule";
+            this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkSchedule)).EndInit();
             this.pnMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -243,5 +285,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSearchSchedule;
         private System.Windows.Forms.Button btnSearchSchedule;
         private Guna.UI2.WinForms.Guna2ComboBox cbbShiftWork;
+        private Guna.UI2.WinForms.Guna2Button btnExpand;
+        private Guna.UI2.WinForms.Guna2Button btnCollapse;
     }
 }

@@ -20,11 +20,39 @@ namespace PBL03.DAL
                 return query;
             }    
         }
+
+        public dynamic showRevenueByDay_DAL(DateTime st, DateTime et)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Revenues
+                    .Where(p => p.RevenueInDate >= st && p.RevenueInDate <= et)
+                    .OrderBy(p => p.RevenueInDate).ToList();
+                return query;
+            }
+        }
+
         public dynamic drawChartRevenue_DAL()
         {
             using (var db = new PBL3Entities1())
             {
                 var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).OrderBy(p => p.RevenueInDate).ToList();
+                return data;
+            }
+        }
+        public dynamic DrawChartRevenueByDay(DateTime st, DateTime et)
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var data = db.Revenues
+                    .Where(p => p.RevenueInDate >= st && p.RevenueInDate <= et)
+                    .Select(p => new
+                    {
+                        p.RevenueInDate,
+                        p.TotalInDate,
+                    })
+                    .OrderBy(p => p.RevenueInDate)
+                    .ToList();
                 return data;
             }
         }

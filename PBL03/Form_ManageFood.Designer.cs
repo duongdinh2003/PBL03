@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_ManageFood));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvFood = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pnMenu = new System.Windows.Forms.Panel();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.btnImportMaterials = new System.Windows.Forms.Button();
             this.lbTitle = new System.Windows.Forms.Label();
             this.btnPrevious = new Guna.UI2.WinForms.Guna2Button();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnExpand = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCollapse = new Guna.UI2.WinForms.Guna2Button();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.pnMenu.SuspendLayout();
             this.SuspendLayout();
@@ -48,6 +51,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.btnExpand);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -56,26 +60,26 @@
             // 
             // dgvFood
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dgvFood.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dgvFood.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvFood.ColumnHeadersHeight = 4;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFood.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFood.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvFood.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFood.Location = new System.Drawing.Point(42, 135);
             this.dgvFood.Name = "dgvFood";
@@ -109,13 +113,37 @@
             // pnMenu
             // 
             this.pnMenu.BackColor = System.Drawing.Color.RosyBrown;
+            this.pnMenu.Controls.Add(this.btnCollapse);
             this.pnMenu.Controls.Add(this.btnEdit);
             this.pnMenu.Controls.Add(this.btnAdd);
             this.pnMenu.Controls.Add(this.btnImportMaterials);
-            this.pnMenu.Location = new System.Drawing.Point(982, 62);
+            this.pnMenu.Location = new System.Drawing.Point(982, 68);
             this.pnMenu.Name = "pnMenu";
-            this.pnMenu.Size = new System.Drawing.Size(337, 531);
+            this.pnMenu.Size = new System.Drawing.Size(337, 525);
             this.pnMenu.TabIndex = 2;
+            this.pnMenu.Visible = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(79, 129);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(180, 55);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Edit Food";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(79, 45);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(180, 55);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Add Food";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnImportMaterials
             // 
@@ -126,6 +154,7 @@
             this.btnImportMaterials.TabIndex = 0;
             this.btnImportMaterials.Text = "Import Materials";
             this.btnImportMaterials.UseVisualStyleBackColor = true;
+            this.btnImportMaterials.Visible = false;
             // 
             // lbTitle
             // 
@@ -173,27 +202,39 @@
             this.btnNext.TabIndex = 5;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // btnAdd
+            // btnExpand
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(79, 45);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(180, 55);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "Add Food";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnExpand.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnExpand.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnExpand.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnExpand.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnExpand.FillColor = System.Drawing.Color.RosyBrown;
+            this.btnExpand.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnExpand.ForeColor = System.Drawing.Color.White;
+            this.btnExpand.Image = ((System.Drawing.Image)(resources.GetObject("btnExpand.Image")));
+            this.btnExpand.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnExpand.Location = new System.Drawing.Point(1061, 30);
+            this.btnExpand.Name = "btnExpand";
+            this.btnExpand.Size = new System.Drawing.Size(180, 29);
+            this.btnExpand.TabIndex = 0;
+            this.btnExpand.Click += new System.EventHandler(this.btnExpand_Click);
             // 
-            // btnEdit
+            // btnCollapse
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(79, 129);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(180, 55);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Edit Food";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnCollapse.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCollapse.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCollapse.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCollapse.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCollapse.FillColor = System.Drawing.Color.RosyBrown;
+            this.btnCollapse.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnCollapse.ForeColor = System.Drawing.Color.White;
+            this.btnCollapse.Image = ((System.Drawing.Image)(resources.GetObject("btnCollapse.Image")));
+            this.btnCollapse.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnCollapse.Location = new System.Drawing.Point(79, 496);
+            this.btnCollapse.Name = "btnCollapse";
+            this.btnCollapse.Size = new System.Drawing.Size(180, 29);
+            this.btnCollapse.TabIndex = 3;
+            this.btnCollapse.Click += new System.EventHandler(this.btnCollapse_Click);
             // 
             // Form_ManageFood
             // 
@@ -210,6 +251,7 @@
             this.Name = "Form_ManageFood";
             this.Text = "Form_ManageFood";
             this.Load += new System.EventHandler(this.Form_ManageFood_Load);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.pnMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -228,5 +270,7 @@
         private Guna.UI2.WinForms.Guna2Button btnNext;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAdd;
+        private Guna.UI2.WinForms.Guna2Button btnExpand;
+        private Guna.UI2.WinForms.Guna2Button btnCollapse;
     }
 }

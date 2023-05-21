@@ -20,9 +20,17 @@ namespace PBL03.BLL
         {
             return dal.showRevenue_DAL();
         }
+        public dynamic showRevenueByDay_BLL(DateTime st, DateTime et)
+        {
+            return dal.showRevenueByDay_DAL(st, et);
+        }
         public dynamic drawChartRevenue_BLL()
         {
             return dal.drawChartRevenue_DAL();
+        }
+        public dynamic DrawChartRevenueByDay(DateTime st, DateTime et)
+        {
+            return dal.DrawChartRevenueByDay(st, et);
         }
         public void AddOrUpdateRevenue_BLL(string id, float total, int customer)
         {

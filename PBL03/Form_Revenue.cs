@@ -66,6 +66,46 @@ namespace PBL03
             //}
         }
 
+        public void DrawChartRevenueByDay()
+        {
+            DateTime st = dtpickerStartDay.Value.Date;
+            DateTime et = dtpickerEndDay.Value.Date;
+            if (st < et)
+            {
+                chartRevenue.Series.Clear();
+                chartRevenue.ChartAreas.Clear();
+                ChartArea chartArea = new ChartArea();
+                chartRevenue.ChartAreas.Add(chartArea);
+                Series series = new Series();
+                series.ChartType = SeriesChartType.Line;
+                series.BorderWidth = 2;
+                series.Color = Color.Blue;
+                series.Name = "Doanh thu";
+                series.IsValueShownAsLabel = false;
+
+                foreach (var item in bll.DrawChartRevenueByDay(st, et))
+                {
+                    series.Points.AddXY(item.RevenueInDate, item.TotalInDate);
+                }
+
+
+                chartRevenue.Series.Add(series);
+
+                chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+                chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+                chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+
+                chartRevenue.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
+                chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+
+                chartRevenue.Invalidate();
+            }
+            else
+            {
+                MessageBox.Show("Ngày không hợp lệ");
+            }
+        }
+
         private void Form_Revenue_Load(object sender, EventArgs e)
         {
             //chartRevenue.Series["Doanh thu"].Points.AddXY("Dinh", 3000);
@@ -91,7 +131,11 @@ namespace PBL03
             //{
             //    chartRevenue.Series["Doanh thu"].ChartType = SeriesChartType.Column;
             //}
-                drawChartRevenue();
+            //    drawChartRevenue();
+            DrawChartRevenueByDay();
+            DateTime st = dtpickerStartDay.Value.Date;
+            DateTime et = dtpickerEndDay.Value.Date;
+            dgvRevenue.DataSource = bll.showRevenueByDay_BLL(st, et);
         }
 
         private void rbtnThang_CheckedChanged(object sender, EventArgs e)
@@ -107,5 +151,7 @@ namespace PBL03
         {
             bll.drawColumnChart_BLL(chartRevenue);
         }
+
+
     }
 }

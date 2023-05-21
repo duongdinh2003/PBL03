@@ -150,6 +150,7 @@
             this.btnChiPhi.TabIndex = 12;
             this.btnChiPhi.Text = "Chi phí";
             this.btnChiPhi.UseVisualStyleBackColor = true;
+            this.btnChiPhi.Visible = false;
             this.btnChiPhi.Click += new System.EventHandler(this.btnChiPhi_Click_1);
             // 
             // btnLoiNhuan
@@ -164,6 +165,7 @@
             this.btnLoiNhuan.TabIndex = 13;
             this.btnLoiNhuan.Text = "Lợi nhuận";
             this.btnLoiNhuan.UseVisualStyleBackColor = true;
+            this.btnLoiNhuan.Visible = false;
             this.btnLoiNhuan.Click += new System.EventHandler(this.btnLoiNhuan_Click_1);
             // 
             // btnQLDT
