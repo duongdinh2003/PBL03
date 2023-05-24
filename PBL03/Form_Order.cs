@@ -147,6 +147,7 @@ namespace PBL03
                 string epl = bill.getIDEmployee_BLL(lbUserName.Text);
                 bill.addBill_BLL(dt, epl, lbTable.Text, sub);
                 MessageBox.Show("Đã lưu order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
             }
             else
             {
@@ -176,6 +177,7 @@ namespace PBL03
                 string epl = bill.getIDEmployee_BLL(lbUserName.Text);
                 bill.updateBill_BLL(dt, epl, lbTable.Text, sub);
                 MessageBox.Show("Đã cập nhật order vào hóa đơn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Dispose();
             }    
         }
 

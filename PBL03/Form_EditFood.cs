@@ -15,6 +15,8 @@ namespace PBL03
 {
     public partial class Form_EditFood : Form
     {
+        public delegate void MyDele();
+        public MyDele pass;
         private MenuFood_BLL bll;
         public Form_EditFood()
         {
@@ -29,6 +31,10 @@ namespace PBL03
         }
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (txtID_Food.Text.Length < 2)
+            {
+                MessageBox.Show("Mã món chưa đảm bảo đủ độ dài!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             if (txtNameFood.Text == "")
             {
                 MessageBox.Show("Chưa điền tên món!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -47,20 +53,45 @@ namespace PBL03
             }
             else
             {
-                string name = txtNameFood.Text;
-                float price = Convert.ToSingle(txtPrice.Text);
-                string IDCategory = bll.GetID_FoodCategory(cbbCategory.SelectedItem.ToString());
-                string img = txtPicture.Text;
-                string id = txtID_Food.Text;
-                if (!bll.CheckExistedIDFood(id))
+                if (txtID_Food.Enabled == true)
                 {
-                    bll.AddFood(id, name, price, IDCategory, img);
-                    MessageBox.Show("Thêm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
+                    string name = txtNameFood.Text;
+                    float price = Convert.ToSingle(txtPrice.Text);
+                    string IDCategory = bll.GetID_FoodCategory(cbbCategory.SelectedItem.ToString());
+                    string img = txtPicture.Text;
+                    string id = txtID_Food.Text;
+                    if (!bll.CheckExistedIDFood(id))
+                    {
+                        bll.AddFood(id, name, price, IDCategory, img);
+                        MessageBox.Show("Thêm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        pass();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("ID này đã tồn tại! Yêu cầu nhập ID khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("ID này đã tồn tại! Yêu cầu nhập ID khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    string name = txtNameFood.Text;
+                    float price = Convert.ToSingle(txtPrice.Text);
+                    string IDCategory = bll.GetID_FoodCategory(cbbCategory.SelectedItem.ToString());
+                    string img = txtPicture.Text;
+                    string id = txtID_Food.Text;
+                    bool tt = true;
+                    if (rbtnCon.Checked)
+                    {
+                        tt = true;
+                    }
+                    if (rbtnHet.Checked)
+                    {
+                        tt = false;
+                    }
+                    bll.EditFood(id, name, price, tt, IDCategory, 200, img);
+                    MessageBox.Show("Thêm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    pass();
+                    this.Dispose();
                 }
             }
         }

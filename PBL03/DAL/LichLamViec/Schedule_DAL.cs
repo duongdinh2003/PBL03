@@ -159,7 +159,11 @@ namespace PBL03.DAL.LichLamViec
         public string GetIDEmployeeByName(string name)
         {
             var query = db.Employees.FirstOrDefault(p => p.Name_Employee == name);
-            return query.ID_Employee;
+            if (query != null)
+            {
+                return query.ID_Employee;
+            }
+            return null;
         }
         public int GetIDShift(string name)
         {

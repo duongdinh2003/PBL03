@@ -107,6 +107,7 @@ namespace PBL03
                                 ftn.lbTable.Text = btn.Text;
                                 ftn.lbUserName.Text = fm.lbNameUser.Text;
                                 ftn.lbNumberCustomer.Text = numberOfPeople.Value.ToString();
+                                ftn.btnPayNow.Visible = false;
                                 ftn.Show();
                                 Form_StatusTable_Load(null, null);
                             }   
@@ -118,6 +119,7 @@ namespace PBL03
                                 ftn.lbTable.Text = btn.Text;
                                 ftn.lbUserName.Text = fa.lbAdmin.Text;
                                 ftn.lbNumberCustomer.Text = numberOfPeople.Value.ToString();
+                                ftn.btnPayNow.Visible = false;
                                 ftn.Show();
                                 Form_StatusTable_Load(null, null);
                             }

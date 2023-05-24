@@ -54,7 +54,7 @@
             // Price
             // 
             this.Price.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.Price.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.Price.ForeColor = System.Drawing.Color.Black;
             this.Price.Location = new System.Drawing.Point(1099, 15);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(170, 34);
@@ -65,7 +65,7 @@
             // Name_Food
             // 
             this.Name_Food.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.Name_Food.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.Name_Food.ForeColor = System.Drawing.Color.Black;
             this.Name_Food.Location = new System.Drawing.Point(224, 15);
             this.Name_Food.Name = "Name_Food";
             this.Name_Food.Size = new System.Drawing.Size(435, 34);
@@ -76,7 +76,7 @@
             // Soluong
             // 
             this.Soluong.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.Soluong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.Soluong.ForeColor = System.Drawing.Color.Black;
             this.Soluong.Location = new System.Drawing.Point(793, 15);
             this.Soluong.Name = "Soluong";
             this.Soluong.Size = new System.Drawing.Size(170, 34);
@@ -87,7 +87,7 @@
             // STT
             // 
             this.STT.Font = new System.Drawing.Font("Comic Sans MS", 10.2F);
-            this.STT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(231)))), ((int)(((byte)(250)))));
+            this.STT.ForeColor = System.Drawing.Color.Black;
             this.STT.Location = new System.Drawing.Point(25, 15);
             this.STT.Name = "STT";
             this.STT.Size = new System.Drawing.Size(101, 34);

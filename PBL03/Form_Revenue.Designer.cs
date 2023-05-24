@@ -41,8 +41,9 @@
             this.rbtnThang = new Guna.UI2.WinForms.Guna2RadioButton();
             this.dtpickerStartDay = new System.Windows.Forms.DateTimePicker();
             this.dtpickerEndDay = new System.Windows.Forms.DateTimePicker();
-            this.lbBegin = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbFrom = new System.Windows.Forms.Label();
+            this.lbTo = new System.Windows.Forms.Label();
+            this.btnShowchart = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRevenue)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +67,7 @@
             this.chartRevenue.Text = "chart1";
             title1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             title1.Name = "Title1";
-            title1.Text = "Doanh thu theo ngày";
+            title1.Text = "Doanh thu";
             this.chartRevenue.Titles.Add(title1);
             // 
             // dgvRevenue
@@ -171,6 +172,7 @@
             this.dtpickerStartDay.Name = "dtpickerStartDay";
             this.dtpickerStartDay.Size = new System.Drawing.Size(200, 22);
             this.dtpickerStartDay.TabIndex = 4;
+            this.dtpickerStartDay.Visible = false;
             // 
             // dtpickerEndDay
             // 
@@ -180,36 +182,56 @@
             this.dtpickerEndDay.Name = "dtpickerEndDay";
             this.dtpickerEndDay.Size = new System.Drawing.Size(200, 22);
             this.dtpickerEndDay.TabIndex = 5;
+            this.dtpickerEndDay.Visible = false;
             // 
-            // lbBegin
+            // lbFrom
             // 
-            this.lbBegin.AutoSize = true;
-            this.lbBegin.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbBegin.ForeColor = System.Drawing.Color.Red;
-            this.lbBegin.Location = new System.Drawing.Point(733, 86);
-            this.lbBegin.Name = "lbBegin";
-            this.lbBegin.Size = new System.Drawing.Size(27, 20);
-            this.lbBegin.TabIndex = 6;
-            this.lbBegin.Text = "Từ";
+            this.lbFrom.AutoSize = true;
+            this.lbFrom.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFrom.ForeColor = System.Drawing.Color.Red;
+            this.lbFrom.Location = new System.Drawing.Point(733, 86);
+            this.lbFrom.Name = "lbFrom";
+            this.lbFrom.Size = new System.Drawing.Size(27, 20);
+            this.lbFrom.TabIndex = 6;
+            this.lbFrom.Text = "Từ";
+            this.lbFrom.Visible = false;
             // 
-            // label2
+            // lbTo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(1068, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Đến";
+            this.lbTo.AutoSize = true;
+            this.lbTo.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTo.ForeColor = System.Drawing.Color.Red;
+            this.lbTo.Location = new System.Drawing.Point(1068, 86);
+            this.lbTo.Name = "lbTo";
+            this.lbTo.Size = new System.Drawing.Size(36, 20);
+            this.lbTo.TabIndex = 7;
+            this.lbTo.Text = "Đến";
+            this.lbTo.Visible = false;
+            // 
+            // btnShowchart
+            // 
+            this.btnShowchart.BorderRadius = 10;
+            this.btnShowchart.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowchart.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowchart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowchart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowchart.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowchart.ForeColor = System.Drawing.Color.White;
+            this.btnShowchart.Location = new System.Drawing.Point(1276, 12);
+            this.btnShowchart.Name = "btnShowchart";
+            this.btnShowchart.Size = new System.Drawing.Size(111, 50);
+            this.btnShowchart.TabIndex = 8;
+            this.btnShowchart.Text = "Show";
+            this.btnShowchart.Click += new System.EventHandler(this.btnShowchart_Click);
             // 
             // Form_Revenue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1399, 707);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lbBegin);
+            this.Controls.Add(this.btnShowchart);
+            this.Controls.Add(this.lbTo);
+            this.Controls.Add(this.lbFrom);
             this.Controls.Add(this.dtpickerEndDay);
             this.Controls.Add(this.dtpickerStartDay);
             this.Controls.Add(this.rbtnThang);
@@ -235,7 +257,8 @@
         private Guna.UI2.WinForms.Guna2RadioButton rbtnThang;
         private System.Windows.Forms.DateTimePicker dtpickerStartDay;
         private System.Windows.Forms.DateTimePicker dtpickerEndDay;
-        private System.Windows.Forms.Label lbBegin;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbFrom;
+        private System.Windows.Forms.Label lbTo;
+        private Guna.UI2.WinForms.Guna2Button btnShowchart;
     }
 }

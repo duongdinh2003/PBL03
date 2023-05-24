@@ -181,7 +181,7 @@
             this.btnQLDT.Name = "btnQLDT";
             this.btnQLDT.Size = new System.Drawing.Size(255, 88);
             this.btnQLDT.TabIndex = 17;
-            this.btnQLDT.Text = "Quản lý doanh thu";
+            this.btnQLDT.Text = "Thống kê";
             this.btnQLDT.UseVisualStyleBackColor = false;
             this.btnQLDT.Click += new System.EventHandler(this.btnQLDT_Click_1);
             // 
@@ -252,7 +252,7 @@
             this.btnForm_ThuNgan.Name = "btnForm_ThuNgan";
             this.btnForm_ThuNgan.Size = new System.Drawing.Size(255, 88);
             this.btnForm_ThuNgan.TabIndex = 14;
-            this.btnForm_ThuNgan.Text = "Form thu ngân";
+            this.btnForm_ThuNgan.Text = "Order cho khách";
             this.btnForm_ThuNgan.UseVisualStyleBackColor = false;
             this.btnForm_ThuNgan.Click += new System.EventHandler(this.btnForm_ThuNgan_Click);
             // 

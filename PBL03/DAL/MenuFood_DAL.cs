@@ -125,7 +125,7 @@ namespace PBL03.DAL
                     .OrderBy(p => p.ID_Food)
                     .Skip(row)
                     .Take(5)
-                    .Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood })
+                    .Select(p => new { p.ID_Food, p.NameFood, p.Price, p.QuantityFood, p.FoodCategory.NameCategory })
                     .ToList();
                 return query;
             }

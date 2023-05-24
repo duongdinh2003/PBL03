@@ -31,13 +31,23 @@ namespace PBL03
             dgvRevenue.Columns["NumberOfBill"].HeaderText = "SL hóa đơn";
             dgvRevenue.Columns["NumberOfCustomer"].HeaderText = "SL khách";
         }
+
         public void drawChartRevenue()
         {
             chartRevenue.Series.Clear();
             chartRevenue.ChartAreas.Clear();
+            chartRevenue.Titles.Clear();
             ChartArea chartArea = new ChartArea();
             chartRevenue.ChartAreas.Add(chartArea);
+
             Series series = new Series();
+
+            //Đặt tiêu đề cho biểu đồ
+            Title title = new Title();
+            title.Text = "Doanh thu theo ngày";
+            title.Font = new Font("Verdana", 12, FontStyle.Regular);
+            title.ForeColor = Color.Green;
+
             series.ChartType = SeriesChartType.Line;
             series.BorderWidth = 2;
             series.Color = Color.Blue;
@@ -51,13 +61,18 @@ namespace PBL03
             
 
             chartRevenue.Series.Add(series);
+            chartRevenue.Titles.Add(title);
 
             chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-            chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+            chartRevenue.ChartAreas[0].AxisX.Interval = 5;
             chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+            chartRevenue.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Far;
+            chartRevenue.ChartAreas[0].AxisX.Title = "Ngày";
 
             chartRevenue.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
-            chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+            chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
+            chartRevenue.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Far;
+            chartRevenue.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";
 
             chartRevenue.Invalidate();
             //foreach (var item in bll.drawChartRevenue_BLL())
@@ -74,9 +89,18 @@ namespace PBL03
             {
                 chartRevenue.Series.Clear();
                 chartRevenue.ChartAreas.Clear();
+                chartRevenue.Titles.Clear();
                 ChartArea chartArea = new ChartArea();
                 chartRevenue.ChartAreas.Add(chartArea);
+
                 Series series = new Series();
+
+                //Đặt tiêu đề cho biểu đồ
+                Title title = new Title();
+                title.Text = "Doanh thu theo ngày";
+                title.Font = new Font("Verdana", 12, FontStyle.Regular);
+                title.ForeColor = Color.Green;
+
                 series.ChartType = SeriesChartType.Line;
                 series.BorderWidth = 2;
                 series.Color = Color.Blue;
@@ -90,13 +114,18 @@ namespace PBL03
 
 
                 chartRevenue.Series.Add(series);
+                chartRevenue.Titles.Add(title);
 
                 chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
-                chartRevenue.ChartAreas[0].AxisX.Interval = 1;
+                chartRevenue.ChartAreas[0].AxisX.Interval = 5;
                 chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+                chartRevenue.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Far;
+                chartRevenue.ChartAreas[0].AxisX.Title = "Ngày";
 
                 chartRevenue.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
-                chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+                chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
+                chartRevenue.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Far;
+                chartRevenue.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";
 
                 chartRevenue.Invalidate();
             }
@@ -132,10 +161,10 @@ namespace PBL03
             //    chartRevenue.Series["Doanh thu"].ChartType = SeriesChartType.Column;
             //}
             //    drawChartRevenue();
-            DrawChartRevenueByDay();
-            DateTime st = dtpickerStartDay.Value.Date;
-            DateTime et = dtpickerEndDay.Value.Date;
-            dgvRevenue.DataSource = bll.showRevenueByDay_BLL(st, et);
+            lbFrom.Visible = true;
+            lbTo.Visible = true;
+            dtpickerStartDay.Visible = true;
+            dtpickerEndDay.Visible = true;
         }
 
         private void rbtnThang_CheckedChanged(object sender, EventArgs e)
@@ -144,14 +173,51 @@ namespace PBL03
             //{
             //    chartRevenue.Series["Doanh thu"].ChartType = SeriesChartType.Line;
             //}
-
-                drawColumnChart();
+            lbFrom.Visible = false;
+            lbTo.Visible = false;
+            dtpickerStartDay.Visible = false;
+            dtpickerEndDay.Visible = false;
+                
         }
         private void drawColumnChart()
         {
             bll.drawColumnChart_BLL(chartRevenue);
         }
 
+        private void ShowDGVRevenueByDay()
+        {
+            DateTime st = dtpickerStartDay.Value.Date;
+            DateTime et = dtpickerEndDay.Value.Date;
+            dgvRevenue.DataSource = bll.showRevenueByDay_BLL(st, et);
+            dgvRevenue.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRevenue.Columns["ID_Revenue"].HeaderText = "STT";
+            dgvRevenue.Columns["RevenueInDate"].HeaderText = "Ngày";
+            dgvRevenue.Columns["TotalInDate"].HeaderText = "Tổng trong ngày";
+            dgvRevenue.Columns["NumberOfBill"].HeaderText = "SL hóa đơn";
+            dgvRevenue.Columns["NumberOfCustomer"].HeaderText = "SL khách";
+        }
 
+        private void ShowDGVRevenueByMonth()
+        {
+            dgvRevenue.DataSource = bll.ShowRevenueByMonth();
+            dgvRevenue.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRevenue.Columns["Month"].HeaderText = "Tháng";
+            dgvRevenue.Columns["Year"].HeaderText = "Năm";
+            dgvRevenue.Columns["Total"].HeaderText = "Tổng doanh thu (VND)";
+        }
+
+        private void btnShowchart_Click(object sender, EventArgs e)
+        {
+            if (rbtnNgay.Checked)
+            {
+                DrawChartRevenueByDay();
+                ShowDGVRevenueByDay();
+            }
+            else if (rbtnThang.Checked)
+            {
+                drawColumnChart();
+                ShowDGVRevenueByMonth();
+            }
+        }
     }
 }

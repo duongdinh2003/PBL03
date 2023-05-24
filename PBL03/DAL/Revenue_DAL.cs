@@ -36,7 +36,10 @@ namespace PBL03.DAL
         {
             using (var db = new PBL3Entities1())
             {
-                var data = db.Revenues.Select(p => new { p.RevenueInDate, p.TotalInDate }).OrderBy(p => p.RevenueInDate).ToList();
+                var data = db.Revenues
+                    .Select(p => new { p.RevenueInDate, p.TotalInDate })
+                    .OrderBy(p => p.RevenueInDate)
+                    .ToList();
                 return data;
             }
         }
@@ -120,9 +123,18 @@ namespace PBL03.DAL
                 }
                 chartRevenue.Series.Clear();
                 chartRevenue.ChartAreas.Clear();
+                chartRevenue.Titles.Clear();
                 ChartArea chartArea = new ChartArea();
                 chartRevenue.ChartAreas.Add(chartArea);
+
                 Series series = new Series();
+
+                //Tiêu đề cho biểu đồ
+                Title title = new Title();
+                title.Text = "Doanh thu theo tháng";
+                title.Font = new Font("Verdana", 12, FontStyle.Regular);
+                title.ForeColor = Color.Green;
+
                 series.ChartType = SeriesChartType.Column;
                 series.BorderWidth = 2;
                 series.Color = Color.Blue;
@@ -132,16 +144,41 @@ namespace PBL03.DAL
                 series.Points.DataBindXY(months, revenues);
 
                 chartRevenue.Series.Add(series);
+                chartRevenue.Titles.Add(title);
 
                 chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
                 chartRevenue.ChartAreas[0].AxisX.Interval = 1;
                 chartRevenue.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+                chartRevenue.ChartAreas[0].AxisX.TitleAlignment = StringAlignment.Far;
+                chartRevenue.ChartAreas[0].AxisX.Title = "Tháng";
 
                 chartRevenue.ChartAreas[0].AxisY.MajorGrid.Enabled = true;
-                chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "C";
+                chartRevenue.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
+                chartRevenue.ChartAreas[0].AxisY.TitleAlignment = StringAlignment.Far;
+                chartRevenue.ChartAreas[0].AxisY.Title = "Doanh thu (VND)";
 
+                
                 chartRevenue.Invalidate();
             }    
+        }
+        public dynamic ShowRevenueByMonth()
+        {
+            using (var db = new PBL3Entities1())
+            {
+                var query = db.Revenues
+                    .Where(p => p.RevenueInDate >= new DateTime(2023, 1, 1) && p.RevenueInDate <= new DateTime(2023, 12, 31))
+                    .GroupBy(p => new { p.RevenueInDate.Year, p.RevenueInDate.Month })
+                    .Select(c => new
+                    {
+                        Month = c.Key.Month,
+                        Year = c.Key.Year,
+                        Total = c.Sum(p => p.TotalInDate)
+                    })
+                    .OrderBy(c => c.Year)
+                    .ThenBy(c => c.Month)
+                    .ToList();
+                return query;
+            }
         }
     }
 }

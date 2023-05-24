@@ -44,5 +44,9 @@ namespace PBL03.BLL
         {
             dal.drawColumnChart_DAL(chartRevenue);
         }
+        public dynamic ShowRevenueByMonth()
+        {
+            return dal.ShowRevenueByMonth();
+        }
     }
 }

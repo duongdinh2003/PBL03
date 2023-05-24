@@ -29,6 +29,7 @@ namespace PBL03
             dgvFood.Columns["NameFood"].HeaderText = "Tên món";
             dgvFood.Columns["Price"].HeaderText = "Giá";
             dgvFood.Columns["QuantityFood"].HeaderText = "Số lượng còn dư";
+            dgvFood.Columns["NameCategory"].HeaderText = "Loại món";
         }
 
         private void Form_ManageFood_Load(object sender, EventArgs e)
@@ -70,7 +71,24 @@ namespace PBL03
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Form_EditFood fef = new Form_EditFood();
-            fef.Show();
+            if (dgvFood.SelectedRows.Count > 0)
+            {
+                fef.cbbCategory.Text = dgvFood.SelectedRows[0].Cells["NameCategory"].Value.ToString();
+                fef.cbbCategory.Enabled = false;
+                fef.txtID_Food.Enabled = false;
+                fef.txtID_Food.Text = dgvFood.SelectedRows[0].Cells["ID_Food"].Value.ToString();
+                fef.txtNameFood.Text = dgvFood.SelectedRows[0].Cells["NameFood"].Value.ToString();
+                fef.txtPrice.Text = dgvFood.SelectedRows[0].Cells["Price"].Value.ToString();
+                fef.lbStatus.Visible = true;
+                fef.rbtnCon.Visible = true;
+                fef.rbtnHet.Visible = true;
+                fef.Show();
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn món để cập nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            fef.pass += new Form_EditFood.MyDele(ShowDGVFood);
         }
 
         private void btnExpand_Click(object sender, EventArgs e)
