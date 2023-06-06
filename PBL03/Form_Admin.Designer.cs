@@ -222,6 +222,7 @@
             this.btnPhucVu.TabIndex = 12;
             this.btnPhucVu.Text = "Phục vụ";
             this.btnPhucVu.UseVisualStyleBackColor = true;
+            this.btnPhucVu.Visible = false;
             this.btnPhucVu.Click += new System.EventHandler(this.btnPhucVu_Click_1);
             // 
             // btnQLNV

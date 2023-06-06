@@ -66,6 +66,7 @@ namespace PBL03
         {
             Form_EditFood fef = new Form_EditFood();
             fef.Show();
+            fef.pass += new Form_EditFood.MyDele(ShowDGVFood);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -28,6 +28,16 @@ namespace PBL03.BLL.Quan_Ly
             return Manager_DAL.Instance.Show();
         }
 
+        public bool CheckExistedIDEmployee(string id)
+        {
+            return Manager_DAL.Instance.CheckExistedIDEmployee(id);
+        }
+
+        public bool CheckExistedUsername(string username)
+        {
+            return Manager_DAL.Instance.CheckExistedUsername(username);
+        }
+
         public void Add(string Id, string name, string phone, string address, float salary, string Username, string Password)
         {
             Manager_DAL.Instance.add(Id, name, phone, address, salary, Username, Password);

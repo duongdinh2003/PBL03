@@ -30,6 +30,9 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rbtnHet = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.rbtnCon = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.lbStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtID_Food = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbIDFood = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureFood = new System.Windows.Forms.PictureBox();
@@ -44,9 +47,6 @@
             this.lbPrice = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtNameFood = new Guna.UI2.WinForms.Guna2TextBox();
             this.lbNameFood = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lbStatus = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.rbtnCon = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.rbtnHet = new Guna.UI2.WinForms.Guna2RadioButton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureFood)).BeginInit();
             this.SuspendLayout();
@@ -84,6 +84,58 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(653, 658);
             this.panel2.TabIndex = 1;
+            // 
+            // rbtnHet
+            // 
+            this.rbtnHet.AutoSize = true;
+            this.rbtnHet.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnHet.CheckedState.BorderThickness = 0;
+            this.rbtnHet.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnHet.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbtnHet.CheckedState.InnerOffset = -4;
+            this.rbtnHet.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnHet.Location = new System.Drawing.Point(434, 262);
+            this.rbtnHet.Name = "rbtnHet";
+            this.rbtnHet.Size = new System.Drawing.Size(93, 24);
+            this.rbtnHet.TabIndex = 56;
+            this.rbtnHet.Text = "Hết món";
+            this.rbtnHet.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbtnHet.UncheckedState.BorderThickness = 2;
+            this.rbtnHet.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbtnHet.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbtnHet.Visible = false;
+            // 
+            // rbtnCon
+            // 
+            this.rbtnCon.AutoSize = true;
+            this.rbtnCon.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnCon.CheckedState.BorderThickness = 0;
+            this.rbtnCon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbtnCon.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbtnCon.CheckedState.InnerOffset = -4;
+            this.rbtnCon.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnCon.Location = new System.Drawing.Point(236, 262);
+            this.rbtnCon.Name = "rbtnCon";
+            this.rbtnCon.Size = new System.Drawing.Size(93, 24);
+            this.rbtnCon.TabIndex = 55;
+            this.rbtnCon.Text = "Còn món";
+            this.rbtnCon.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbtnCon.UncheckedState.BorderThickness = 2;
+            this.rbtnCon.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbtnCon.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbtnCon.Visible = false;
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.AutoSize = false;
+            this.lbStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lbStatus.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.Location = new System.Drawing.Point(42, 262);
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(143, 34);
+            this.lbStatus.TabIndex = 54;
+            this.lbStatus.Text = "Tình trạng";
+            this.lbStatus.Visible = false;
             // 
             // txtID_Food
             // 
@@ -139,7 +191,7 @@
             this.btnSelectPicture.ForeColor = System.Drawing.Color.Black;
             this.btnSelectPicture.Location = new System.Drawing.Point(236, 374);
             this.btnSelectPicture.Name = "btnSelectPicture";
-            this.btnSelectPicture.Size = new System.Drawing.Size(147, 31);
+            this.btnSelectPicture.Size = new System.Drawing.Size(257, 31);
             this.btnSelectPicture.TabIndex = 50;
             this.btnSelectPicture.Text = "Select Picture";
             this.btnSelectPicture.Click += new System.EventHandler(this.btnSelectPicture_Click);
@@ -304,58 +356,6 @@
             this.lbNameFood.Size = new System.Drawing.Size(143, 34);
             this.lbNameFood.TabIndex = 39;
             this.lbNameFood.Text = "Tên món";
-            // 
-            // lbStatus
-            // 
-            this.lbStatus.AutoSize = false;
-            this.lbStatus.BackColor = System.Drawing.Color.Transparent;
-            this.lbStatus.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatus.Location = new System.Drawing.Point(42, 262);
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(143, 34);
-            this.lbStatus.TabIndex = 54;
-            this.lbStatus.Text = "Tình trạng";
-            this.lbStatus.Visible = false;
-            // 
-            // rbtnCon
-            // 
-            this.rbtnCon.AutoSize = true;
-            this.rbtnCon.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbtnCon.CheckedState.BorderThickness = 0;
-            this.rbtnCon.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbtnCon.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rbtnCon.CheckedState.InnerOffset = -4;
-            this.rbtnCon.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnCon.Location = new System.Drawing.Point(236, 262);
-            this.rbtnCon.Name = "rbtnCon";
-            this.rbtnCon.Size = new System.Drawing.Size(93, 24);
-            this.rbtnCon.TabIndex = 55;
-            this.rbtnCon.Text = "Còn món";
-            this.rbtnCon.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rbtnCon.UncheckedState.BorderThickness = 2;
-            this.rbtnCon.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbtnCon.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbtnCon.Visible = false;
-            // 
-            // rbtnHet
-            // 
-            this.rbtnHet.AutoSize = true;
-            this.rbtnHet.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbtnHet.CheckedState.BorderThickness = 0;
-            this.rbtnHet.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbtnHet.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rbtnHet.CheckedState.InnerOffset = -4;
-            this.rbtnHet.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnHet.Location = new System.Drawing.Point(434, 262);
-            this.rbtnHet.Name = "rbtnHet";
-            this.rbtnHet.Size = new System.Drawing.Size(93, 24);
-            this.rbtnHet.TabIndex = 56;
-            this.rbtnHet.Text = "Hết món";
-            this.rbtnHet.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rbtnHet.UncheckedState.BorderThickness = 2;
-            this.rbtnHet.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbtnHet.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbtnHet.Visible = false;
             // 
             // Form_EditFood
             // 

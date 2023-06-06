@@ -82,6 +82,7 @@
             this.btnReset.Size = new System.Drawing.Size(199, 77);
             this.btnReset.TabIndex = 4;
             this.btnReset.Text = "Reset";
+            this.btnReset.Visible = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnCollapse

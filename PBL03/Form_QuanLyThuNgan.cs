@@ -116,7 +116,7 @@ namespace PBL03
             }
             else
             {
-                MessageBox.Show("Bạn chưa chọn hàng để chỉnh sửa !");
+                MessageBox.Show("Bạn chưa chọn hàng để chỉnh sửa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             fu.pass += new Form_Update.Mydele(ShowDT);
         }
@@ -128,8 +128,9 @@ namespace PBL03
             if ((MessageBox.Show("Bạn có muốn xoá không ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
             {
                 Manager_BLL.Instance.Delete(dtgvShow.SelectedRows[0].Cells["Id_Employee"].Value.ToString(), dtgvShow.SelectedRows[0].Cells["Acc"].Value.ToString());
-                MessageBox.Show("Xóa thành công, mời bạn nhấn Reset để cập nhật !");
+                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            ShowDT();
         }
 
         private void btnReset_Click(object sender, EventArgs e)

@@ -34,6 +34,25 @@ namespace PBL03.DAL.Quan_Ly
             return query;
         }
 
+        public bool CheckExistedIDEmployee(string id)
+        {
+            var query = db.Employees.Find(id);
+            if (query != null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool CheckExistedUsername(string username)
+        {
+            var query = db.Accounts.Find(username);
+            if (query != null)
+            {
+                return false;
+            }
+            return true;
+        }
 
         public void add(string Id, string name, string phone, string address, float salary, string Username, string Password)
         {

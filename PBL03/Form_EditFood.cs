@@ -89,7 +89,7 @@ namespace PBL03
                         tt = false;
                     }
                     bll.EditFood(id, name, price, tt, IDCategory, 200, img);
-                    MessageBox.Show("Thêm món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cập nhật món thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     pass();
                     this.Dispose();
                 }
@@ -112,7 +112,6 @@ namespace PBL03
                 string folderpath = Path.GetDirectoryName(Application.ExecutablePath);
                 string relativepath = imgpath.Substring(folderpath.Length).TrimStart('\\');
                 txtPicture.Text = relativepath;
-                MessageBox.Show(relativepath);
                 byte[] imgdata = File.ReadAllBytes(imgpath);
                 using (MemoryStream ms = new MemoryStream(imgdata))
                 {
